@@ -1,0 +1,2 @@
+
+CALL sources\BikesInventory.install

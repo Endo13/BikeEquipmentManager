@@ -106,6 +106,11 @@ void GearsDialog::resetForm()
     ui->cbType->setFocus();//focus on it
 }
 
+void GearsDialog::on_pbQuit_clicked()
+{
+	this->close();
+}
+
 void GearsDialog::changeMarque(int index)
 {
 	QSqlQueryModel *modeMarquel = new QSqlQueryModel(ui->cbMarque);

@@ -40,6 +40,7 @@ private:
 	
 private slots:
     void on_add_pushButton_clicked();
+	void on_pbQuit_clicked();
 	void changeMarque(int);
 
 private:

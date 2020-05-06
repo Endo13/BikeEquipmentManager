@@ -10,6 +10,8 @@
 #include <QSqlQueryModel>
 #include <QString>
 
+#include "tableUtilities.h"
+
 namespace Ui {
 class GearsDialog;
 }
@@ -34,13 +36,17 @@ private:
     bool validateForm();
     bool addItem();
     void resetForm();
+
+	
 private slots:
     void on_add_pushButton_clicked();
+	void changeMarque(int);
 
 private:
     Ui::GearsDialog *ui;
     QSqlDatabase* db;
     QSqlQueryModel *unitsComboBoxModel;
+	TableUtilities tableUtilities;
 };
 
 #endif // ITEMCODEDIALOG_H

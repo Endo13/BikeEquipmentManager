@@ -20,10 +20,14 @@ QT       += core gui sql widgets
 SOURCES += main.cpp\
         mainwindow.cpp \
     gearsdialog.cpp \
+	gearsSqlModel.cpp \
+	tableUtilities.cpp \
     gearsview.cpp 
 
 HEADERS  += mainwindow.h \
     gearsdialog.h \
+	gearsSqlModel.h \
+	tableUtilities.h \
     gearsview.h 
 
 FORMS    += mainwindow.ui \

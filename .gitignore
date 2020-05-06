@@ -36,3 +36,6 @@
 *.vcxproj
 *.stash
 *.vs
+*.user
+*.filters
+*.install.bat

@@ -1,6 +1,6 @@
 #include "GearsView.h"
 #include "ui_GearsView.h"
-#include "QSqlTableModel.h"
+#include "gearsSqlModel.h"
 
 GearsView::GearsView(QSqlDatabase *database, QWidget *parent) :
     QDialog(parent),
@@ -9,7 +9,7 @@ GearsView::GearsView(QSqlDatabase *database, QWidget *parent) :
     ui->setupUi(this);
     db = database;
 
-	QSqlTableModel *model = new QSqlTableModel(this, *db);
+	gearsSqlModel *model = new gearsSqlModel(this, db);
 	model->setTable("gears");
 	model->setEditStrategy(QSqlTableModel::OnManualSubmit);
 	model->select();
@@ -25,8 +25,13 @@ GearsView::GearsView(QSqlDatabase *database, QWidget *parent) :
 	model->setHeaderData(9, Qt::Horizontal, QObject::tr("Prix"));
 	model->setHeaderData(10, Qt::Horizontal, QObject::tr("Commander"));
 	ui->twGears->setModel(model);
+
+	ui->twGears->horizontalHeader()->setSectionResizeMode(QHeaderView::Stretch);
+	ui->twGears->setColumnHidden(0, true);
+	ui->twGears->verticalHeader()->hide();
 	ui->twGears->show();
 }
+
 
 GearsView::~GearsView()
 {

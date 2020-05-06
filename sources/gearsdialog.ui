@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>589</width>
-    <height>631</height>
+    <width>256</width>
+    <height>495</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -17,26 +17,13 @@
    <item row="0" column="0">
     <layout class="QVBoxLayout" name="verticalLayout_4">
      <item>
-      <widget class="QLabel" name="label">
-       <property name="text">
-        <string>Nouvel équipement</string>
-       </property>
-       <property name="textFormat">
-        <enum>Qt::PlainText</enum>
-       </property>
-      </widget>
-     </item>
-     <item>
       <layout class="QHBoxLayout" name="horizontalLayout">
        <item>
         <layout class="QVBoxLayout" name="verticalLayout">
          <item>
           <widget class="QLabel" name="label_2">
            <property name="styleSheet">
-            <string notr="true">color:dodgerblue; 
-font-size:16px;
- background-color:lightgray;
-font-weight:600;</string>
+            <string notr="true"/>
            </property>
            <property name="text">
             <string>Type</string>
@@ -49,10 +36,7 @@ font-weight:600;</string>
          <item>
           <widget class="QLabel" name="label_3">
            <property name="styleSheet">
-            <string notr="true">color:dodgerblue; 
-font-size:16px;
- background-color:lightgray;
-font-weight:600;</string>
+            <string notr="true"/>
            </property>
            <property name="text">
             <string>Marque</string>
@@ -121,20 +105,6 @@ font-weight:600;</string>
           </widget>
          </item>
          <item>
-          <widget class="QLabel" name="label_8">
-           <property name="text">
-            <string>KM cumulés</string>
-           </property>
-          </widget>
-         </item>
-         <item>
-          <widget class="QLineEdit" name="leKMCumules">
-           <property name="inputMethodHints">
-            <set>Qt::ImhDigitsOnly|Qt::ImhFormattedNumbersOnly</set>
-           </property>
-          </widget>
-         </item>
-         <item>
           <widget class="QLabel" name="label_9">
            <property name="text">
             <string>Poids</string>
@@ -163,13 +133,6 @@ font-weight:600;</string>
           </widget>
          </item>
          <item>
-          <widget class="QPushButton" name="pbCommander">
-           <property name="text">
-            <string>Commander</string>
-           </property>
-          </widget>
-         </item>
-         <item>
           <spacer name="verticalSpacer">
            <property name="orientation">
             <enum>Qt::Vertical</enum>
@@ -194,19 +157,6 @@ font-weight:600;</string>
       </layout>
      </item>
     </layout>
-   </item>
-   <item row="0" column="1">
-    <spacer name="horizontalSpacer">
-     <property name="orientation">
-      <enum>Qt::Horizontal</enum>
-     </property>
-     <property name="sizeHint" stdset="0">
-      <size>
-       <width>40</width>
-       <height>20</height>
-      </size>
-     </property>
-    </spacer>
    </item>
   </layout>
  </widget>

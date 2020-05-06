@@ -5,7 +5,7 @@
 #include <QSqlDatabase>
 #include "GearsDialog.h"
 #include "GearsView.h"
-#include "purchasedialog.h"
+
 
 
 namespace Ui {

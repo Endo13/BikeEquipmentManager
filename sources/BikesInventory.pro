@@ -1,6 +1,6 @@
 # Target Definition
 
-TARGET = BikesInventory
+TARGET = BikeEquipmentManager
 TEMPLATE = app
 
 

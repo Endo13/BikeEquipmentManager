@@ -22,6 +22,7 @@ GearsDialog::GearsDialog(QSqlDatabase *database, QWidget *parent) :
 	ui->deAchat->setDisplayFormat("dd.MM.yyyy");
 	ui->deUtilisation->setDate(QDate::currentDate());
 	ui->deUtilisation->setDisplayFormat("dd.MM.yyyy");
+
 	//Signal Slot
 	connect(ui->cbType, SIGNAL(currentIndexChanged(int)), SLOT(changeMarque(int)));
 }

@@ -1,6 +1,6 @@
 #include "GearsView.h"
 #include "ui_GearsView.h"
-#include "gearsSqlModel.h"
+
 
 GearsView::GearsView(QSqlDatabase *database, QWidget *parent) :
     QDialog(parent),
@@ -9,31 +9,81 @@ GearsView::GearsView(QSqlDatabase *database, QWidget *parent) :
     ui->setupUi(this);
     db = database;
 
-	gearsSqlModel *model = new gearsSqlModel(this, db);
-	model->setTable("gears");
-	model->setEditStrategy(QSqlTableModel::OnManualSubmit);
-	model->select();
-	model->setHeaderData(0, Qt::Horizontal, QObject::tr("ID"));
-	model->setHeaderData(1, Qt::Horizontal, QObject::tr("Type"));
-	model->setHeaderData(2, Qt::Horizontal, QObject::tr("Marque"));
-	model->setHeaderData(3, Qt::Horizontal, QObject::tr("Modele"));
-	model->setHeaderData(4, Qt::Horizontal, QObject::tr("Date d'achat"));
-	model->setHeaderData(5, Qt::Horizontal, QObject::tr("Date 1ere utilisation"));
-	model->setHeaderData(6, Qt::Horizontal, QObject::tr("KM initial"));
-	model->setHeaderData(7, Qt::Horizontal, QObject::tr("KM cumules"));
-	model->setHeaderData(8, Qt::Horizontal, QObject::tr("Poids"));
-	model->setHeaderData(9, Qt::Horizontal, QObject::tr("Prix"));
-	model->setHeaderData(10, Qt::Horizontal, QObject::tr("Commander"));
-	ui->twGears->setModel(model);
+	_model = new gearsSqlModel(this, db);
+	_model->setTable("gears");
+	_model->setEditStrategy(QSqlTableModel::OnManualSubmit);
+	_model->select();
+	_model->setHeaderData(0, Qt::Horizontal, QObject::tr("ID"));
+	_model->setHeaderData(1, Qt::Horizontal, QObject::tr("Type"));
+	_model->setHeaderData(2, Qt::Horizontal, QObject::tr("Marque"));
+	_model->setHeaderData(3, Qt::Horizontal, QObject::tr("Modele"));
+	_model->setHeaderData(4, Qt::Horizontal, QObject::tr("Date d'achat"));
+	_model->setHeaderData(5, Qt::Horizontal, QObject::tr("Date 1ere utilisation"));
+	_model->setHeaderData(6, Qt::Horizontal, QObject::tr("KM initial"));
+	_model->setHeaderData(7, Qt::Horizontal, QObject::tr("KM cumules"));
+	_model->setHeaderData(8, Qt::Horizontal, QObject::tr("Poids"));
+	_model->setHeaderData(9, Qt::Horizontal, QObject::tr("Prix"));
+	_model->setHeaderData(10, Qt::Horizontal, QObject::tr("Commander"));
+	ui->twGears->setModel(_model);
 
 	ui->twGears->horizontalHeader()->setSectionResizeMode(QHeaderView::Stretch);
 	ui->twGears->setColumnHidden(0, true);
+	ui->twGears->setColumnHidden(10, true);
 	ui->twGears->verticalHeader()->hide();
 	ui->twGears->show();
+	
+
+	ui->pbEdit->setEnabled(false);
+	ui->pbDelete->setEnabled(false);
+
+	connect(ui->twGears, SIGNAL(clicked(const QModelIndex &)), SLOT(on_tableClicked(const QModelIndex &)));
+	connect(ui->pbDelete, SIGNAL(clicked()), SLOT(on_delete()));
 }
 
 
 GearsView::~GearsView()
 {
     delete ui;
+}
+
+void GearsView::on_tableClicked(const QModelIndex &)
+{
+	ui->pbEdit->setEnabled(true);
+	ui->pbDelete->setEnabled(true);
+}
+
+void GearsView::on_delete()
+{
+	//confirms from the user
+	QMessageBox::StandardButton reply;
+	reply = QMessageBox::question(this, "Etes vous sur?",
+		"Confirmer vous la suppression de cet equipement?",
+		QMessageBox::Yes | QMessageBox::Cancel);
+	//if the user accepts the dialog
+	if (reply == QMessageBox::Yes) {
+		int rowidx = ui->twGears->selectionModel()->currentIndex().row();
+		int ID = _model->index(rowidx, 0).data().toInt();
+		QSqlQuery q(*db);
+		q.prepare("DELETE FROM gears where gear_code=?");
+		q.bindValue(0,ID);
+
+		//execute the query
+		if (!q.exec()) {//if the query has some error then return
+			QMessageBox::critical(this, "Echec", "Suppression imposible");
+			QMessageBox::critical(this, "Error", q.lastError().text()
+				+ "\n" + q.lastQuery());
+		}
+		else {
+			_model->select();
+			ui->pbEdit->setEnabled(false);
+			ui->pbDelete->setEnabled(false);
+			QMessageBox::information(this, "Succes", "Equipement supprime");
+		}
+	}
+
+}
+
+void GearsView::on_pbQuit_clicked()
+{
+	this->close();
 }

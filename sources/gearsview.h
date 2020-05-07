@@ -25,8 +25,9 @@ public:
 private slots:
 	void on_pbQuit_clicked();
 	void on_tableClicked(const QModelIndex &);
+	void on_tableDoubleClicked(const QModelIndex &);
 	void on_delete();
-
+	void on_edit();
 
 
 private:

@@ -22,12 +22,14 @@ SOURCES += main.cpp\
     gearsdialog.cpp \
 	gearsSqlModel.cpp \
 	tableUtilities.cpp \
+	gearsEdit.cpp \
     gearsview.cpp 
 
 HEADERS  += mainwindow.h \
     gearsdialog.h \
 	gearsSqlModel.h \
 	tableUtilities.h \
+	gearsEdit.h \
     gearsview.h 
 
 FORMS    += mainwindow.ui \

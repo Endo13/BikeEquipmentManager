@@ -19,14 +19,40 @@
      <item>
       <widget class="QPushButton" name="add_pushButton">
        <property name="text">
-        <string>Ajouter équipement</string>
+        <string> Ajouter équipement</string>
+       </property>
+       <property name="icon">
+        <iconset>
+         <normaloff>ressources/edit.png</normaloff>ressources/edit.png</iconset>
+       </property>
+       <property name="iconSize">
+        <size>
+         <width>24</width>
+         <height>24</height>
+        </size>
+       </property>
+       <property name="flat">
+        <bool>true</bool>
        </property>
       </widget>
      </item>
      <item>
       <widget class="QPushButton" name="pbQuit">
        <property name="text">
-        <string>Annuler</string>
+        <string> Annuler</string>
+       </property>
+       <property name="icon">
+        <iconset>
+         <normaloff>ressources/cancel.png</normaloff>ressources/cancel.png</iconset>
+       </property>
+       <property name="iconSize">
+        <size>
+         <width>24</width>
+         <height>24</height>
+        </size>
+       </property>
+       <property name="flat">
+        <bool>true</bool>
        </property>
       </widget>
      </item>

@@ -1,6 +1,7 @@
 #include "GearsView.h"
 #include "ui_GearsView.h"
-
+#include "ui_GearsDialog.h"
+#include "gearsEdit.h"
 
 GearsView::GearsView(QSqlDatabase *database, QWidget *parent) :
     QDialog(parent),
@@ -24,6 +25,7 @@ GearsView::GearsView(QSqlDatabase *database, QWidget *parent) :
 	_model->setHeaderData(8, Qt::Horizontal, QObject::tr("Poids"));
 	_model->setHeaderData(9, Qt::Horizontal, QObject::tr("Prix"));
 	_model->setHeaderData(10, Qt::Horizontal, QObject::tr("Commander"));
+	_model->sort(1,Qt::SortOrder::AscendingOrder);
 	ui->twGears->setModel(_model);
 
 	ui->twGears->horizontalHeader()->setSectionResizeMode(QHeaderView::Stretch);
@@ -37,7 +39,9 @@ GearsView::GearsView(QSqlDatabase *database, QWidget *parent) :
 	ui->pbDelete->setEnabled(false);
 
 	connect(ui->twGears, SIGNAL(clicked(const QModelIndex &)), SLOT(on_tableClicked(const QModelIndex &)));
+	connect(ui->twGears, SIGNAL(doubleClicked(const QModelIndex & )), SLOT(on_tableDoubleClicked(const QModelIndex &)));
 	connect(ui->pbDelete, SIGNAL(clicked()), SLOT(on_delete()));
+	connect(ui->pbEdit, SIGNAL(clicked()), SLOT(on_edit()));
 }
 
 
@@ -50,6 +54,11 @@ void GearsView::on_tableClicked(const QModelIndex &)
 {
 	ui->pbEdit->setEnabled(true);
 	ui->pbDelete->setEnabled(true);
+}
+
+void GearsView::on_tableDoubleClicked(const QModelIndex &)
+{
+	on_edit();
 }
 
 void GearsView::on_delete()
@@ -80,7 +89,22 @@ void GearsView::on_delete()
 			QMessageBox::information(this, "Succes", "Equipement supprime");
 		}
 	}
+	ui->pbEdit->setEnabled(false);
+	ui->pbDelete->setEnabled(false);
 
+}
+
+void GearsView::on_edit()
+{
+	int rowidx = ui->twGears->selectionModel()->currentIndex().row();
+	int ID = _model->index(rowidx, 0).data().toInt();
+	GearsEdit* gearsEdit = new GearsEdit(db, ID,this);
+	gearsEdit->setAttribute(Qt::WA_DeleteOnClose);
+	gearsEdit->setModal(true);
+	gearsEdit->exec();
+	_model->select();
+	ui->pbEdit->setEnabled(false);
+	ui->pbDelete->setEnabled(false);
 }
 
 void GearsView::on_pbQuit_clicked()

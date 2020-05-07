@@ -148,4 +148,5 @@ void GearsDialog::on_add_pushButton_clicked()
             resetForm();
         }
     }
+	this->close();
 }

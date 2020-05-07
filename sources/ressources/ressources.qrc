@@ -1,0 +1,15 @@
+<RCC>
+  <qresource prefix="bike">
+    <file>BikeEquipmentManager.ico</file>
+    <file>AddGear.PNG</file>
+    <file>cancel.png</file>
+    <file>delete.png</file>
+    <file>edit.png</file>
+    <file>gear.PNG</file>
+    <file>logo.png</file>
+    <file>ShowBike.PNG</file>
+    <file>ShowGear.PNG</file>
+    <file>Statistics.PNG</file>
+    <file>workout.PNG</file>
+  </qresource>
+</RCC>

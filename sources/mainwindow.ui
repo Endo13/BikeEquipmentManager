@@ -32,8 +32,8 @@
    <string>Bike Equipment Manager</string>
   </property>
   <property name="windowIcon">
-   <iconset>
-    <normaloff>ressources/logo.png</normaloff>ressources/logo.png</iconset>
+   <iconset resource="ressources/ressources.qrc">
+    <normaloff>:/bike/BikeEquipmentManager.ico</normaloff>:/bike/BikeEquipmentManager.ico</iconset>
   </property>
   <property name="toolButtonStyle">
    <enum>Qt::ToolButtonIconOnly</enum>
@@ -95,8 +95,8 @@
         <string/>
        </property>
        <property name="icon">
-        <iconset>
-         <normaloff>ressources/AddGear.PNG</normaloff>ressources/AddGear.PNG</iconset>
+        <iconset resource="ressources/ressources.qrc">
+         <normaloff>:/bike/AddGear.PNG</normaloff>:/bike/AddGear.PNG</iconset>
        </property>
        <property name="iconSize">
         <size>
@@ -118,8 +118,8 @@
         <string/>
        </property>
        <property name="icon">
-        <iconset>
-         <normaloff>ressources/Statistics.PNG</normaloff>ressources/Statistics.PNG</iconset>
+        <iconset resource="ressources/ressources.qrc">
+         <normaloff>:/bike/Statistics.PNG</normaloff>:/bike/Statistics.PNG</iconset>
        </property>
        <property name="iconSize">
         <size>
@@ -141,8 +141,8 @@
         <string/>
        </property>
        <property name="icon">
-        <iconset>
-         <normaloff>ressources/ShowGear.PNG</normaloff>ressources/ShowGear.PNG</iconset>
+        <iconset resource="ressources/ressources.qrc">
+         <normaloff>:/bike/ShowGear.PNG</normaloff>:/bike/ShowGear.PNG</iconset>
        </property>
        <property name="iconSize">
         <size>
@@ -164,8 +164,8 @@
         <string/>
        </property>
        <property name="icon">
-        <iconset>
-         <normaloff>ressources/workout.PNG</normaloff>ressources/workout.PNG</iconset>
+        <iconset resource="ressources/ressources.qrc">
+         <normaloff>:/bike/workout.PNG</normaloff>:/bike/workout.PNG</iconset>
        </property>
        <property name="iconSize">
         <size>
@@ -187,8 +187,8 @@
         <string/>
        </property>
        <property name="icon">
-        <iconset>
-         <normaloff>ressources/ShowBike.PNG</normaloff>ressources/ShowBike.PNG</iconset>
+        <iconset resource="ressources/ressources.qrc">
+         <normaloff>:/bike/ShowBike.PNG</normaloff>:/bike/ShowBike.PNG</iconset>
        </property>
        <property name="iconSize">
         <size>
@@ -210,8 +210,8 @@
         <string/>
        </property>
        <property name="icon">
-        <iconset>
-         <normaloff>ressources/gear.PNG</normaloff>ressources/gear.PNG</iconset>
+        <iconset resource="ressources/ressources.qrc">
+         <normaloff>:/bike/gear.PNG</normaloff>:/bike/gear.PNG</iconset>
        </property>
        <property name="iconSize">
         <size>
@@ -253,6 +253,8 @@
   </action>
  </widget>
  <layoutdefault spacing="6" margin="11"/>
- <resources/>
+ <resources>
+  <include location="ressources/ressources.qrc"/>
+ </resources>
  <connections/>
 </ui>

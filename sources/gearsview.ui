@@ -84,8 +84,8 @@
        <string> Supprimer</string>
       </property>
       <property name="icon">
-       <iconset>
-        <normaloff>ressources/delete.png</normaloff>ressources/delete.png</iconset>
+       <iconset resource="ressources/ressources.qrc">
+        <normaloff>:/bike/delete.png</normaloff>:/bike/delete.png</iconset>
       </property>
       <property name="iconSize">
        <size>
@@ -104,8 +104,8 @@
        <string> Modifier</string>
       </property>
       <property name="icon">
-       <iconset>
-        <normaloff>ressources/edit.png</normaloff>ressources/edit.png</iconset>
+       <iconset resource="ressources/ressources.qrc">
+        <normaloff>:/bike/edit.png</normaloff>:/bike/edit.png</iconset>
       </property>
       <property name="iconSize">
        <size>
@@ -124,8 +124,8 @@
        <string> Annuler</string>
       </property>
       <property name="icon">
-       <iconset>
-        <normaloff>ressources/cancel.png</normaloff>ressources/cancel.png</iconset>
+       <iconset resource="ressources/ressources.qrc">
+        <normaloff>:/bike/cancel.png</normaloff>:/bike/cancel.png</iconset>
       </property>
       <property name="iconSize">
        <size>
@@ -141,6 +141,8 @@
    </layout>
   </widget>
  </widget>
- <resources/>
+ <resources>
+  <include location="ressources/ressources.qrc"/>
+ </resources>
  <connections/>
 </ui>

@@ -2,7 +2,7 @@
 SETLOCAL
 
 ECHO.
-ECHO ===  Bikes Inventory ===
+ECHO ===  Compil ===
 ECHO.
 
 SET PWD=%CD%

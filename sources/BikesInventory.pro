@@ -15,7 +15,8 @@ DEFINES += WIN32_LEAN_AND_MEAN
 
 QT       += core gui sql widgets
 
-
+RESOURCES     = ressources/ressources.qrc
+RC_FILE = BEM.rc
 
 SOURCES += main.cpp\
         mainwindow.cpp \
@@ -36,15 +37,6 @@ FORMS    += mainwindow.ui \
     gearsdialog.ui \
     gearsview.ui 
 	
-libraries.files = C:\Qt\Qt5.9.6\5.9.6\msvc2015/bin/Qt5Widgetsd.dll \
-				  C:\Qt\Qt5.9.6\5.9.6\msvc2015/bin/Qt5Sqld.dll \
-				  C:\Qt\Qt5.9.6\5.9.6\msvc2015/bin/Qt5Cored.dll \
-				  C:\Qt\Qt5.9.6\5.9.6\msvc2015/bin/Qt5Guid.dll \
-				                     
-libraries.CONFIG += no_check_exist
-libraries.path = $${DESTDIR}
 
-INSTALLS += config \
-            libraries	
 	
 include( $${QSMAKEPATH}/rules/standard_project.pri )

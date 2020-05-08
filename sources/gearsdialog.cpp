@@ -2,6 +2,8 @@
 #include "ui_gearsdialog.h"
 #include <QDebug>
 #include "QDateTime.h"
+
+
 GearsDialog::GearsDialog(QSqlDatabase *database, QWidget *parent) :
     QDialog(parent),
     ui(new Ui::GearsDialog)
@@ -13,8 +15,18 @@ GearsDialog::GearsDialog(QSqlDatabase *database, QWidget *parent) :
     setupModels();
 
 	//setup ui
+	ui->leKMInitial->setValidator(new QIntValidator(0, 2147483647, this));
+	ui->lePoids->setValidator(new QDoubleValidator(0.0, 2147483647.0,2, this));
+	ui->lePrix->setValidator(new QDoubleValidator(0.0, 2147483647.0, 2, this));
 	ui->deAchat->setDate(QDate::currentDate());
+	ui->deAchat->setDisplayFormat("dd.MM.yyyy");
 	ui->deUtilisation->setDate(QDate::currentDate());
+	ui->deUtilisation->setDisplayFormat("dd.MM.yyyy");
+	ui->label_9->setText("Poids (Kg)");
+	ui->label_10->setText("Prix (Euro)");
+
+	//Signal Slot
+	connect(ui->cbType, SIGNAL(currentIndexChanged(int)), SLOT(changeMarque(int)));
 }
 
 void GearsDialog::initializeModels()
@@ -38,7 +50,9 @@ void GearsDialog::setupUnitsComboBoxModel()
 	model->setQuery("SELECT nom FROM typeEquipement");
 	ui->cbType->setModel(model);
 
-
+	QSqlQueryModel *modeMarquel = new QSqlQueryModel(ui->cbMarque);
+	modeMarquel->setQuery("SELECT nom FROM MarqueAmortisseurAR");
+	ui->cbMarque->setModel(modeMarquel);
 }
 
 bool GearsDialog::validateForm()
@@ -61,8 +75,7 @@ bool GearsDialog::addItem()
 	QString dateAchat = ui->deAchat->text();
 	QString dateUtilisation = ui->deUtilisation->text();
 	int  kmInit = ui->leKMInitial->text().toInt();
-	int  kmCumul = ui->leKMCumules->text().toInt();
-	int  poids = ui->lePoids->text().toInt();
+	double  poids = ui->lePoids->text().toDouble();
 	double prix = ui->lePrix->text().toDouble();
 	
     //prepare the query
@@ -75,7 +88,7 @@ bool GearsDialog::addItem()
 	q.bindValue(":date_achat", dateAchat);
 	q.bindValue(":date_utilisation", dateUtilisation);
 	q.bindValue(":km_initial", kmInit);
-	q.bindValue(":km_cumul", kmCumul);
+	q.bindValue(":km_cumul", 0);
 	q.bindValue(":poids", poids);
 	q.bindValue(":prix", prix);
 
@@ -96,6 +109,19 @@ void GearsDialog::resetForm()
     ui->cbType->setFocus();//focus on it
 }
 
+void GearsDialog::on_pbQuit_clicked()
+{
+	this->close();
+}
+
+void GearsDialog::changeMarque(int index)
+{
+	QSqlQueryModel *modeMarquel = new QSqlQueryModel(ui->cbMarque);
+	QString table = tableUtilities.getTableMarque(index + 1);
+	modeMarquel->setQuery("SELECT nom FROM "+table);
+	ui->cbMarque->setModel(modeMarquel);
+}
+
 GearsDialog::~GearsDialog()
 {
     delete ui;
@@ -114,15 +140,15 @@ void GearsDialog::on_add_pushButton_clicked()
 
     //confirms from the user
     QMessageBox::StandardButton reply;
-    reply = QMessageBox::question(this,"Are You Sure?",
-                                  "You can not undo the entry."
-                                  "Do you want to continue?",
+    reply = QMessageBox::question(this,"Etes vous sur?",
+                                  "Confirmer vous la creation de cet equipement?",
                                   QMessageBox::Yes | QMessageBox::Cancel);
     //if the user accepts the dialog
     if (reply == QMessageBox::Yes){
         if(addItem()){
-            QMessageBox::information(this, "Succesfull", "Item Addd Successfully!");
+            QMessageBox::information(this, "Succes", "Equipement ajoute!");
             resetForm();
         }
     }
+	this->close();
 }

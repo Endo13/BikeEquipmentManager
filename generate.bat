@@ -32,8 +32,8 @@ ECHO %WORKSPACE%
 CALL sources\_project.bat 2015
 
 
-msbuild sources\BikesInventory.vcxproj /p:configuration=debug
-msbuild sources\BikesInventory.vcxproj /p:configuration=release
+msbuild sources\BikeEquipmentManager.vcxproj /p:configuration=debug
+msbuild sources\BikeEquipmentManager.vcxproj /p:configuration=release
 
 
 

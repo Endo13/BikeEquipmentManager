@@ -6,26 +6,60 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>589</width>
-    <height>631</height>
+    <width>256</width>
+    <height>495</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>Nouvel équipement</string>
   </property>
   <layout class="QGridLayout" name="gridLayout">
-   <item row="0" column="0">
-    <layout class="QVBoxLayout" name="verticalLayout_4">
+   <item row="1" column="0">
+    <layout class="QHBoxLayout" name="horizontalLayout_2">
      <item>
-      <widget class="QLabel" name="label">
+      <widget class="QPushButton" name="add_pushButton">
        <property name="text">
-        <string>Nouvel équipement</string>
+        <string> Ajouter équipement</string>
        </property>
-       <property name="textFormat">
-        <enum>Qt::PlainText</enum>
+       <property name="icon">
+        <iconset resource="ressources/ressources.qrc">
+         <normaloff>:/bike/edit.png</normaloff>:/bike/edit.png</iconset>
+       </property>
+       <property name="iconSize">
+        <size>
+         <width>24</width>
+         <height>24</height>
+        </size>
+       </property>
+       <property name="flat">
+        <bool>true</bool>
        </property>
       </widget>
      </item>
+     <item>
+      <widget class="QPushButton" name="pbQuit">
+       <property name="text">
+        <string> Annuler</string>
+       </property>
+       <property name="icon">
+        <iconset resource="ressources/ressources.qrc">
+         <normaloff>:/bike/cancel.png</normaloff>:/bike/cancel.png</iconset>
+       </property>
+       <property name="iconSize">
+        <size>
+         <width>24</width>
+         <height>24</height>
+        </size>
+       </property>
+       <property name="flat">
+        <bool>true</bool>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </item>
+   <item row="0" column="0">
+    <layout class="QVBoxLayout" name="verticalLayout_4">
      <item>
       <layout class="QHBoxLayout" name="horizontalLayout">
        <item>
@@ -33,10 +67,7 @@
          <item>
           <widget class="QLabel" name="label_2">
            <property name="styleSheet">
-            <string notr="true">color:dodgerblue; 
-font-size:16px;
- background-color:lightgray;
-font-weight:600;</string>
+            <string notr="true"/>
            </property>
            <property name="text">
             <string>Type</string>
@@ -44,15 +75,16 @@ font-weight:600;</string>
           </widget>
          </item>
          <item>
-          <widget class="QComboBox" name="cbType"/>
+          <widget class="QComboBox" name="cbType">
+           <property name="frame">
+            <bool>true</bool>
+           </property>
+          </widget>
          </item>
          <item>
           <widget class="QLabel" name="label_3">
            <property name="styleSheet">
-            <string notr="true">color:dodgerblue; 
-font-size:16px;
- background-color:lightgray;
-font-weight:600;</string>
+            <string notr="true"/>
            </property>
            <property name="text">
             <string>Marque</string>
@@ -60,13 +92,7 @@ font-weight:600;</string>
           </widget>
          </item>
          <item>
-          <widget class="QComboBox" name="cbMarque">
-           <item>
-            <property name="text">
-             <string>B'Twin</string>
-            </property>
-           </item>
-          </widget>
+          <widget class="QComboBox" name="cbMarque"/>
          </item>
          <item>
           <widget class="QLabel" name="label_4">
@@ -121,51 +147,33 @@ font-weight:600;</string>
           </widget>
          </item>
          <item>
-          <widget class="QLabel" name="label_8">
-           <property name="text">
-            <string>KM cumulés</string>
-           </property>
-          </widget>
-         </item>
-         <item>
-          <widget class="QLineEdit" name="leKMCumules">
-           <property name="inputMethodHints">
-            <set>Qt::ImhDigitsOnly|Qt::ImhFormattedNumbersOnly</set>
-           </property>
-          </widget>
-         </item>
-         <item>
           <widget class="QLabel" name="label_9">
            <property name="text">
-            <string>Poids</string>
+            <string>Poids (Kg)</string>
            </property>
           </widget>
          </item>
          <item>
-          <widget class="QLineEdit" name="lePoids">
-           <property name="inputMethodHints">
-            <set>Qt::ImhDigitsOnly|Qt::ImhFormattedNumbersOnly</set>
+          <widget class="QDoubleSpinBox" name="lePoids">
+           <property name="decimals">
+            <number>3</number>
+           </property>
+           <property name="maximum">
+            <double>9999.989999999999782</double>
            </property>
           </widget>
          </item>
          <item>
-          <widget class="QLabel" name="label_10">
+          <widget class="QLabel" name="labPrix">
            <property name="text">
-            <string>Prix</string>
+            <string>Prix (€)</string>
            </property>
           </widget>
          </item>
          <item>
-          <widget class="QLineEdit" name="lePrix">
-           <property name="inputMethodHints">
-            <set>Qt::ImhFormattedNumbersOnly</set>
-           </property>
-          </widget>
-         </item>
-         <item>
-          <widget class="QPushButton" name="pbCommander">
-           <property name="text">
-            <string>Commander</string>
+          <widget class="QDoubleSpinBox" name="lePrix">
+           <property name="maximum">
+            <double>9999999.990000000223517</double>
            </property>
           </widget>
          </item>
@@ -182,34 +190,16 @@ font-weight:600;</string>
            </property>
           </spacer>
          </item>
-         <item>
-          <widget class="QPushButton" name="add_pushButton">
-           <property name="text">
-            <string>Ajouter équipement</string>
-           </property>
-          </widget>
-         </item>
         </layout>
        </item>
       </layout>
      </item>
     </layout>
    </item>
-   <item row="0" column="1">
-    <spacer name="horizontalSpacer">
-     <property name="orientation">
-      <enum>Qt::Horizontal</enum>
-     </property>
-     <property name="sizeHint" stdset="0">
-      <size>
-       <width>40</width>
-       <height>20</height>
-      </size>
-     </property>
-    </spacer>
-   </item>
   </layout>
  </widget>
- <resources/>
+ <resources>
+  <include location="ressources/ressources.qrc"/>
+ </resources>
  <connections/>
 </ui>

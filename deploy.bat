@@ -12,3 +12,4 @@ xcopy /y %QTDIR%\bin\Qt5Sql.dll %DEST_DIR%\release
 xcopy /y %QTDIR%\bin\Qt5Core.dll %DEST_DIR%\release
 xcopy /y %QTDIR%\bin\Qt5Gui.dll %DEST_DIR%\release
 xcopy /y .\Sources\records\*.* %DEST_DIR%\release\records\
+xcopy /y .\Installer\*.exe %DEST_DIR%\release\

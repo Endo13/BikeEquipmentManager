@@ -22,8 +22,8 @@ GearsView::GearsView(QSqlDatabase *database, QWidget *parent) :
 	_model->setHeaderData(5, Qt::Horizontal, QObject::tr("Date 1ere utilisation"));
 	_model->setHeaderData(6, Qt::Horizontal, QObject::tr("KM initial"));
 	_model->setHeaderData(7, Qt::Horizontal, QObject::tr("KM cumules"));
-	_model->setHeaderData(8, Qt::Horizontal, QObject::tr("Poids"));
-	_model->setHeaderData(9, Qt::Horizontal, QObject::tr("Prix"));
+	_model->setHeaderData(8, Qt::Horizontal, QObject::tr("Poids (Kg)"));
+	_model->setHeaderData(9, Qt::Horizontal, QObject::tr("Prix (Euro)"));
 	_model->setHeaderData(10, Qt::Horizontal, QObject::tr("Commander"));
 	_model->sort(1,Qt::SortOrder::AscendingOrder);
 	ui->twGears->setModel(_model);

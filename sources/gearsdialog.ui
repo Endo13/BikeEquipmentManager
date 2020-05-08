@@ -149,28 +149,31 @@
          <item>
           <widget class="QLabel" name="label_9">
            <property name="text">
-            <string>Poids</string>
+            <string>Poids (Kg)</string>
            </property>
           </widget>
          </item>
          <item>
-          <widget class="QLineEdit" name="lePoids">
-           <property name="inputMethodHints">
-            <set>Qt::ImhDigitsOnly|Qt::ImhFormattedNumbersOnly</set>
+          <widget class="QDoubleSpinBox" name="lePoids">
+           <property name="decimals">
+            <number>3</number>
+           </property>
+           <property name="maximum">
+            <double>9999.989999999999782</double>
            </property>
           </widget>
          </item>
          <item>
-          <widget class="QLabel" name="label_10">
+          <widget class="QLabel" name="labPrix">
            <property name="text">
-            <string>Prix</string>
+            <string>Prix (€)</string>
            </property>
           </widget>
          </item>
          <item>
-          <widget class="QLineEdit" name="lePrix">
-           <property name="inputMethodHints">
-            <set>Qt::ImhFormattedNumbersOnly</set>
+          <widget class="QDoubleSpinBox" name="lePrix">
+           <property name="maximum">
+            <double>9999999.990000000223517</double>
            </property>
           </widget>
          </item>

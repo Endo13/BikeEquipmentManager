@@ -24,7 +24,6 @@ QVariant gearsSqlModel::data(const QModelIndex &index, int role) const
 		QSqlQuery q(*db);
 		q.prepare("select nom from typeEquipement where ID=?");
 		q.bindValue(0, QSqlTableModel::data(index, role));
-
 		//execute the query
 		if (!q.exec()) {//if the query has some error then return
 			return "N/C";

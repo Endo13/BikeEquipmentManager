@@ -16,15 +16,10 @@ GearsDialog::GearsDialog(QSqlDatabase *database, QWidget *parent) :
 
 	//setup ui
 	ui->leKMInitial->setValidator(new QIntValidator(0, 2147483647, this));
-	ui->lePoids->setValidator(new QDoubleValidator(0.0, 2147483647.0,2, this));
-	ui->lePrix->setValidator(new QDoubleValidator(0.0, 2147483647.0, 2, this));
 	ui->deAchat->setDate(QDate::currentDate());
 	ui->deAchat->setDisplayFormat("dd.MM.yyyy");
 	ui->deUtilisation->setDate(QDate::currentDate());
 	ui->deUtilisation->setDisplayFormat("dd.MM.yyyy");
-	ui->label_9->setText("Poids (Kg)");
-	ui->label_10->setText("Prix (Euro)");
-
 	//Signal Slot
 	connect(ui->cbType, SIGNAL(currentIndexChanged(int)), SLOT(changeMarque(int)));
 }

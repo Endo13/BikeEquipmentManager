@@ -17,12 +17,12 @@ GearsView::GearsView(QSqlDatabase *database, QWidget *parent) :
 	_model->setHeaderData(0, Qt::Horizontal, QObject::tr("ID"));
 	_model->setHeaderData(1, Qt::Horizontal, QObject::tr("Type"));
 	_model->setHeaderData(2, Qt::Horizontal, QObject::tr("Marque"));
-	_model->setHeaderData(3, Qt::Horizontal, QObject::tr("Modele"));
+	_model->setHeaderData(3, Qt::Horizontal, QObject::tr(QString::fromLatin1("Modèle").toStdString().c_str()));
 	_model->setHeaderData(4, Qt::Horizontal, QObject::tr("Date d'achat"));
 	_model->setHeaderData(5, Qt::Horizontal, QObject::tr("Date 1ere utilisation"));
 	_model->setHeaderData(6, Qt::Horizontal, QObject::tr("KM initial"));
-	_model->setHeaderData(7, Qt::Horizontal, QObject::tr("KM cumules"));
-	_model->setHeaderData(8, Qt::Horizontal, QObject::tr("Poids (Kg)"));
+	_model->setHeaderData(7, Qt::Horizontal, QObject::tr(QString::fromLatin1("KM cumulés").toStdString().c_str()));
+	_model->setHeaderData(8, Qt::Horizontal, QObject::tr("Poids (g)"));
 	_model->setHeaderData(9, Qt::Horizontal, QObject::tr("Prix (Euro)"));
 	_model->setHeaderData(10, Qt::Horizontal, QObject::tr("Commander"));
 	_model->sort(1,Qt::SortOrder::AscendingOrder);
@@ -65,8 +65,8 @@ void GearsView::on_delete()
 {
 	//confirms from the user
 	QMessageBox::StandardButton reply;
-	reply = QMessageBox::question(this, "Etes vous sur?",
-		"Confirmer vous la suppression de cet equipement?",
+	reply = QMessageBox::question(this, "Confirmation",
+		"Confirmez vous la suppression de cet equipement?",
 		QMessageBox::Yes | QMessageBox::Cancel);
 	//if the user accepts the dialog
 	if (reply == QMessageBox::Yes) {
@@ -78,7 +78,7 @@ void GearsView::on_delete()
 
 		//execute the query
 		if (!q.exec()) {//if the query has some error then return
-			QMessageBox::critical(this, "Echec", "Suppression imposible");
+			QMessageBox::critical(this, "Echec", "Suppression impossible");
 			QMessageBox::critical(this, "Error", q.lastError().text()
 				+ "\n" + q.lastQuery());
 		}

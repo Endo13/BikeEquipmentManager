@@ -20,22 +20,32 @@ RC_FILE = BEM.rc
 
 SOURCES += main.cpp\
         mainwindow.cpp \
-    gearsdialog.cpp \
-	gearsSqlModel.cpp \
-	tableUtilities.cpp \
-	gearsEdit.cpp \
-    gearsview.cpp 
+		Equipments\gearsdialog.cpp \
+		Equipments\gearsSqlModel.cpp \
+		Equipments\gearsEdit.cpp \
+		Equipments\gearsview.cpp \		
+		Bikes\bikedialog.cpp \
+		Bikes\bikesview.cpp \
+		Bikes\bikesSqlModel.cpp \
+		Bikes\bikesEdit.cpp \
+		Common\tableUtilities.cpp
 
 HEADERS  += mainwindow.h \
-    gearsdialog.h \
-	gearsSqlModel.h \
-	tableUtilities.h \
-	gearsEdit.h \
-    gearsview.h 
+			Equipments\gearsdialog.h \
+			Equipments\gearsSqlModel.h \
+			Equipments\gearsview.h \
+			Equipments\gearsEdit.h \			
+			Bikes\bikedialog.h \
+			Bikes\bikesSqlModel.h \
+			Bikes\bikesview.h \
+			Bikes\bikesEdit.h \
+			Common\tableUtilities.h 
 
-FORMS    += mainwindow.ui \
-    gearsdialog.ui \
-    gearsview.ui 
+FORMS    += mainwindow.ui \			
+			Bikes\bikedialog.ui \
+			Bikes\bikesview.ui \
+			Equipments\gearsdialog.ui \
+			Equipments\gearsview.ui 
 	
 
 	

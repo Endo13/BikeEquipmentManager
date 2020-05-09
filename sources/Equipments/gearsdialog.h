@@ -1,5 +1,5 @@
-#ifndef GEARSEDIT_H
-#define GEARSEDIT_H
+#ifndef GEARSDIALOG_H
+#define GEARSDIALOG_H
 
 #include <QDialog>
 #include <QStringListModel>
@@ -10,20 +10,20 @@
 #include <QSqlQueryModel>
 #include <QString>
 
-#include "tableUtilities.h"
+#include "../Common/tableUtilities.h"
 
 namespace Ui {
 class GearsDialog;
 }
 
-class GearsEdit : public QDialog
+class GearsDialog : public QDialog
 {
     Q_OBJECT
 
 public:
-    explicit GearsEdit(QSqlDatabase* database, int ID, QWidget *parent = 0);
+    explicit GearsDialog(QSqlDatabase* database, QWidget *parent = 0);
 
-    ~GearsEdit();
+    ~GearsDialog();
 
 private:
     //models
@@ -48,7 +48,6 @@ private:
     QSqlDatabase* db;
     QSqlQueryModel *unitsComboBoxModel;
 	TableUtilities tableUtilities;
-	int	_id;
 };
 
 #endif // ITEMCODEDIALOG_H

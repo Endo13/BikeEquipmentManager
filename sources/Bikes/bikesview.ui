@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>GearsView</class>
- <widget class="QDialog" name="GearsView">
+ <class>BikesView</class>
+ <widget class="QDialog" name="BikesView">
   <property name="geometry">
    <rect>
     <x>0</x>
@@ -84,7 +84,7 @@
        <string> Supprimer</string>
       </property>
       <property name="icon">
-       <iconset resource="ressources/ressources.qrc">
+       <iconset resource="../ressources/ressources.qrc">
         <normaloff>:/bike/delete.png</normaloff>:/bike/delete.png</iconset>
       </property>
       <property name="iconSize">
@@ -104,7 +104,7 @@
        <string> Modifier</string>
       </property>
       <property name="icon">
-       <iconset resource="ressources/ressources.qrc">
+       <iconset resource="../ressources/ressources.qrc">
         <normaloff>:/bike/edit.png</normaloff>:/bike/edit.png</iconset>
       </property>
       <property name="iconSize">
@@ -124,7 +124,7 @@
        <string> Annuler</string>
       </property>
       <property name="icon">
-       <iconset resource="ressources/ressources.qrc">
+       <iconset resource="../ressources/ressources.qrc">
         <normaloff>:/bike/cancel.png</normaloff>:/bike/cancel.png</iconset>
       </property>
       <property name="iconSize">
@@ -142,7 +142,7 @@
   </widget>
  </widget>
  <resources>
-  <include location="ressources/ressources.qrc"/>
+  <include location="../ressources/ressources.qrc"/>
  </resources>
  <connections/>
 </ui>

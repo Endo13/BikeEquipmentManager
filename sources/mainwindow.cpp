@@ -45,6 +45,8 @@ MainWindow::MainWindow(QWidget *parent) :
 
 	connect(ui->pbAddGear, SIGNAL(clicked()), SLOT(on_actionAddGear_triggered()));
 	connect(ui->pbShowGear, SIGNAL(clicked()), SLOT(on_actionShowGear_triggered()));
+	connect(ui->pbConfigBike, SIGNAL(clicked()), SLOT(on_actionConfigBike_triggered()));
+	connect(ui->pbShowBike, SIGNAL(clicked()), SLOT(on_actionShowBike_triggered()));
 
     setupDatabase();
 }
@@ -74,7 +76,7 @@ void MainWindow::setupDatabase()
             qApp->exit(0);
         }
     }
-    db.setDatabaseName(path);
+    db.setDatabaseName(path.toLatin1());
     qDebug() << path;
     if(db.open())
         ui->status->setText("Database Connected");
@@ -98,4 +100,19 @@ void MainWindow::on_actionShowGear_triggered()
 	gearsView->exec();
 }
 
+void MainWindow::on_actionConfigBike_triggered()
+{
+	BikeDialog* bike = new BikeDialog(&db, this);
+	bike->setAttribute(Qt::WA_DeleteOnClose);
+	bike->setModal(true);
+	bike->exec();
+}
+
+void MainWindow::on_actionShowBike_triggered()
+{
+	BikesView* bike = new BikesView(&db, this);
+	bike->setAttribute(Qt::WA_DeleteOnClose);
+	bike->setModal(true);
+	bike->exec();
+}
 

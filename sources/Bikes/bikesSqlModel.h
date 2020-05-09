@@ -1,13 +1,13 @@
 #include "QSqlTableModel.h"
-#include "tableUtilities.h"
+#include "../Common/tableUtilities.h"
 
-class gearsSqlModel :
+class bikesSqlModel :
 	public QSqlTableModel
 {
 	Q_OBJECT
 public:
-	explicit gearsSqlModel(QObject *parent, QSqlDatabase *database);
-	~gearsSqlModel();
+	explicit bikesSqlModel(QObject *parent, QSqlDatabase *database);
+	~bikesSqlModel();
 
 	
 

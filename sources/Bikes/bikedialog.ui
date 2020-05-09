@@ -108,7 +108,7 @@
        <string notr="true"/>
       </property>
       <property name="text">
-       <string>Marque</string>
+       <string>Marque cadre</string>
       </property>
      </widget>
     </item>

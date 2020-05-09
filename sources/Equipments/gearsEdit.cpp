@@ -10,14 +10,12 @@ GearsEdit::GearsEdit(QSqlDatabase *database, int ID, QWidget *parent) :
 {
     ui->setupUi(this);
     db = database;
-	_id = ID;
+	_idToEdit = ID;
     //setup models
     setupModels();
 
 	//setup ui
 	ui->leKMInitial->setValidator(new QIntValidator(0, 2147483647, this));
-	ui->lePoids->setValidator(new QDoubleValidator(0.0, 2147483647.0,2, this));
-	ui->lePrix->setValidator(new QDoubleValidator(0.0, 2147483647.0, 2, this));
 	ui->deAchat->setDisplayFormat("dd.MM.yyyy");
 	ui->deUtilisation->setDisplayFormat("dd.MM.yyyy");
 	ui->add_pushButton->setText(QString::fromLatin1("Modifier équipement"));
@@ -33,7 +31,7 @@ void GearsEdit::initializeModels()
 	//prepare the query
 	QSqlQuery q(*db);
 	q.prepare("select type,marque,modele,date_achat, date_utilisation, km_initial, poids, prix from gears where gear_code=?");
-	q.bindValue(0, _id);
+	q.bindValue(0, _idToEdit);
 
 	//execute the query
 	if (!q.exec()) {//if the query has some error then return
@@ -66,8 +64,8 @@ void GearsEdit::initializeModels()
 		QDate DateUtilisation = QDate::fromString(dateUtilisation, "dd.MM.yyyy");
 		ui->deUtilisation->setDate(DateUtilisation);
 		ui->leKMInitial->setText(q.value(kmIndex).toString());
-		ui->lePoids->setText(q.value(poidsIndex).toString());
-		ui->lePrix->setText(q.value(prixIndex).toString());		
+		ui->lePoids->setValue(q.value(poidsIndex).toInt());
+		ui->lePrix->setValue(q.value(prixIndex).toDouble());
 
 	}
 }
@@ -125,7 +123,7 @@ bool GearsEdit::addItem()
 	q.bindValue(5, kmInit);
 	q.bindValue(6, poids);
 	q.bindValue(7, prix);
-	q.bindValue(8, _id);
+	q.bindValue(8, _idToEdit);
    
     //execute the query
     if(!q.exec()){
@@ -174,13 +172,13 @@ void GearsEdit::on_add_pushButton_clicked()
 
     //confirms from the user
     QMessageBox::StandardButton reply;
-    reply = QMessageBox::question(this,"Etes vous sur?",
-                                  "Confirmer vous la modification de cet equipement?",
+    reply = QMessageBox::question(this,"Confirmation",
+                                  "Confirmez vous la modification de cet equipement?",
                                   QMessageBox::Yes | QMessageBox::Cancel);
     //if the user accepts the dialog
     if (reply == QMessageBox::Yes){
         if(addItem()){
-            QMessageBox::information(this, "Succes", "Equipement modifie!");
+            QMessageBox::information(this, "Succes", "Equipement modifie");
             resetForm();
 			this->close();
         }

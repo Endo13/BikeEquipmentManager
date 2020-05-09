@@ -3,6 +3,8 @@
 
 #include <QString>
 
+#define NB_GEARS 39
+
 class TableUtilities
 {
 public:
@@ -10,6 +12,8 @@ public:
 	~TableUtilities();
 
 	static QString getTableMarque(int index);
+
+	static QString getNomEquipement(int index);
 
 };
 #endif 

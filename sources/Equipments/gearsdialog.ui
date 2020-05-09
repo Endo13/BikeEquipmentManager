@@ -22,7 +22,7 @@
         <string> Ajouter équipement</string>
        </property>
        <property name="icon">
-        <iconset resource="ressources/ressources.qrc">
+        <iconset resource="../ressources/ressources.qrc">
          <normaloff>:/bike/edit.png</normaloff>:/bike/edit.png</iconset>
        </property>
        <property name="iconSize">
@@ -42,7 +42,7 @@
         <string> Annuler</string>
        </property>
        <property name="icon">
-        <iconset resource="ressources/ressources.qrc">
+        <iconset resource="../ressources/ressources.qrc">
          <normaloff>:/bike/cancel.png</normaloff>:/bike/cancel.png</iconset>
        </property>
        <property name="iconSize">
@@ -149,17 +149,14 @@
          <item>
           <widget class="QLabel" name="label_9">
            <property name="text">
-            <string>Poids (Kg)</string>
+            <string>Poids (g)</string>
            </property>
           </widget>
          </item>
          <item>
-          <widget class="QDoubleSpinBox" name="lePoids">
-           <property name="decimals">
-            <number>3</number>
-           </property>
+          <widget class="QSpinBox" name="lePoids">
            <property name="maximum">
-            <double>9999.989999999999782</double>
+            <number>99999</number>
            </property>
           </widget>
          </item>
@@ -199,7 +196,7 @@
   </layout>
  </widget>
  <resources>
-  <include location="ressources/ressources.qrc"/>
+  <include location="../ressources/ressources.qrc"/>
  </resources>
  <connections/>
 </ui>

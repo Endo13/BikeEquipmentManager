@@ -16,7 +16,7 @@ WorkoutDialog::WorkoutDialog(QSqlDatabase *database, QWidget *parent) :
 	//setup ui
 	ui->deSortie->setDate(QDate::currentDate());
 	ui->deSortie->setDisplayFormat("dd.MM.yyyy");
-	
+	ui->leNom->setFocus();
 	//Signal Slot
 
 }

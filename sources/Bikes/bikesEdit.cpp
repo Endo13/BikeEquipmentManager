@@ -14,6 +14,7 @@ BikesEdit::BikesEdit(QSqlDatabase *database, int ID, QWidget *parent) :
     setupModels();
 
 	//setup ui
+	ui->leNom->setFocus();
 	//Signal Slot
 
 }

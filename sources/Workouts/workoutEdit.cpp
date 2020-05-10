@@ -18,6 +18,7 @@ WorkoutEdit::WorkoutEdit(QSqlDatabase *database, int ID, QWidget *parent) :
 	//setup ui
 	ui->deSortie->setDate(QDate::currentDate());
 	ui->deSortie->setDisplayFormat("dd.MM.yyyy");
+	ui->leNom->setFocus();
 }
 
 void WorkoutEdit::initializeModels()

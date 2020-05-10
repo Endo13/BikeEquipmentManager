@@ -14,7 +14,7 @@ BikeDialog::BikeDialog(QSqlDatabase *database, QWidget *parent) :
     setupModels();
 
 	//setup ui
-
+	ui->leNom->setFocus();
 	//Signal Slot
 
 }

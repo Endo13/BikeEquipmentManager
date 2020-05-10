@@ -15,10 +15,8 @@ GearsEdit::GearsEdit(QSqlDatabase *database, int ID, QWidget *parent) :
     setupModels();
 
 	//setup ui
-	ui->leKMInitial->setValidator(new QIntValidator(0, 2147483647, this));
 	ui->deAchat->setDisplayFormat("dd.MM.yyyy");
 	ui->deUtilisation->setDisplayFormat("dd.MM.yyyy");
-	ui->add_pushButton->setText(QString::fromLatin1("Modifier équipement"));
 	//Signal Slot
 	connect(ui->cbType, SIGNAL(currentIndexChanged(int)), SLOT(changeMarque(int)));
 }
@@ -63,7 +61,7 @@ void GearsEdit::initializeModels()
 		QString dateUtilisation= q.value(dateUtilisationIndex).toString();
 		QDate DateUtilisation = QDate::fromString(dateUtilisation, "dd.MM.yyyy");
 		ui->deUtilisation->setDate(DateUtilisation);
-		ui->leKMInitial->setText(q.value(kmIndex).toString());
+		ui->spkm->setValue(q.value(kmIndex).toDouble());
 		ui->lePoids->setValue(q.value(poidsIndex).toInt());
 		ui->lePrix->setValue(q.value(prixIndex).toDouble());
 
@@ -108,7 +106,7 @@ bool GearsEdit::addItem()
 	QString modele = ui->leModele->text();
 	QString dateAchat = ui->deAchat->text();
 	QString dateUtilisation = ui->deUtilisation->text();
-	int  kmInit = ui->leKMInitial->text().toInt();
+	double  kmInit = ui->spkm->value();
 	double  poids = ui->lePoids->text().toDouble();
 	double prix = ui->lePrix->text().toDouble();
 

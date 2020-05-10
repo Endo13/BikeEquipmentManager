@@ -61,6 +61,10 @@ QVariant gearsSqlModel::data(const QModelIndex &index, int role) const
 			return "N/C";
 		}
 	}
+	else if ((role == Qt::DisplayRole) && (index.column() == 7)) {
+		const QModelIndex ind = index.sibling(index.row(), 6);
+		return QSqlTableModel::data(ind, role).toDouble() + QSqlTableModel::data(index, role).toDouble();
+	}
 	else {
 		return QSqlTableModel::data(index, role);
 	}

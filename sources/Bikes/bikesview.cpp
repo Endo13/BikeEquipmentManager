@@ -2,6 +2,7 @@
 #include "ui_BikesView.h"
 #include "ui_BikeDialog.h"
 #include "bikesEdit.h"
+#include "bikeDialog.h"
 
 BikesView::BikesView(QSqlDatabase *database, QWidget *parent) :
     QDialog(parent),
@@ -36,6 +37,7 @@ BikesView::BikesView(QSqlDatabase *database, QWidget *parent) :
 	connect(ui->twGears, SIGNAL(doubleClicked(const QModelIndex & )), SLOT(on_tableDoubleClicked(const QModelIndex &)));
 	connect(ui->pbDelete, SIGNAL(clicked()), SLOT(on_delete()));
 	connect(ui->pbEdit, SIGNAL(clicked()), SLOT(on_edit()));
+	connect(ui->pbAdd, SIGNAL(clicked()), SLOT(on_add()));
 }
 
 
@@ -105,4 +107,14 @@ void BikesView::on_edit()
 void BikesView::on_pbQuit_clicked()
 {
 	this->close();
+}
+
+void BikesView::on_add()
+{
+	BikeDialog* w = new BikeDialog(db, this);
+	w->setAttribute(Qt::WA_DeleteOnClose);
+	w->setModal(true);
+	w->exec();
+	_model->select();
+	ui->twGears->resizeColumnsToContents();
 }

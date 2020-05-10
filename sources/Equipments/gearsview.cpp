@@ -2,6 +2,7 @@
 #include "ui_GearsView.h"
 #include "ui_GearsDialog.h"
 #include "gearsEdit.h"
+#include "gearsDialog.h"
 
 GearsView::GearsView(QSqlDatabase *database, QWidget *parent) :
     QDialog(parent),
@@ -42,6 +43,7 @@ GearsView::GearsView(QSqlDatabase *database, QWidget *parent) :
 	connect(ui->twGears, SIGNAL(doubleClicked(const QModelIndex & )), SLOT(on_tableDoubleClicked(const QModelIndex &)));
 	connect(ui->pbDelete, SIGNAL(clicked()), SLOT(on_delete()));
 	connect(ui->pbEdit, SIGNAL(clicked()), SLOT(on_edit()));
+	connect(ui->pbAdd, SIGNAL(clicked()), SLOT(on_add()));
 }
 
 
@@ -110,4 +112,14 @@ void GearsView::on_edit()
 void GearsView::on_pbQuit_clicked()
 {
 	this->close();
+}
+
+void GearsView::on_add()
+{
+	GearsDialog* w = new GearsDialog(db, this);
+	w->setAttribute(Qt::WA_DeleteOnClose);
+	w->setModal(true);
+	w->exec();
+	_model->select();
+	ui->twGears->resizeColumnsToContents();
 }

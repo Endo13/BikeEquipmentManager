@@ -14,7 +14,6 @@ BikesEdit::BikesEdit(QSqlDatabase *database, int ID, QWidget *parent) :
     setupModels();
 
 	//setup ui
-	ui->add_pushButton->setText(QString::fromLatin1("Modifier vélo"));
 	//Signal Slot
 
 }

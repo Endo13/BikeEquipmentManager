@@ -1,5 +1,5 @@
-#ifndef BikesView_H
-#define BikesView_H
+#ifndef WorkoutView_H
+#define WorkoutView_H
 
 #include <QDialog>
 #include <QSqlDatabase>
@@ -8,20 +8,20 @@
 #include <QString>
 #include <QDebug>
 #include <QSqlError>
-#include "bikesSqlModel.h"
+#include "workoutSqlModel.h"
 
 
 namespace Ui {
-class BikesView;
+class WorkoutView;
 }
 
-class BikesView : public QDialog
+class WorkoutView : public QDialog
 {
     Q_OBJECT
 
 public:
-    explicit BikesView(QSqlDatabase *database, QWidget *parent = 0);
-    ~BikesView();
+    explicit WorkoutView(QSqlDatabase *database, QWidget *parent = 0);
+    ~WorkoutView();
 private slots:
 	void on_pbQuit_clicked();
 	void on_tableClicked(const QModelIndex &);
@@ -31,9 +31,9 @@ private slots:
 	void on_add();
 
 private:
-    Ui::BikesView *ui;
+    Ui::WorkoutView *ui;
     QSqlDatabase *db;
-	bikesSqlModel *_model;
+	workoutSqlModel *_model;
 };
 
-#endif // BikesView_H
+#endif // WorkoutView_H

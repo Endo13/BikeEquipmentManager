@@ -14,7 +14,7 @@ BikeDialog::BikeDialog(QSqlDatabase *database, QWidget *parent) :
     setupModels();
 
 	//setup ui
-	ui->leNom->setPlaceholderText(QString::fromLatin1("vélo_1"));
+
 	//Signal Slot
 
 }
@@ -169,13 +169,14 @@ void BikeDialog::on_add_pushButton_clicked()
     //confirms from the user
     QMessageBox::StandardButton reply;
     reply = QMessageBox::question(this,"Etes vous sur?",
-                                  "Confirmer vous la creation de cet equipement?",
+                                  "Confirmez vous la creation de cet equipement?",
                                   QMessageBox::Yes | QMessageBox::Cancel);
     //if the user accepts the dialog
     if (reply == QMessageBox::Yes){
         if(addItem()){
-            QMessageBox::information(this, "Succes", "Equipement ajoute!");
+            QMessageBox::information(this, "Succes", "Equipement ajoute");
             resetForm();
+			this->close();
         }
     }
 	this->close();

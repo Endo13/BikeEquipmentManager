@@ -26,11 +26,11 @@
     <item>
      <widget class="QPushButton" name="add_pushButton">
       <property name="text">
-       <string> Ajouter vélo</string>
+       <string> Valider</string>
       </property>
       <property name="icon">
        <iconset resource="../ressources/ressources.qrc">
-        <normaloff>:/bike/edit.png</normaloff>:/bike/edit.png</iconset>
+        <normaloff>:/bike/valid.png</normaloff>:/bike/valid.png</iconset>
       </property>
       <property name="iconSize">
        <size>

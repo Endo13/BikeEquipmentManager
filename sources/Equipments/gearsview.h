@@ -28,7 +28,7 @@ private slots:
 	void on_tableDoubleClicked(const QModelIndex &);
 	void on_delete();
 	void on_edit();
-
+	void on_add();
 
 private:
     Ui::GearsView *ui;

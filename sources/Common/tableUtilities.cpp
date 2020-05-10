@@ -1,4 +1,10 @@
 #include "tableUtilities.h"
+#include <QSqlQuery>
+#include <QSqlError>
+#include <QSqlDatabase>
+#include <QMessageBox>
+#include <QSqlQueryModel>
+#include <QSqlRecord>
 
 TableUtilities::TableUtilities()
 {
@@ -177,4 +183,84 @@ QString TableUtilities::getNomEquipement(int index)
 		return QString(QString::fromLatin1("Tige de selle"));
 	}
 	return QString();
+}
+
+QString TableUtilities::getTypeVelo(int index)
+{
+	switch (index) {
+	case SUN:
+		return QString("Soleil");
+	case RAIN:
+		return QString("Pluie");
+	case WIND:
+		return QString("Vent");
+	default:
+		return QString("Soleil");
+	}
+}
+
+QString TableUtilities::getMeteo(int index)
+{
+	switch (index) {
+	case ROUTE:
+		return QString("Route");
+	case VTT:
+		return QString("VTT");
+	case PISTE:
+		return QString("Piste");
+	case DESCENTE:
+		return QString("Descente");
+	default:
+		return QString("Route");
+	}
+}
+
+void TableUtilities::updateKMEquipments(QSqlDatabase* db,QWidget *parent,int bikeID, double kmToUpdate)
+{
+	QSqlQuery q(*db);
+	QString queryPrep = "select nom";
+
+	for (int i = 0; i < NB_GEARS; i++) {
+		queryPrep += ", eq" + QString::number(i + 1);
+	}
+	queryPrep += " from bikes where ID = ? ";
+	q.prepare(queryPrep);
+	q.bindValue(0, bikeID);
+
+	//execute the query
+	if (!q.exec()) {//if the query has some error then return
+		QMessageBox::critical(parent, "Echec", "Mise a jour des km impossible");
+		QMessageBox::critical(parent, "Error", q.lastError().text()
+			+ "\n" + q.lastQuery());
+		return;
+	}
+
+	// if the query executes
+	// check for the result
+	if (q.next()) {//if the result exists then load the description
+		for (int i = 0; i < NB_GEARS; i++) {
+			qint8 eqIndex = q.record().indexOf("eq" + QString::number(i + 1));
+			int eqID = q.value(eqIndex).toInt();
+			if (eqID > 0) {
+				QSqlQuery q2(*db);
+				q2.prepare("select km_cumul from gears where gear_code=?");
+				q2.bindValue(0, eqID);
+				if (!q2.exec()) {
+				}
+				if (q2.next()) {
+					qint8 kmIndex = q2.record().indexOf("km_cumul");
+					double km = q2.value(kmIndex).toDouble();
+					km += kmToUpdate;
+					QSqlQuery q3(*db);
+					q3.prepare("update gears set km_cumul=? where gear_code=?");
+					q3.bindValue(0, km);
+					q3.bindValue(1, eqID);
+					if (!q3.exec()) {
+						QMessageBox::critical(parent, "Error", q3.lastError().text()
+							+ "\n" + q3.lastQuery());
+					}
+				}
+			}
+		}
+	}
 }

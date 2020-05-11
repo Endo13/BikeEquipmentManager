@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>BikesView</class>
- <widget class="QDialog" name="BikesView">
+ <class>WorkoutView</class>
+ <widget class="QDialog" name="WorkoutView">
   <property name="geometry">
    <rect>
     <x>0</x>
@@ -74,9 +74,9 @@
   <widget class="QWidget" name="horizontalLayoutWidget_2">
    <property name="geometry">
     <rect>
-     <x>494</x>
+     <x>484</x>
      <y>740</y>
-     <width>371</width>
+     <width>381</width>
      <height>80</height>
     </rect>
    </property>
@@ -84,7 +84,7 @@
     <item>
      <widget class="QPushButton" name="pbAdd">
       <property name="text">
-       <string> Ajouter</string>
+       <string>Ajouter</string>
       </property>
       <property name="icon">
        <iconset resource="../ressources/ressources.qrc">

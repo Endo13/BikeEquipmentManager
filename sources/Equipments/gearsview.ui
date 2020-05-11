@@ -43,6 +43,9 @@
       <property name="alternatingRowColors">
        <bool>true</bool>
       </property>
+      <property name="selectionMode">
+       <enum>QAbstractItemView::SingleSelection</enum>
+      </property>
       <property name="selectionBehavior">
        <enum>QAbstractItemView::SelectRows</enum>
       </property>
@@ -71,13 +74,33 @@
   <widget class="QWidget" name="horizontalLayoutWidget_2">
    <property name="geometry">
     <rect>
-     <x>530</x>
+     <x>484</x>
      <y>740</y>
-     <width>331</width>
+     <width>381</width>
      <height>80</height>
     </rect>
    </property>
    <layout class="QHBoxLayout" name="horizontalLayout_2">
+    <item>
+     <widget class="QPushButton" name="pbAdd">
+      <property name="text">
+       <string> Ajouter</string>
+      </property>
+      <property name="icon">
+       <iconset resource="../ressources/ressources.qrc">
+        <normaloff>:/bike/add.png</normaloff>:/bike/add.png</iconset>
+      </property>
+      <property name="iconSize">
+       <size>
+        <width>24</width>
+        <height>24</height>
+       </size>
+      </property>
+      <property name="flat">
+       <bool>true</bool>
+      </property>
+     </widget>
+    </item>
     <item>
      <widget class="QPushButton" name="pbDelete">
       <property name="text">

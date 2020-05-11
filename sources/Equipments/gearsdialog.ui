@@ -19,11 +19,11 @@
      <item>
       <widget class="QPushButton" name="add_pushButton">
        <property name="text">
-        <string> Ajouter équipement</string>
+        <string> Valider</string>
        </property>
        <property name="icon">
         <iconset resource="../ressources/ressources.qrc">
-         <normaloff>:/bike/edit.png</normaloff>:/bike/edit.png</iconset>
+         <normaloff>:/bike/valid.png</normaloff>:/bike/valid.png</iconset>
        </property>
        <property name="iconSize">
         <size>
@@ -140,9 +140,9 @@
           </widget>
          </item>
          <item>
-          <widget class="QLineEdit" name="leKMInitial">
-           <property name="inputMethodHints">
-            <set>Qt::ImhDigitsOnly|Qt::ImhFormattedNumbersOnly</set>
+          <widget class="QDoubleSpinBox" name="spkm">
+           <property name="maximum">
+            <double>1000000000000000.000000000000000</double>
            </property>
           </widget>
          </item>

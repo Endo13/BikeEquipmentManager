@@ -3,10 +3,9 @@
 
 #include <QMainWindow>
 #include <QSqlDatabase>
-#include "Equipments/GearsDialog.h"
 #include "Equipments/GearsView.h"
-#include "Bikes/BikeDialog.h"
 #include "Bikes/BikesView.h"
+#include "Workouts/WorkoutView.h"
 
 namespace Ui {
 class MainWindow;
@@ -26,9 +25,8 @@ private:
 
 private slots:
     void on_actionAddGear_triggered();
-	void on_actionShowBike_triggered();
-    void on_actionShowGear_triggered();
 	void on_actionConfigBike_triggered();
+	void on_actionWorkout_triggered();
 
 private:
     Ui::MainWindow *ui;

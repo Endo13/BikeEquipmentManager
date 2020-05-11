@@ -2,6 +2,7 @@
 #include "ui_BikesView.h"
 #include "ui_BikeDialog.h"
 #include "bikesEdit.h"
+#include "bikeDialog.h"
 
 BikesView::BikesView(QSqlDatabase *database, QWidget *parent) :
     QDialog(parent),
@@ -16,7 +17,7 @@ BikesView::BikesView(QSqlDatabase *database, QWidget *parent) :
 	_model->select();
 	_model->setHeaderData(0, Qt::Horizontal, QObject::tr("ID"));
 	_model->setHeaderData(1, Qt::Horizontal, QObject::tr("Nom"));
-	_model->setHeaderData(2, Qt::Horizontal, QObject::tr("Marque"));
+	_model->setHeaderData(2, Qt::Horizontal, QObject::tr("Marque cadre"));
 	TableUtilities tableUtilities;
 	for (int i = 0; i < NB_GEARS; i++) {
 		_model->setHeaderData(i+3, Qt::Horizontal, QObject::tr(tableUtilities.getNomEquipement(i+1).toStdString().c_str()));
@@ -36,6 +37,7 @@ BikesView::BikesView(QSqlDatabase *database, QWidget *parent) :
 	connect(ui->twGears, SIGNAL(doubleClicked(const QModelIndex & )), SLOT(on_tableDoubleClicked(const QModelIndex &)));
 	connect(ui->pbDelete, SIGNAL(clicked()), SLOT(on_delete()));
 	connect(ui->pbEdit, SIGNAL(clicked()), SLOT(on_edit()));
+	connect(ui->pbAdd, SIGNAL(clicked()), SLOT(on_add()));
 }
 
 
@@ -105,4 +107,14 @@ void BikesView::on_edit()
 void BikesView::on_pbQuit_clicked()
 {
 	this->close();
+}
+
+void BikesView::on_add()
+{
+	BikeDialog* w = new BikeDialog(db, this);
+	w->setAttribute(Qt::WA_DeleteOnClose);
+	w->setModal(true);
+	w->exec();
+	_model->select();
+	ui->twGears->resizeColumnsToContents();
 }

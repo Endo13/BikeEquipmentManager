@@ -28,6 +28,10 @@ SOURCES += main.cpp\
 		Bikes\bikesview.cpp \
 		Bikes\bikesSqlModel.cpp \
 		Bikes\bikesEdit.cpp \
+		Workouts\workoutdialog.cpp \
+		Workouts\workoutview.cpp \
+		Workouts\workoutSqlModel.cpp \
+		Workouts\workoutEdit.cpp \
 		Common\tableUtilities.cpp
 
 HEADERS  += mainwindow.h \
@@ -39,13 +43,19 @@ HEADERS  += mainwindow.h \
 			Bikes\bikesSqlModel.h \
 			Bikes\bikesview.h \
 			Bikes\bikesEdit.h \
+			Workouts\workoutdialog.h \
+			Workouts\workoutview.h \
+			Workouts\workoutSqlModel.h \
+			Workouts\workoutEdit.h \
 			Common\tableUtilities.h 
 
 FORMS    += mainwindow.ui \			
 			Bikes\bikedialog.ui \
 			Bikes\bikesview.ui \
 			Equipments\gearsdialog.ui \
-			Equipments\gearsview.ui 
+			Equipments\gearsview.ui \
+			Workouts\workoutdialog.ui \
+			Workouts\workoutview.ui 
 	
 
 	

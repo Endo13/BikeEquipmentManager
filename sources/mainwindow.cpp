@@ -44,9 +44,8 @@ MainWindow::MainWindow(QWidget *parent) :
 	qApp->setPalette(darkPalette);
 
 	connect(ui->pbAddGear, SIGNAL(clicked()), SLOT(on_actionAddGear_triggered()));
-	connect(ui->pbShowGear, SIGNAL(clicked()), SLOT(on_actionShowGear_triggered()));
 	connect(ui->pbConfigBike, SIGNAL(clicked()), SLOT(on_actionConfigBike_triggered()));
-	connect(ui->pbShowBike, SIGNAL(clicked()), SLOT(on_actionShowBike_triggered()));
+	connect(ui->pbWorkout, SIGNAL(clicked()), SLOT(on_actionWorkout_triggered()));
 
     setupDatabase();
 }
@@ -77,42 +76,35 @@ void MainWindow::setupDatabase()
         }
     }
     db.setDatabaseName(path.toLatin1());
-    qDebug() << path;
-    if(db.open())
-        ui->status->setText("Database Connected");
-    else
-        ui->status->setText("Database not connected");
+	qDebug() << path;
+	if (db.open())
+		qDebug() << "connected";
+	else
+		qDebug() << "not connected";
 }
 
 void MainWindow::on_actionAddGear_triggered()
 {
-    GearsDialog* gearsDialog = new GearsDialog(&db, this);
-	gearsDialog->setAttribute(Qt::WA_DeleteOnClose);
-	gearsDialog->setModal(true);
-	gearsDialog->exec();
-}
-
-void MainWindow::on_actionShowGear_triggered()
-{
-	GearsView* gearsView  = new GearsView(&db, this);
+	GearsView* gearsView = new GearsView(&db, this);
 	gearsView->setAttribute(Qt::WA_DeleteOnClose);
 	gearsView->setModal(true);
 	gearsView->exec();
 }
 
-void MainWindow::on_actionConfigBike_triggered()
-{
-	BikeDialog* bike = new BikeDialog(&db, this);
-	bike->setAttribute(Qt::WA_DeleteOnClose);
-	bike->setModal(true);
-	bike->exec();
-}
 
-void MainWindow::on_actionShowBike_triggered()
+void MainWindow::on_actionConfigBike_triggered()
 {
 	BikesView* bike = new BikesView(&db, this);
 	bike->setAttribute(Qt::WA_DeleteOnClose);
 	bike->setModal(true);
 	bike->exec();
+}
+
+void MainWindow::on_actionWorkout_triggered()
+{
+	WorkoutView* w = new WorkoutView(&db, this);
+	w->setAttribute(Qt::WA_DeleteOnClose);
+	w->setModal(true);
+	w->exec();
 }
 

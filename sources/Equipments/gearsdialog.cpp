@@ -15,7 +15,6 @@ GearsDialog::GearsDialog(QSqlDatabase *database, QWidget *parent) :
     setupModels();
 
 	//setup ui
-	ui->leKMInitial->setValidator(new QIntValidator(0, 2147483647, this));
 	ui->deAchat->setDate(QDate::currentDate());
 	ui->deAchat->setDisplayFormat("dd.MM.yyyy");
 	ui->deUtilisation->setDate(QDate::currentDate());
@@ -69,7 +68,7 @@ bool GearsDialog::addItem()
 	QString modele = ui->leModele->text();
 	QString dateAchat = ui->deAchat->text();
 	QString dateUtilisation = ui->deUtilisation->text();
-	int  kmInit = ui->leKMInitial->text().toInt();
+	double  kmInit = ui->spkm->value();
 	double  poids = ui->lePoids->text().toDouble();
 	double prix = ui->lePrix->text().toDouble();
 	
@@ -136,14 +135,14 @@ void GearsDialog::on_add_pushButton_clicked()
     //confirms from the user
     QMessageBox::StandardButton reply;
     reply = QMessageBox::question(this,"Etes vous sur?",
-                                  "Confirmer vous la creation de cet equipement?",
+                                  "Confirmez vous la creation de cet equipement?",
                                   QMessageBox::Yes | QMessageBox::Cancel);
     //if the user accepts the dialog
     if (reply == QMessageBox::Yes){
         if(addItem()){
-            QMessageBox::information(this, "Succes", "Equipement ajoute!");
+            QMessageBox::information(this, "Succes", "Equipement ajoute");
             resetForm();
+			this->close();
         }
     }
-	this->close();
 }

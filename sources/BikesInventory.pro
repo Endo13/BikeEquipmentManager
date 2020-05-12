@@ -32,7 +32,20 @@ SOURCES += main.cpp\
 		Workouts\workoutview.cpp \
 		Workouts\workoutSqlModel.cpp \
 		Workouts\workoutEdit.cpp \
-		Common\tableUtilities.cpp
+		Common\tableUtilities.cpp \
+		Common/coordinates.cpp \
+		Common/rectc.cpp \
+		Common/greatcircle.cpp \
+		Data/data.cpp \
+		Data/poi.cpp \
+		Data/track.cpp \
+		Data/route.cpp \
+		Data/path.cpp \
+		Data/gpxparser.cpp \
+		Data/tcxparser.cpp \
+		Data/fitparser.cpp \
+		Data/dem.cpp \
+		Data/polygon.cpp 
 
 HEADERS  += mainwindow.h \
 			Equipments\gearsdialog.h \
@@ -47,7 +60,31 @@ HEADERS  += mainwindow.h \
 			Workouts\workoutview.h \
 			Workouts\workoutSqlModel.h \
 			Workouts\workoutEdit.h \
-			Common\tableUtilities.h 
+			Common\tableUtilities.h \
+			Common/staticassert.h \
+			Common/coordinates.h \
+			Common/rectc.h \
+			Common/rtree.h \
+			Common/greatcircle.h \
+			Common/wgs84.h \
+			Data/graph.h \
+			Data/poi.h \
+			Data/waypoint.h \
+			Data/track.h \
+			Data/route.h \
+			Data/trackpoint.h \
+			Data/data.h \
+			Data/parser.h \
+			Data/trackdata.h \
+			Data/routedata.h \
+			Data/path.h \
+			Data/gpxparser.h \
+			Data/tcxparser.h \
+			Data/fitparser.h \
+			Data/dem.h \
+			Data/polygon.h \
+			Data/area.h \
+			Data/imageinfo.h 		
 
 FORMS    += mainwindow.ui \			
 			Bikes\bikedialog.ui \

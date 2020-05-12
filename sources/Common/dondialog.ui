@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>donDialog</class>
+ <widget class="QDialog" name="donDialog">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>524</width>
+    <height>341</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Don</string>
+  </property>
+  <widget class="QPushButton" name="pbQuit">
+   <property name="geometry">
+    <rect>
+     <x>230</x>
+     <y>300</y>
+     <width>76</width>
+     <height>32</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>  Fermer</string>
+   </property>
+   <property name="icon">
+    <iconset resource="../ressources/ressources.qrc">
+     <normaloff>:/bike/cancel.png</normaloff>:/bike/cancel.png</iconset>
+   </property>
+   <property name="iconSize">
+    <size>
+     <width>24</width>
+     <height>24</height>
+    </size>
+   </property>
+   <property name="flat">
+    <bool>true</bool>
+   </property>
+  </widget>
+  <widget class="QPlainTextEdit" name="plainTextEdit">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>521</width>
+     <height>241</height>
+    </rect>
+   </property>
+   <property name="plainText">
+    <string>Créateur : Anthony JULIEN
+
+Bike Equipment Manager est un logiciel open source, sous licence GNU General Public License v3.0
+
+Sources : https://github.com/Endo13/BikeEquipmentManager
+
+Demandes de correction de bugs ou évolutions :
+https://github.com/Endo13/BikeEquipmentManager/issues
+
+Le logiciel est gratuit, mais un don est fortement apprécié afin de faire vivre le logiciel.
+Vous pouvez faire un don en cliquant sur le bouton ci-dessous.
+
+Merci</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="pbDon">
+   <property name="geometry">
+    <rect>
+     <x>160</x>
+     <y>240</y>
+     <width>211</width>
+     <height>61</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="icon">
+    <iconset resource="../ressources/ressources.qrc">
+     <normaloff>:/bike/paypal.PNG</normaloff>:/bike/paypal.PNG</iconset>
+   </property>
+   <property name="iconSize">
+    <size>
+     <width>200</width>
+     <height>200</height>
+    </size>
+   </property>
+   <property name="flat">
+    <bool>true</bool>
+   </property>
+  </widget>
+ </widget>
+ <resources>
+  <include location="../ressources/ressources.qrc"/>
+ </resources>
+ <connections/>
+</ui>

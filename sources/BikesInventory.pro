@@ -37,6 +37,7 @@ SOURCES += main.cpp\
 		Common/rectc.cpp \
 		Common/greatcircle.cpp \
 		Common/savedialog.cpp \
+		Common/dondialog.cpp \
 		Data/data.cpp \
 		Data/poi.cpp \
 		Data/track.cpp \
@@ -69,6 +70,7 @@ HEADERS  += mainwindow.h \
 			Common/greatcircle.h \
 			Common/wgs84.h \
 			Common/savedialog.h \
+			Common/dondialog.h \
 			Data/graph.h \
 			Data/poi.h \
 			Data/waypoint.h \
@@ -95,6 +97,7 @@ FORMS    += mainwindow.ui \
 			Equipments\gearsview.ui \
 			Workouts\workoutdialog.ui \
 			Common/savedialog.ui \
+			Common/dondialog.ui \
 			Workouts\workoutview.ui 
 	
 

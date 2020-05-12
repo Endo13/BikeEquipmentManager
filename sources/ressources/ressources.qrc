@@ -2,13 +2,18 @@
   <qresource prefix="bike">
     <file>BikeEquipmentManager.ico</file>
     <file>AddGear.PNG</file>
+    <file>import.png</file>
+    <file>paypal.PNG</file>
+    <file>export.png</file>
     <file>cancel.png</file>
     <file>delete.png</file>
     <file>edit.png</file>
+    <file>save.png</file>
     <file>add.png</file>
     <file>valid.png</file>
     <file>gear.PNG</file>
     <file>logo.png</file>
+    <file>don.png</file>
     <file>ShowBike.PNG</file>
     <file>ShowGear.PNG</file>
     <file>Statistics.PNG</file>

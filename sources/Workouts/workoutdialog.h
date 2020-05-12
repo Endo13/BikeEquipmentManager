@@ -40,12 +40,14 @@ private:
 private slots:
     void on_add_pushButton_clicked();
 	void on_pbQuit_clicked();
+	void on_import();
 
 private:
     Ui::WorkoutDialog *ui;
     QSqlDatabase* db;
     QSqlQueryModel *unitsComboBoxModel;
 	TableUtilities tableUtilities;
+	QString _dataDir;
 };
 
 #endif // ITEMCODEDIALOG_H

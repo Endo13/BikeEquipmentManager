@@ -46,6 +46,8 @@ MainWindow::MainWindow(QWidget *parent) :
 	connect(ui->pbAddGear, SIGNAL(clicked()), SLOT(on_actionAddGear_triggered()));
 	connect(ui->pbConfigBike, SIGNAL(clicked()), SLOT(on_actionConfigBike_triggered()));
 	connect(ui->pbWorkout, SIGNAL(clicked()), SLOT(on_actionWorkout_triggered()));
+	connect(ui->pbSave, SIGNAL(clicked()), SLOT(on_actionSave_triggered()));
+	connect(ui->pbDon, SIGNAL(clicked()), SLOT(on_actionDon_triggered()));
 
     setupDatabase();
 }
@@ -103,6 +105,22 @@ void MainWindow::on_actionConfigBike_triggered()
 void MainWindow::on_actionWorkout_triggered()
 {
 	WorkoutView* w = new WorkoutView(&db, this);
+	w->setAttribute(Qt::WA_DeleteOnClose);
+	w->setModal(true);
+	w->exec();
+}
+
+void MainWindow::on_actionSave_triggered()
+{
+	SaveDialog *w = new SaveDialog(&db, this);
+	w->setAttribute(Qt::WA_DeleteOnClose);
+	w->setModal(true);
+	w->exec();
+}
+
+void MainWindow::on_actionDon_triggered()
+{
+	donDialog *w = new donDialog(this);
 	w->setAttribute(Qt::WA_DeleteOnClose);
 	w->setModal(true);
 	w->exec();

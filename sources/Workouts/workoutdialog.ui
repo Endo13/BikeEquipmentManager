@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>600</width>
-    <height>365</height>
+    <width>687</width>
+    <height>439</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -16,8 +16,8 @@
   <widget class="QWidget" name="layoutWidget">
    <property name="geometry">
     <rect>
-     <x>190</x>
-     <y>330</y>
+     <x>240</x>
+     <y>390</y>
      <width>241</width>
      <height>34</height>
     </rect>
@@ -70,15 +70,15 @@
     <rect>
      <x>10</x>
      <y>40</y>
-     <width>581</width>
-     <height>281</height>
+     <width>671</width>
+     <height>341</height>
     </rect>
    </property>
    <layout class="QGridLayout" name="gridLayout_3" rowstretch="0,0,0,0,0,0,0,0,0,0" columnstretch="0,0,0,0">
     <item row="4" column="2">
      <widget class="QLabel" name="label_6">
       <property name="text">
-       <string>Durée</string>
+       <string>Temps de déplacement</string>
       </property>
      </widget>
     </item>
@@ -190,7 +190,11 @@
      </widget>
     </item>
     <item row="9" column="3">
-     <widget class="QSpinBox" name="spCadenceMax"/>
+     <widget class="QSpinBox" name="spCadenceMax">
+      <property name="maximum">
+       <number>9999</number>
+      </property>
+     </widget>
     </item>
     <item row="7" column="3">
      <widget class="QSpinBox" name="spPuissanceMax">
@@ -347,14 +351,24 @@
   <widget class="QPushButton" name="pbImport">
    <property name="geometry">
     <rect>
-     <x>10</x>
+     <x>30</x>
      <y>10</y>
-     <width>148</width>
+     <width>191</width>
      <height>23</height>
     </rect>
    </property>
    <property name="text">
-    <string>Importer GPX</string>
+    <string>  Importer .GPX, .TCX, .FIT</string>
+   </property>
+   <property name="icon">
+    <iconset resource="../ressources/ressources.qrc">
+     <normaloff>:/bike/import.png</normaloff>:/bike/import.png</iconset>
+   </property>
+   <property name="iconSize">
+    <size>
+     <width>24</width>
+     <height>24</height>
+    </size>
    </property>
    <property name="flat">
     <bool>true</bool>

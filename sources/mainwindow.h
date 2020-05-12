@@ -6,6 +6,7 @@
 #include "Equipments/GearsView.h"
 #include "Bikes/BikesView.h"
 #include "Workouts/WorkoutView.h"
+#include "Common/savedialog.h"
 
 namespace Ui {
 class MainWindow;
@@ -27,6 +28,7 @@ private slots:
     void on_actionAddGear_triggered();
 	void on_actionConfigBike_triggered();
 	void on_actionWorkout_triggered();
+	void on_actionSave_triggered();
 
 private:
     Ui::MainWindow *ui;

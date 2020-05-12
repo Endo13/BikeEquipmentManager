@@ -36,6 +36,7 @@ SOURCES += main.cpp\
 		Common/coordinates.cpp \
 		Common/rectc.cpp \
 		Common/greatcircle.cpp \
+		Common/savedialog.cpp \
 		Data/data.cpp \
 		Data/poi.cpp \
 		Data/track.cpp \
@@ -67,6 +68,7 @@ HEADERS  += mainwindow.h \
 			Common/rtree.h \
 			Common/greatcircle.h \
 			Common/wgs84.h \
+			Common/savedialog.h \
 			Data/graph.h \
 			Data/poi.h \
 			Data/waypoint.h \
@@ -92,6 +94,7 @@ FORMS    += mainwindow.ui \
 			Equipments\gearsdialog.ui \
 			Equipments\gearsview.ui \
 			Workouts\workoutdialog.ui \
+			Common/savedialog.ui \
 			Workouts\workoutview.ui 
 	
 

@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>StatisticsDialog</class>
+ <widget class="QDialog" name="StatisticsDialog">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1280</width>
+    <height>720</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Statistics</string>
+  </property>
+  <widget class="QPushButton" name="pbQuit">
+   <property name="geometry">
+    <rect>
+     <x>590</x>
+     <y>680</y>
+     <width>76</width>
+     <height>32</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>  Fermer</string>
+   </property>
+   <property name="icon">
+    <iconset resource="../ressources/ressources.qrc">
+     <normaloff>:/bike/cancel.png</normaloff>:/bike/cancel.png</iconset>
+   </property>
+   <property name="iconSize">
+    <size>
+     <width>24</width>
+     <height>24</height>
+    </size>
+   </property>
+   <property name="flat">
+    <bool>true</bool>
+   </property>
+  </widget>
+  <widget class="QWidget" name="gridLayoutWidget">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>1281</width>
+     <height>681</height>
+    </rect>
+   </property>
+   <layout class="QGridLayout" name="gridLayout"/>
+  </widget>
+ </widget>
+ <resources>
+  <include location="../ressources/ressources.qrc"/>
+ </resources>
+ <connections/>
+</ui>

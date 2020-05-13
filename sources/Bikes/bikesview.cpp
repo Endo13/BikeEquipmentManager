@@ -21,7 +21,7 @@ BikesView::BikesView(QSqlDatabase *database, QWidget *parent) :
 	for (int i = 0; i < NB_GEARS; i++) {
 		_model->setHeaderData(i+2, Qt::Horizontal, tableUtilities.getNomEquipement(i+1).toStdString().c_str());
 	}
-	_model->sort(1,Qt::SortOrder::AscendingOrder);
+	_model->sort(0,Qt::SortOrder::AscendingOrder);
 	ui->twGears->setModel(_model);
 	ui->twGears->resizeColumnsToContents();
 	ui->twGears->setColumnHidden(0, true);

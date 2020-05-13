@@ -48,8 +48,6 @@ SOURCES += main.cpp\
 		Data/fitparser.cpp \
 		Data/dem.cpp \
 		Data/polygon.cpp \
-		Statistics/customtablemodel.cpp \
-		Statistics/tablewidget.cpp \
 		Statistics/statisticsdialog.cpp
 
 HEADERS  += mainwindow.h \
@@ -92,8 +90,6 @@ HEADERS  += mainwindow.h \
 			Data/polygon.h \
 			Data/area.h \
 			Data/imageinfo.h \
-			Statistics/customtablemodel.h \
-			Statistics/tablewidget.h \
 			Statistics/statisticsdialog.h			
 
 FORMS    += mainwindow.ui \			

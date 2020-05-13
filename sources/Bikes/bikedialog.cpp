@@ -2,6 +2,7 @@
 #include "ui_bikedialog.h"
 #include <QDebug>
 #include <QSqlRecord>
+#include <QComboBox>
 
 BikeDialog::BikeDialog(QSqlDatabase *database, QWidget *parent) :
     QDialog(parent),
@@ -35,11 +36,7 @@ void BikeDialog::setupModels()
 
 void BikeDialog::setupUnitsComboBoxModel()
 {
-    /// sets up the model for combo box
-	QSqlQueryModel *modeMarquel = new QSqlQueryModel(ui->comboMarque);
-	modeMarquel->setQuery("SELECT nom FROM MarqueVelo");
-	ui->comboMarque->setModel(modeMarquel);	
-	
+    /// sets up the model for combo box	
 	int row = 0;
 	int column = 0;
 	for (int i = 0; i<NB_GEARS;i++){
@@ -74,10 +71,14 @@ void BikeDialog::setupUnitsComboBoxModel()
 			Qid = q.value(codegearRec);
 			cb->addItem(marque + " - " + mod, Qid);				
 		}
-
+		QLabel *lab = new QLabel();
+		lab->setText(tableUtilities.getNomEquipement(i+1));
+		ui->gridLayout->addWidget(lab, row, column);
 		ui->gridLayout->addWidget(cb, row, column + 1);
+		ui->gridLayout->setColumnStretch(1, 1);
+		ui->gridLayout->setColumnStretch(3, 1);
 		row++;
-		if (row == 20) {
+		if (row == (NB_GEARS/2)+1) {
 			row = 0;
 			column = 2;
 		}
@@ -101,22 +102,21 @@ bool BikeDialog::addItem()
     /// takes care of the query preperation and execution
     /// to add item to database items table
 	QVector <int> eq;
-	for (int i = 0; i < 20; i++) {
+	for (int i = 0; i < (NB_GEARS/2+1); i++) {
 		QComboBox *cb = (QComboBox*)ui->gridLayout->itemAtPosition(i, 1)->widget();
 		eq.push_back(cb->itemData(cb->currentIndex()).toInt());
 	}
-	for (int i = 0; i < 19; i++) {
+	for (int i = 0; i < NB_GEARS/2; i++) {
 		QComboBox *cb = (QComboBox*)ui->gridLayout->itemAtPosition(i, 3)->widget();
 		eq.push_back(cb->itemData(cb->currentIndex()).toInt());
 	}
 
-	qint8   marque = ui->comboMarque->currentIndex()+1;
 	QString nom = ui->leNom->text();
 	
     //prepare the query
     QSqlQuery q(*db);
-	QString queryPrep = "insert into bikes (nom, marqueVelo";   
-	QString queryPrepfin = ") values (:nom, :marqueVelo";
+	QString queryPrep = "insert into bikes (nom";   
+	QString queryPrepfin = ") values (:nom";
 	for (int i = 0; i < NB_GEARS; i++) {
 		queryPrep += ", eq" + QString::number( i + 1);
 		queryPrepfin += ", :eq" + QString::number(i + 1);
@@ -124,7 +124,6 @@ bool BikeDialog::addItem()
 	queryPrepfin += " );";
 	q.prepare(queryPrep + queryPrepfin);
 	q.bindValue(":nom", nom);
-	q.bindValue(":marqueVelo", marque);
 	for (int i = 0; i < NB_GEARS; i++) {
 		QString query = ":eq" + QString::number(i + 1);
 		q.bindValue(query, eq[i]);

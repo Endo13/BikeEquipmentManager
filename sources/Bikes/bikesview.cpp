@@ -17,10 +17,9 @@ BikesView::BikesView(QSqlDatabase *database, QWidget *parent) :
 	_model->select();
 	_model->setHeaderData(0, Qt::Horizontal, QObject::tr("ID"));
 	_model->setHeaderData(1, Qt::Horizontal, QObject::tr("Nom"));
-	_model->setHeaderData(2, Qt::Horizontal, QObject::tr("Marque cadre"));
 	TableUtilities tableUtilities;
 	for (int i = 0; i < NB_GEARS; i++) {
-		_model->setHeaderData(i+3, Qt::Horizontal, QObject::tr(tableUtilities.getNomEquipement(i+1).toStdString().c_str()));
+		_model->setHeaderData(i+2, Qt::Horizontal, tableUtilities.getNomEquipement(i+1).toStdString().c_str());
 	}
 	_model->sort(1,Qt::SortOrder::AscendingOrder);
 	ui->twGears->setModel(_model);

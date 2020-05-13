@@ -48,6 +48,7 @@ MainWindow::MainWindow(QWidget *parent) :
 	connect(ui->pbWorkout, SIGNAL(clicked()), SLOT(on_actionWorkout_triggered()));
 	connect(ui->pbSave, SIGNAL(clicked()), SLOT(on_actionSave_triggered()));
 	connect(ui->pbDon, SIGNAL(clicked()), SLOT(on_actionDon_triggered()));
+	connect(ui->pbStatistics, SIGNAL(clicked()), SLOT(on_actionStatistics_triggered()));
 
     setupDatabase();
 }
@@ -121,6 +122,14 @@ void MainWindow::on_actionSave_triggered()
 void MainWindow::on_actionDon_triggered()
 {
 	donDialog *w = new donDialog(this);
+	w->setAttribute(Qt::WA_DeleteOnClose);
+	w->setModal(true);
+	w->exec();
+}
+
+void MainWindow::on_actionStatistics_triggered()
+{
+	StatisticsDialog *w = new StatisticsDialog(&db, this);
 	w->setAttribute(Qt::WA_DeleteOnClose);
 	w->setModal(true);
 	w->exec();

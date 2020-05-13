@@ -8,6 +8,7 @@
 #include "Workouts/WorkoutView.h"
 #include "Common/savedialog.h"
 #include "Common/dondialog.h"
+#include "Statistics/statisticsdialog.h"
 
 namespace Ui {
 class MainWindow;
@@ -31,6 +32,7 @@ private slots:
 	void on_actionWorkout_triggered();
 	void on_actionSave_triggered();
 	void on_actionDon_triggered();
+	void on_actionStatistics_triggered();
 
 private:
     Ui::MainWindow *ui;

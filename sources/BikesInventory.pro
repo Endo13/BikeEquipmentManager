@@ -13,7 +13,7 @@ DEFINES = _WIN32_PLATEFORM_
 DEFINES +=_CRT_SECURE_NO_WARNINGS
 DEFINES += WIN32_LEAN_AND_MEAN
 
-QT       += core gui sql widgets
+QT       += core gui sql widgets charts
 
 RESOURCES     = ressources/ressources.qrc
 RC_FILE = BEM.rc
@@ -47,7 +47,10 @@ SOURCES += main.cpp\
 		Data/tcxparser.cpp \
 		Data/fitparser.cpp \
 		Data/dem.cpp \
-		Data/polygon.cpp 
+		Data/polygon.cpp \
+		Statistics/customtablemodel.cpp \
+		Statistics/tablewidget.cpp \
+		Statistics/statisticsdialog.cpp
 
 HEADERS  += mainwindow.h \
 			Equipments\gearsdialog.h \
@@ -88,7 +91,10 @@ HEADERS  += mainwindow.h \
 			Data/dem.h \
 			Data/polygon.h \
 			Data/area.h \
-			Data/imageinfo.h 		
+			Data/imageinfo.h \
+			Statistics/customtablemodel.h \
+			Statistics/tablewidget.h \
+			Statistics/statisticsdialog.h			
 
 FORMS    += mainwindow.ui \			
 			Bikes\bikedialog.ui \
@@ -98,7 +104,8 @@ FORMS    += mainwindow.ui \
 			Workouts\workoutdialog.ui \
 			Common/savedialog.ui \
 			Common/dondialog.ui \
-			Workouts\workoutview.ui 
+			Workouts\workoutview.ui \
+			Statistics/statisticsdialog.ui
 	
 
 	

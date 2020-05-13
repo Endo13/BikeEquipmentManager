@@ -3,6 +3,8 @@
 #include <QDebug>
 #include "QDateTime.h"
 #include <QSqlRecord>
+#include <QFileDialog>
+#include "../Data/data.h"
 
 WorkoutEdit::WorkoutEdit(QSqlDatabase *database, int ID, QWidget *parent) :
     QDialog(parent),
@@ -16,9 +18,10 @@ WorkoutEdit::WorkoutEdit(QSqlDatabase *database, int ID, QWidget *parent) :
     setupModels();
 	
 	//setup ui
-	ui->deSortie->setDate(QDate::currentDate());
 	ui->deSortie->setDisplayFormat("dd.MM.yyyy");
 	ui->leNom->setFocus();
+
+	connect(ui->pbImport, SIGNAL(clicked()), SLOT(on_import()));
 }
 
 void WorkoutEdit::initializeModels()
@@ -232,4 +235,59 @@ void WorkoutEdit::on_add_pushButton_clicked()
 		return;
 	}
 	this->close();
+}
+
+void WorkoutEdit::on_import()
+{
+	QString file = QFileDialog::getOpenFileName(this, tr("Ouvrir fichier"),
+		_dataDir, Data::formats());
+	Data dataGPX(file);
+
+	if (dataGPX.isValid()) {
+		qreal _trackDistance = 0;
+		qreal _time = 0;
+		qreal _movingTime = 0;
+		QPair<QDate, QDate> _dateRange;
+		QString name = "";
+		qreal _ascent = 0;
+		qreal speedMoy = 0;
+		qreal speedMax = 0;
+		qreal fcMoy = 0;
+		qreal fcMax = 0;
+		qreal cadenceMoy = 0;
+		qreal cadenceMax = 0;
+
+		for (int i = 0; i < dataGPX.tracks().count(); i++) {
+			const Track &track = dataGPX.tracks().at(i);
+			name = track.name();
+			_trackDistance += track.distance();
+			_time += track.time();
+			_movingTime += track.movingTime();
+			const QDate &date = track.date().date();
+			if (_dateRange.first.isNull() || _dateRange.first > date)
+				_dateRange.first = date;
+			if (_dateRange.second.isNull() || _dateRange.second < date)
+				_dateRange.second = date;
+			track.elevation(_ascent);
+			track.speed(speedMax, speedMoy);
+			track.heartRate(fcMax, fcMoy);
+			track.cadence(cadenceMax, cadenceMoy);
+		}
+		unsigned h, m, s;
+		h = _movingTime / 3600;
+		m = (_movingTime - (h * 3600)) / 60;
+		s = _movingTime - (h * 3600) - (m * 60);
+		QTime t(h, m, s);
+		ui->teSortie->setTime(t);
+		ui->spDistance->setValue(_trackDistance / 1000.0);
+		ui->deSortie->setDateRange(_dateRange.first, _dateRange.second);
+		ui->leNom->setText(name);
+		ui->spDenivele->setValue(_ascent);
+		ui->spVitesseMoyenne->setValue(speedMoy*3.6);
+		ui->spVitesseMax->setValue(speedMax*3.6);
+		ui->spFCMoyenne->setValue(fcMoy);
+		ui->spFCMax->setValue(fcMax);
+		ui->spCadenceMoyenne->setValue(cadenceMoy);
+		ui->spCadenceMax->setValue(cadenceMax);
+	}
 }

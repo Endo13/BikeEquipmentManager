@@ -2,6 +2,7 @@
 #include "ui_bikedialog.h"
 #include <QDebug>
 #include <QSqlRecord>
+#include <QComboBox>
 
 BikesEdit::BikesEdit(QSqlDatabase *database, int ID, QWidget *parent) :
     QDialog(parent),
@@ -24,7 +25,7 @@ void BikesEdit::initializeModels()
     /// initializes all models
 	//prepare the query
 	QSqlQuery q(*db);
-	QString queryPrep = "select nom,marqueVelo";
+	QString queryPrep = "select nom";
 	
 	for (int i = 0; i < NB_GEARS; i++) {
 		queryPrep += ", eq" + QString::number(i + 1);
@@ -45,8 +46,6 @@ void BikesEdit::initializeModels()
 	// check for the result
 	if (q.next()) {//if the result exists then load the description
 		qint8	nomIndex = q.record().indexOf("nom"); 
-		qint8	marqueIndex = q.record().indexOf("marqueVelo");
-		ui->comboMarque->setCurrentIndex(q.value(marqueIndex).toInt() - 1);
 		ui->leNom->setText(q.value(nomIndex).toString());
 		QVector <int> eq;
 		for (int i = 0; i < NB_GEARS; i++) {
@@ -54,7 +53,7 @@ void BikesEdit::initializeModels()
 			eq.push_back(q.value(eqIndex).toInt());
 		}
 		
-		for (int i = 0; i < 20; i++) {
+		for (int i = 0; i < NB_GEARS/2+1; i++) {
 			QComboBox *cb = (QComboBox*)ui->gridLayout->itemAtPosition(i, 1)->widget();
 			int index = cb->findData(eq.first());
 			eq.removeFirst();
@@ -62,7 +61,7 @@ void BikesEdit::initializeModels()
 				cb->setCurrentIndex(index);
 			}
 		}
-		for (int i = 0; i < 19; i++) {
+		for (int i = 0; i < NB_GEARS/2; i++) {
 			QComboBox *cb = (QComboBox*)ui->gridLayout->itemAtPosition(i, 3)->widget();
 			int index = cb->findData(eq.first());
 			eq.removeFirst();
@@ -83,10 +82,6 @@ void BikesEdit::setupModels()
 void BikesEdit::setupUnitsComboBoxModel()
 {
     /// sets up the model for combo box
-	QSqlQueryModel *modeMarquel = new QSqlQueryModel(ui->comboMarque);
-	modeMarquel->setQuery("SELECT nom FROM MarqueVelo");
-	ui->comboMarque->setModel(modeMarquel);
-
 	int row = 0;
 	int column = 0;
 	for (int i = 0; i<NB_GEARS; i++) {
@@ -121,9 +116,14 @@ void BikesEdit::setupUnitsComboBoxModel()
 			Qid = q.value(codegearRec);
 			cb->addItem(marque + " - " + mod, Qid);
 		}
+		QLabel *lab = new QLabel();
+		lab->setText(tableUtilities.getNomEquipement(i + 1));
+		ui->gridLayout->addWidget(lab, row, column);
 		ui->gridLayout->addWidget(cb, row, column + 1);
+		ui->gridLayout->setColumnStretch(1, 1);
+		ui->gridLayout->setColumnStretch(3, 1);
 		row++;
-		if (row == 20) {
+		if (row == (NB_GEARS/2)+1) {
 			row = 0;
 			column = 2;
 		}
@@ -144,32 +144,30 @@ bool BikesEdit::addItem()
     /// takes care of the query preperation and execution
     /// to add item to database items table
 	QVector <int> eq;
-	for (int i = 0; i < 20; i++) {
+	for (int i = 0; i < NB_GEARS/2+1; i++) {
 		QComboBox *cb = (QComboBox*)ui->gridLayout->itemAtPosition(i, 1)->widget();
 		eq.push_back(cb->itemData(cb->currentIndex()).toInt());
 	}
-	for (int i = 0; i < 19; i++) {
+	for (int i = 0; i < NB_GEARS/2; i++) {
 		QComboBox *cb = (QComboBox*)ui->gridLayout->itemAtPosition(i, 3)->widget();
 		eq.push_back(cb->itemData(cb->currentIndex()).toInt());
 	}
 
-	qint8   marque = ui->comboMarque->currentIndex() + 1;
 	QString nom = ui->leNom->text();
 
 	//prepare the query
 	QSqlQuery q(*db);
-	QString queryPrep = "update bikes set nom=?, marqueVelo=?";
+	QString queryPrep = "update bikes set nom=?";
 	for (int i = 0; i < NB_GEARS; i++) {
 		queryPrep += ", eq" + QString::number(i + 1) + "=?";
 	}
 	queryPrep += " where ID = ? ";
 	q.prepare(queryPrep);
 	q.bindValue(0, nom);
-	q.bindValue(1, marque);
 	for (int i = 0; i < NB_GEARS; i++) {
-		q.bindValue(i+2, eq[i]);
+		q.bindValue(i+1, eq[i]);
 	}
-	q.bindValue(NB_GEARS+2, _idToEdit);
+	q.bindValue(NB_GEARS+1, _idToEdit);
 
 	//execute the query
 	if (!q.exec()) {

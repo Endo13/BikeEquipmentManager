@@ -5,7 +5,7 @@
 #include <QSqlDatabase>
 #include <QWidget>
 
-#define NB_GEARS 39
+#define NB_GEARS 43
 
 #define SUN 0
 #define RAIN 1

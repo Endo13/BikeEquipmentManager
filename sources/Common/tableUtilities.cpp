@@ -100,8 +100,10 @@ QString TableUtilities::getTableMarque(int index)
 	case 41:
 		return QString("MarqueSacoche");
 	case 42:
-		return QString("MarqueSupportCompteur");
+		return QString("MarqueSelle");
 	case 43:
+		return QString("MarqueSupportCompteur");
+	case 44:
 		return QString("MarqueTigeDeSelle");
 }
 	return QString();
@@ -195,8 +197,10 @@ QString TableUtilities::getNomEquipement(int index)
 	case 41:
 		return QString(QObject::tr(QString::fromLatin1("Sacoche").toStdString().c_str()));
 	case 42:
-		return QString(QObject::tr(QString::fromLatin1("Support compteur").toStdString().c_str()));
+		return QString(QObject::tr(QString::fromLatin1("Selle").toStdString().c_str()));
 	case 43:
+		return QString(QObject::tr(QString::fromLatin1("Support compteur").toStdString().c_str()));
+	case 44:
 		return QString(QObject::tr(QString::fromLatin1("Tige de selle").toStdString().c_str()));
 	}
 	return QString();

@@ -48,3 +48,5 @@ rem qmake processing
 CD /D %WORKSPACE%
 qmake -tp vc -r
 
+
+

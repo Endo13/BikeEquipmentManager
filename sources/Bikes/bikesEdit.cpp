@@ -53,7 +53,7 @@ void BikesEdit::initializeModels()
 			eq.push_back(q.value(eqIndex).toInt());
 		}
 		
-		for (int i = 0; i < NB_GEARS/2+1; i++) {
+		for (int i = 0; i < NB_GEARS/2; i++) {
 			QComboBox *cb = (QComboBox*)ui->gridLayout->itemAtPosition(i, 1)->widget();
 			int index = cb->findData(eq.first());
 			eq.removeFirst();
@@ -123,7 +123,7 @@ void BikesEdit::setupUnitsComboBoxModel()
 		ui->gridLayout->setColumnStretch(1, 1);
 		ui->gridLayout->setColumnStretch(3, 1);
 		row++;
-		if (row == (NB_GEARS/2)+1) {
+		if (row == (NB_GEARS/2)) {
 			row = 0;
 			column = 2;
 		}
@@ -144,7 +144,7 @@ bool BikesEdit::addItem()
     /// takes care of the query preperation and execution
     /// to add item to database items table
 	QVector <int> eq;
-	for (int i = 0; i < NB_GEARS/2+1; i++) {
+	for (int i = 0; i < NB_GEARS/2; i++) {
 		QComboBox *cb = (QComboBox*)ui->gridLayout->itemAtPosition(i, 1)->widget();
 		eq.push_back(cb->itemData(cb->currentIndex()).toInt());
 	}

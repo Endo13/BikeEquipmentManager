@@ -247,7 +247,6 @@ void WorkoutEdit::on_import()
 		qreal _trackDistance = 0;
 		qreal _time = 0;
 		qreal _movingTime = 0;
-		QPair<QDate, QDate> _dateRange;
 		QString name = "";
 		qreal _ascent = 0;
 		qreal speedMoy = 0;
@@ -256,6 +255,7 @@ void WorkoutEdit::on_import()
 		qreal fcMax = 0;
 		qreal cadenceMoy = 0;
 		qreal cadenceMax = 0;
+		QDate Date;
 
 		for (int i = 0; i < dataGPX.tracks().count(); i++) {
 			const Track &track = dataGPX.tracks().at(i);
@@ -263,11 +263,8 @@ void WorkoutEdit::on_import()
 			_trackDistance += track.distance();
 			_time += track.time();
 			_movingTime += track.movingTime();
-			const QDate &date = track.date().date();
-			if (_dateRange.first.isNull() || _dateRange.first > date)
-				_dateRange.first = date;
-			if (_dateRange.second.isNull() || _dateRange.second < date)
-				_dateRange.second = date;
+			Date = QDate::fromString(track.date().date().toString() , "dd.MM.yyyy"); 
+
 			track.elevation(_ascent);
 			track.speed(speedMax, speedMoy);
 			track.heartRate(fcMax, fcMoy);
@@ -280,7 +277,7 @@ void WorkoutEdit::on_import()
 		QTime t(h, m, s);
 		ui->teSortie->setTime(t);
 		ui->spDistance->setValue(_trackDistance / 1000.0);
-		ui->deSortie->setDateRange(_dateRange.first, _dateRange.second);
+		ui->deSortie->setDate(Date);
 		ui->leNom->setText(name);
 		ui->spDenivele->setValue(_ascent);
 		ui->spVitesseMoyenne->setValue(speedMoy*3.6);

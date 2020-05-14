@@ -2,7 +2,6 @@
 #include "ui_statisticsdialog.h"
 #include <QDebug>
 
-#include "tablewidget.h"
 #include <QSqlRecord>
 #include <sstream>
 #include <iomanip>

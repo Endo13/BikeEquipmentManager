@@ -29,6 +29,7 @@ private slots:
 	void on_delete();
 	void on_edit();
 	void on_add();
+	void on_serviceBook();
 
 private:
     Ui::BikesView *ui;

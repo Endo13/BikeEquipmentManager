@@ -38,6 +38,7 @@ SOURCES += main.cpp\
 		Common/greatcircle.cpp \
 		Common/savedialog.cpp \
 		Common/dondialog.cpp \
+		Common/servicebook.cpp \
 		Data/data.cpp \
 		Data/poi.cpp \
 		Data/track.cpp \
@@ -72,6 +73,7 @@ HEADERS  += mainwindow.h \
 			Common/wgs84.h \
 			Common/savedialog.h \
 			Common/dondialog.h \
+			Common/servicebook.h \
 			Data/graph.h \
 			Data/poi.h \
 			Data/waypoint.h \
@@ -100,6 +102,7 @@ FORMS    += mainwindow.ui \
 			Workouts\workoutdialog.ui \
 			Common/savedialog.ui \
 			Common/dondialog.ui \
+			Common/servicebook.ui \
 			Workouts\workoutview.ui \
 			Statistics/statisticsdialog.ui
 	

@@ -3,6 +3,7 @@
 #include "ui_BikeDialog.h"
 #include "bikesEdit.h"
 #include "bikeDialog.h"
+#include "..\Common\servicebook.h"
 
 BikesView::BikesView(QSqlDatabase *database, QWidget *parent) :
     QDialog(parent),
@@ -31,12 +32,14 @@ BikesView::BikesView(QSqlDatabase *database, QWidget *parent) :
 
 	ui->pbEdit->setEnabled(false);
 	ui->pbDelete->setEnabled(false);
+	ui->pbServiceBook->setEnabled(false);
 
 	connect(ui->twGears, SIGNAL(clicked(const QModelIndex &)), SLOT(on_tableClicked(const QModelIndex &)));
 	connect(ui->twGears, SIGNAL(doubleClicked(const QModelIndex & )), SLOT(on_tableDoubleClicked(const QModelIndex &)));
 	connect(ui->pbDelete, SIGNAL(clicked()), SLOT(on_delete()));
 	connect(ui->pbEdit, SIGNAL(clicked()), SLOT(on_edit()));
 	connect(ui->pbAdd, SIGNAL(clicked()), SLOT(on_add()));
+	connect(ui->pbServiceBook, SIGNAL(clicked()), SLOT(on_serviceBook()));
 }
 
 
@@ -49,6 +52,7 @@ void BikesView::on_tableClicked(const QModelIndex &)
 {
 	ui->pbEdit->setEnabled(true);
 	ui->pbDelete->setEnabled(true);
+	ui->pbServiceBook->setEnabled(true);
 }
 
 void BikesView::on_tableDoubleClicked(const QModelIndex &)
@@ -81,12 +85,13 @@ void BikesView::on_delete()
 			_model->select();
 			ui->pbEdit->setEnabled(false);
 			ui->pbDelete->setEnabled(false);
+			ui->pbServiceBook->setEnabled(false);
 			QMessageBox::information(this, "Succes", QString::fromLatin1("Velo supprime"));
 		}
 	}
 	ui->pbEdit->setEnabled(false);
 	ui->pbDelete->setEnabled(false);
-
+	ui->pbServiceBook->setEnabled(false);
 }
 
 void BikesView::on_edit()
@@ -101,6 +106,7 @@ void BikesView::on_edit()
 	ui->twGears->resizeColumnsToContents();
 	ui->pbEdit->setEnabled(false);
 	ui->pbDelete->setEnabled(false);
+	ui->pbServiceBook->setEnabled(false);
 }
 
 void BikesView::on_pbQuit_clicked()
@@ -116,4 +122,14 @@ void BikesView::on_add()
 	w->exec();
 	_model->select();
 	ui->twGears->resizeColumnsToContents();
+}
+
+void BikesView::on_serviceBook()
+{
+	int rowidx = ui->twGears->selectionModel()->currentIndex().row();
+	int ID = _model->index(rowidx, 0).data().toInt();
+	ServiceBook* w = new ServiceBook(db,ID, this);
+	w->setAttribute(Qt::WA_DeleteOnClose);
+	w->setModal(true);
+	w->exec();
 }

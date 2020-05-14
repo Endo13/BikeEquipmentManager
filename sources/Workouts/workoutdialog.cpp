@@ -169,7 +169,8 @@ void WorkoutDialog::on_import()
 			_trackDistance += track.distance();
 			_time += track.time();
 			_movingTime += track.movingTime();
-			Date = QDate::fromString(track.date().date().toString(), "dd.MM.yyyy");
+			const QDate &date = track.date().date();
+			Date = date;
 			track.elevation(_ascent);
 			track.speed(speedMax, speedMoy);
 			track.heartRate(fcMax, fcMoy);

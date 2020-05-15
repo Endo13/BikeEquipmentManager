@@ -19,9 +19,9 @@ WorkoutView::WorkoutView(QSqlDatabase *database, QWidget *parent) :
 	_model->setHeaderData(0, Qt::Horizontal, QObject::tr("ID"));
 	_model->setHeaderData(1, Qt::Horizontal, QObject::tr("Nom"));
 	_model->setHeaderData(2, Qt::Horizontal, QObject::tr(QString::fromLatin1("Vélo utilisé").toStdString().c_str()));	
-	_model->setHeaderData(3, Qt::Horizontal, QObject::tr(QString::fromLatin1("Type de sortie").toStdString().c_str()));
+	_model->setHeaderData(5, Qt::Horizontal, QObject::tr(QString::fromLatin1("Type de sortie").toStdString().c_str()));
 	_model->setHeaderData(4, Qt::Horizontal, QObject::tr("Date"));
-	_model->setHeaderData(5, Qt::Horizontal, QObject::tr(QString::fromLatin1("Météo").toStdString().c_str()));
+	_model->setHeaderData(3, Qt::Horizontal, QObject::tr(QString::fromLatin1("Météo").toStdString().c_str()));
 	_model->setHeaderData(6, Qt::Horizontal, QObject::tr("Distance (km)"));
 	_model->setHeaderData(7, Qt::Horizontal, QObject::tr(QString::fromLatin1("Durée").toStdString().c_str()));
 	_model->setHeaderData(8, Qt::Horizontal, QObject::tr(QString::fromLatin1("Dénivelé (m)").toStdString().c_str()));
@@ -33,10 +33,11 @@ WorkoutView::WorkoutView(QSqlDatabase *database, QWidget *parent) :
 	_model->setHeaderData(14, Qt::Horizontal, QObject::tr(QString::fromLatin1("Fréquence moyenne").toStdString().c_str()));
 	_model->setHeaderData(15, Qt::Horizontal, QObject::tr(QString::fromLatin1("Fréquence max").toStdString().c_str()));
 	_model->setHeaderData(16, Qt::Horizontal, QObject::tr(QString::fromLatin1("Cadence moyenne").toStdString().c_str()));
-	_model->setHeaderData(17, Qt::Horizontal, QObject::tr(QString::fromLatin1("Cadence max").toStdString().c_str()));
-	_model->sort(4,Qt::SortOrder::AscendingOrder);
+	_model->setHeaderData(17, Qt::Horizontal, QObject::tr(QString::fromLatin1("Cadence max").toStdString().c_str())); 
+	//_model->sort(4,Qt::SortOrder::DescendingOrder);
 	ui->twGears->setModel(_model);
-
+	ui->twGears->sortByColumn(4, Qt::SortOrder::DescendingOrder);
+	ui->twGears->setSortingEnabled(true);
 	ui->twGears->resizeColumnsToContents();
 	ui->twGears->setColumnHidden(0, true);
 	ui->twGears->verticalHeader()->hide();

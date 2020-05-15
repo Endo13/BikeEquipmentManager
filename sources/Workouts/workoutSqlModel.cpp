@@ -2,6 +2,7 @@
 #include <QSqlQuery>
 #include <QSqlError>
 #include <QSqlRecord>
+#include <QDate>
 
 workoutSqlModel::workoutSqlModel(QObject * parent, QSqlDatabase * database) :
 	QSqlTableModel(parent,*database)
@@ -40,6 +41,10 @@ QVariant workoutSqlModel::data(const QModelIndex &index, int role) const
 	}
 	else if ((role == Qt::DisplayRole) && (index.column() == 3)) {
 		return tableUtilities.getTypeVelo(QSqlTableModel::data(index, role).toInt());
+	}
+	else if ((role == Qt::DisplayRole) && (index.column() == 4)) {
+		QDate Date = QDate::fromString(QSqlTableModel::data(index, role).toString(), Qt::DateFormat::ISODate);
+		return Date.toString(Qt::DateFormat::LocalDate);
 	}
 	else if ((role == Qt::DisplayRole) && (index.column() == 5)) {
 		return tableUtilities.getMeteo(QSqlTableModel::data(index, role).toInt());

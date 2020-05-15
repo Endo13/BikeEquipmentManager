@@ -26,6 +26,7 @@ BikesView::BikesView(QSqlDatabase *database, QWidget *parent) :
 	ui->twGears->setModel(_model);
 	ui->twGears->resizeColumnsToContents();
 	ui->twGears->setColumnHidden(0, true);
+	ui->twGears->setColumnHidden(NB_GEARS+2, true);
 	ui->twGears->verticalHeader()->hide();
 	ui->twGears->show();
 	

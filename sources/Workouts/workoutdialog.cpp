@@ -17,7 +17,9 @@ WorkoutDialog::WorkoutDialog(QSqlDatabase *database, QWidget *parent) :
 
 	//setup ui
 	ui->deSortie->setDate(QDate::currentDate());
-	ui->deSortie->setDisplayFormat("dd.MM.yyyy");
+	QString locale = QLocale::system().name().section('_', 0, 0);
+	if (locale == "fr")
+		ui->deSortie->setDisplayFormat("dd/MM/yyyy");
 	ui->leNom->setFocus();
 	//Signal Slot
 	connect(ui->pbImport, SIGNAL(clicked()), SLOT(on_import()));
@@ -71,6 +73,8 @@ bool WorkoutDialog::addItem()
 	QString nom = ui->leNom->text();
 	qint8	type = ui->cbType->currentIndex();
 	QString date = ui->deSortie->text();
+	QDate d = ui->deSortie->date();
+	QString dstr = d.toString(Qt::DateFormat::ISODate);
 	double  distance = ui->spDistance->value();
 	QString  duree = ui->teSortie->text();
 	int denivele = ui->spDenivele->value();
@@ -102,7 +106,7 @@ bool WorkoutDialog::addItem()
 	q2.bindValue(":bikeID", bikeID);
 	q2.bindValue(":nom", nom);
 	q2.bindValue(":type", type);
-	q2.bindValue(":date", date);
+	q2.bindValue(":date", dstr);
 	q2.bindValue(":distance", distance);
 	q2.bindValue(":duree", duree);
 	q2.bindValue(":denivele", denivele);

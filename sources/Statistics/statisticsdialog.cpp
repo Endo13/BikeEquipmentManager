@@ -47,7 +47,7 @@ void StatisticsDialog::showDistanceByYear()
 	for (int y = year - 4; y <= year; y++) {		
 		QBarSet *set = new QBarSet(QString::number(y));			
 		QSqlQuery q(*db);
-		QString query = "select sum(distance), sum(denivele) from workouts WHERE date like '%." + QString::number(y) + "%' ";
+		QString query = "select sum(distance), sum(denivele) from workouts WHERE date like '%" + QString::number(y) + "-%' ";
 		q.prepare(query);
 		//execute the query
 		if (!q.exec()) {//if the query has some error then return
@@ -117,9 +117,9 @@ QChartView * StatisticsDialog::getMoyChartView()
 	QDate d;
 	int year = d.currentDate().year();
 	QBarSet *moy = new QBarSet("FC, Cadence et Puissance");
-	int maxMoy = 0;
+	int maxMoy = 1;
 	QSqlQuery q(*db);
-	QString query = "select Max(FCMoyenne), Max(CadenceMoyenne), Max(PuissanceMoyenne) from workouts WHERE date like '%." + QString::number(year) + "%'";
+	QString query = "select Max(FCMoyenne), Max(CadenceMoyenne), Max(PuissanceMoyenne) from workouts WHERE date like '%" + QString::number(year) + "-%'";
 	q.prepare(query);
 	//execute the query
 	if (!q.exec()) {//if the query has some error then return
@@ -165,9 +165,9 @@ QChartView * StatisticsDialog::getMaxChartView()
 	QDate d;
 	int year = d.currentDate().year();
 	QBarSet *max = new QBarSet("FC, Cadence et Puissance Max");
-	int maxMax = 0;
+	int maxMax = 1;
 	QSqlQuery q(*db);
-	QString query = "select Max(FCMax), Max(CadenceMax), Max(PuissanceMax) from workouts WHERE date like '%." + QString::number(year) + "%'";
+	QString query = "select Max(FCMax), Max(CadenceMax), Max(PuissanceMax) from workouts WHERE date like '%" + QString::number(year) + "-%'";
 	q.prepare(query);
 	//execute the query
 	if (!q.exec()) {//if the query has some error then return
@@ -222,7 +222,7 @@ void StatisticsDialog::showDistanceByMonth()
 			ss << std::setw(2) << std::setfill('0') << (i + 1);
 			QString mois = QString::fromStdString(ss.str());
 			QSqlQuery q(*db);
-			QString query = "select sum(distance) from workouts WHERE date like '%" + mois + "." + QString::number(y) + "%' ";
+			QString query = "select sum(distance) from workouts WHERE date like '%" + QString::number(y) + "-" + mois + "-%' ";
 			q.prepare(query);
 			//execute the query
 			if (!q.exec()) {//if the query has some error then return
@@ -274,7 +274,7 @@ void StatisticsDialog::showBikesThisYear() {
 	int count = 0;
 	QPieSeries *series = new QPieSeries();
 	QSqlQuery q(*db);
-	QString query = "select bikeID, sum(DISTINCT distance) from workouts WHERE date like '%." + QString::number(year) + "%' group by bikeID; ";
+	QString query = "select bikeID, sum(DISTINCT distance) from workouts WHERE date like '%" + QString::number(year) + "-%' group by bikeID; ";
 	q.prepare(query);
 	//execute the query
 	if (!q.exec()) {//if the query has some error then return

@@ -565,105 +565,115 @@
         <translation>Dénivelé</translation>
     </message>
     <message>
-        <location filename="Statistics/statisticsdialog.cpp" line="76"/>
+        <location filename="Statistics/statisticsdialog.cpp" line="78"/>
         <source>Distance (km) et denivele (km) parcourue par annee</source>
         <translation>Distance (km) et dénivelé (km) parcourue par année</translation>
     </message>
     <message>
-        <location filename="Statistics/statisticsdialog.cpp" line="141"/>
+        <location filename="Statistics/statisticsdialog.cpp" line="122"/>
+        <source>FC, Cadence et Puissance</source>
+        <translation></translation>
+    </message>
+    <message>
+        <location filename="Statistics/statisticsdialog.cpp" line="143"/>
         <source>Mes meilleures moyennes en </source>
         <translation></translation>
     </message>
     <message>
-        <location filename="Statistics/statisticsdialog.cpp" line="145"/>
-        <location filename="Statistics/statisticsdialog.cpp" line="195"/>
+        <location filename="Statistics/statisticsdialog.cpp" line="147"/>
+        <location filename="Statistics/statisticsdialog.cpp" line="197"/>
         <source>F</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="Statistics/statisticsdialog.cpp" line="145"/>
-        <location filename="Statistics/statisticsdialog.cpp" line="195"/>
+        <location filename="Statistics/statisticsdialog.cpp" line="147"/>
+        <location filename="Statistics/statisticsdialog.cpp" line="197"/>
         <source>C</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="Statistics/statisticsdialog.cpp" line="145"/>
-        <location filename="Statistics/statisticsdialog.cpp" line="195"/>
+        <location filename="Statistics/statisticsdialog.cpp" line="147"/>
+        <location filename="Statistics/statisticsdialog.cpp" line="197"/>
         <source>P</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="Statistics/statisticsdialog.cpp" line="191"/>
+        <location filename="Statistics/statisticsdialog.cpp" line="172"/>
+        <source>FC, Cadence et Puissance Max</source>
+        <translation></translation>
+    </message>
+    <message>
+        <location filename="Statistics/statisticsdialog.cpp" line="193"/>
         <source>Mes records personels en </source>
         <translation></translation>
     </message>
     <message>
-        <location filename="Statistics/statisticsdialog.cpp" line="251"/>
+        <location filename="Statistics/statisticsdialog.cpp" line="253"/>
         <source>Distance (km) parcourue par mois et annee</source>
         <translation>Distance (km) parcourue par mois et année</translation>
     </message>
     <message>
-        <location filename="Statistics/statisticsdialog.cpp" line="255"/>
+        <location filename="Statistics/statisticsdialog.cpp" line="257"/>
         <source>Jan</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="Statistics/statisticsdialog.cpp" line="255"/>
+        <location filename="Statistics/statisticsdialog.cpp" line="257"/>
         <source>Fev</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="Statistics/statisticsdialog.cpp" line="255"/>
+        <location filename="Statistics/statisticsdialog.cpp" line="257"/>
         <source>Mar</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="Statistics/statisticsdialog.cpp" line="255"/>
+        <location filename="Statistics/statisticsdialog.cpp" line="257"/>
         <source>Avr</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="Statistics/statisticsdialog.cpp" line="255"/>
+        <location filename="Statistics/statisticsdialog.cpp" line="257"/>
         <source>Mai</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="Statistics/statisticsdialog.cpp" line="255"/>
+        <location filename="Statistics/statisticsdialog.cpp" line="257"/>
         <source>Jun</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="Statistics/statisticsdialog.cpp" line="255"/>
+        <location filename="Statistics/statisticsdialog.cpp" line="257"/>
         <source>Jui</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="Statistics/statisticsdialog.cpp" line="255"/>
+        <location filename="Statistics/statisticsdialog.cpp" line="257"/>
         <source>Aou</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="Statistics/statisticsdialog.cpp" line="255"/>
+        <location filename="Statistics/statisticsdialog.cpp" line="257"/>
         <source>Sep</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="Statistics/statisticsdialog.cpp" line="255"/>
+        <location filename="Statistics/statisticsdialog.cpp" line="257"/>
         <source>Oct</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="Statistics/statisticsdialog.cpp" line="255"/>
+        <location filename="Statistics/statisticsdialog.cpp" line="257"/>
         <source>Nov</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="Statistics/statisticsdialog.cpp" line="255"/>
+        <location filename="Statistics/statisticsdialog.cpp" line="257"/>
         <source>Dec</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="Statistics/statisticsdialog.cpp" line="310"/>
+        <location filename="Statistics/statisticsdialog.cpp" line="312"/>
         <source>Distance par velo en </source>
         <translation>Distance par vélo en </translation>
     </message>

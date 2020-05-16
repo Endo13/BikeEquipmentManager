@@ -5,23 +5,23 @@ The cumulative distance is automatically incremented when you enter your bike tr
 You can can import GPX, TCX or FIT files ton automatically add your bike trips.
 
 Features
-Creates equipments
-Creates bikes and add equipments inside
-Creates bike rides
-Opens GPX, TCX, FIT files to import data in bike rides
-Distance of the rides are automatically incremented to each equipment used by the bike of the rides
-Get usefull statistics
-Save and load locally your data
+* Creates equipments
+* Creates bikes and add equipments inside
+* Creates bike rides
+* Opens GPX, TCX, FIT files to import data in bike rides
+* Distance of the rides are automatically incremented to each equipment used by the bike of the rides
+* Get usefull statistics
+* Save and load locally your data
 
 ## Build
 
 Build requirements:
 
 Qt >= 5.9.6 
-Build steps:
 
-generate .bat
-deploy .bat
+Build steps:
+* generate.bat
+* deploy.bat
 
 ## Download
 https://sourceforge.net/projects/bike-equipment-manager/

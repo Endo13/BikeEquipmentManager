@@ -94,7 +94,7 @@ void BikesEdit::setupUnitsComboBoxModel()
 		if (!q.exec()) {
 		}
 		QVariant Qid = 0;
-		cb->addItem(QString::fromLatin1("Aucun équipement sélectionné"), Qid);
+		cb->addItem(QObject::tr("Aucun equipement selectionne"), Qid);
 		while (q.next()) {//if the result exists then load the description					 
 			qint8 marqueRec = q.record().indexOf("marque");
 			qint8 modeleRec = q.record().indexOf("modele");
@@ -201,19 +201,19 @@ void BikesEdit::on_add_pushButton_clicked()
     /// and resets the form
     //validate form
         if(!validateForm()){
-        QMessageBox::warning(this,"Remplir les champs", QString::fromLatin1("Remplir le champ nom du velo"));
+        QMessageBox::warning(this, QObject::tr("Remplir les champs"), QObject::tr("Remplir le champ nom du velo"));
         return;
     }
 
     //confirms from the user
     QMessageBox::StandardButton reply;
-    reply = QMessageBox::question(this,"Confirmation",
-                                  "Confirmez vous la modification de ce velo?",
+    reply = QMessageBox::question(this, QObject::tr("Confirmation"),
+			QObject::tr("Confirmez vous la modification de ce velo?"),
                                   QMessageBox::Yes | QMessageBox::Cancel);
     //if the user accepts the dialog
     if (reply == QMessageBox::Yes){
         if(addItem()){
-            QMessageBox::information(this, "Succes", "Velo modifie");
+            QMessageBox::information(this, QObject::tr("Succes"), QObject::tr("Velo modifie"));
             resetForm();
         }
     }

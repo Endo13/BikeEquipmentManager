@@ -27,10 +27,10 @@ void SaveDialog::on_pbExport_clicked()
 	}
 	QString path = qApp->applicationDirPath() + "/records/data.db";
 	if (!QFile::copy(path,file)) {
-		QMessageBox::warning(this, "Echec", QString::fromLatin1("Export impossible"));
+		QMessageBox::warning(this, QObject::tr("Echec"), QObject::tr("Export impossible"));
 	}
 	else {
-		QMessageBox::information(this, "Succes", "Export reussi");
+		QMessageBox::information(this, QObject::tr("Succes"), QObject::tr("Export reussi"));
 		this->close();
 	}
 }
@@ -50,10 +50,10 @@ void SaveDialog::on_pbImport_clicked()
 			QFile::remove(path);
 		}
 		if (!QFile::copy(file, path)) {
-			QMessageBox::warning(this, "Echec", QString::fromLatin1("Import impossible"));
+			QMessageBox::warning(this, QObject::tr("Echec"), QObject::tr("Import impossible"));
 		}
 		else {
-			QMessageBox::information(this, "Succes", "Import reussi");
+			QMessageBox::information(this, QObject::tr("Succes"), QObject::tr("Import reussi"));
 			db->setDatabaseName(path.toLatin1());
 			if (db->open())
 				qDebug() << "connected";
@@ -63,7 +63,7 @@ void SaveDialog::on_pbImport_clicked()
 		}		
 	}
 	else {
-		QMessageBox::warning(this, "Echec", QString::fromLatin1("Fichier introuvable"));
+		QMessageBox::warning(this, QObject::tr("Echec"), QObject::tr("Fichier introuvable"));
 	}
 }
 

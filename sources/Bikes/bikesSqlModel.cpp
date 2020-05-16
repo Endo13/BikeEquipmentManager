@@ -28,7 +28,7 @@ QVariant bikesSqlModel::data(const QModelIndex &index, int role) const
 
 		//execute the query
 		if (!q.exec()) {//if the query has some error then return
-			return QString::fromLatin1("non équipé");
+			return QObject::tr("non equipe");
 		}
 		// if the query executes
 		// check for the result
@@ -43,20 +43,20 @@ QVariant bikesSqlModel::data(const QModelIndex &index, int role) const
 				q2.prepare("select nom from " + m + " where ID=?");
 				q2.bindValue(0, q.value(marque).toInt());
 				if (!q2.exec()) {//if the query has some error then return
-					return QString::fromLatin1("non équipé");
+					return QObject::tr("non equipe");
 				}
 				if (q2.next()) {
 					qint8 nom = q2.record().indexOf("nom");	
 					return q2.value(nom).toString() + " - " + modele;
 				}	
-				return QString::fromLatin1("non équipé");
+				return QObject::tr("non equipe");
 			}
 			else {
-				return QString::fromLatin1("non équipé");
+				return QObject::tr("non equipe");
 			}
 		}
 		else {
-			return QString::fromLatin1("non équipé");
+			return QObject::tr("non equipe");
 		}
 	}
 	else {

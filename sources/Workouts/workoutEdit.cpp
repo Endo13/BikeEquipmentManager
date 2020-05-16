@@ -219,19 +219,19 @@ void WorkoutEdit::on_add_pushButton_clicked()
     /// and resets the form
     //validate form
 	if (!validateForm()) {
-		QMessageBox::warning(this, "Remplir les champs", QString::fromLatin1("Remplir le champ nom du vélo"));
+		QMessageBox::warning(this, QObject::tr("Remplir les champs"), QObject::tr("Remplir le champ nom du velo"));
 		return;
 	}
 
 	//confirms from the user
 	QMessageBox::StandardButton reply;
-	reply = QMessageBox::question(this, "Etes vous sur?",
-		"Confirmer vous la modification de cette sortie?",
+	reply = QMessageBox::question(this, QObject::tr("Etes vous sur?"),
+		QObject::tr("Confirmer vous la modification de cette sortie?"),
 		QMessageBox::Yes | QMessageBox::Cancel);
 	//if the user accepts the dialog
 	if (reply == QMessageBox::Yes) {
 		if (addItem()) {
-			QMessageBox::information(this, "Succes", "Sortie modifiee");
+			QMessageBox::information(this, QObject::tr("Succes"), QObject::tr("Sortie modifiee"));
 			resetForm();
 		}
 	}

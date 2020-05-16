@@ -1,7 +1,7 @@
 #ifndef COORDINATES_H
 #define COORDINATES_H
 
-#include <cmath>
+#include <qmath.h>
 #include <QDebug>
 
 #define deg2rad(d) (((d)*M_PI)/180.0)

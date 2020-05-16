@@ -41,8 +41,8 @@ void StatisticsDialog::showDistanceByYear()
 	QBarSeries *series = new QBarSeries();
 	QLineSeries *lineseries = new QLineSeries();
 	QStringList categories;
-	categories << QObject::tr(QString::fromLatin1("Années").toStdString().c_str());
-	lineseries->setName(QObject::tr(QString::fromLatin1("Dénivelé").toStdString().c_str()));
+	categories << QObject::tr("Annees");
+	lineseries->setName(QObject::tr("Denivele"));
 	int denCount = 0;
 	for (int y = year - 4; y <= year; y++) {		
 		QBarSet *set = new QBarSet(QString::number(y));			
@@ -66,13 +66,14 @@ void StatisticsDialog::showDistanceByYear()
 		else {
 			*set << 0;
 		}
+		
 		series->append(set);		
 	}
 
 	QChart *chart = new QChart();
 	chart->addSeries(series);
 	chart->addSeries(lineseries);
-	chart->setTitle(QObject::tr(QString::fromLatin1("Distance (km) et dénivelé (km) parcourue par année").toStdString().c_str()));
+	chart->setTitle(QObject::tr("Distance (km) et denivele (km) parcourue par annee"));
 	chart->setAnimationOptions(QChart::SeriesAnimations);
 
 	
@@ -137,17 +138,19 @@ QChartView * StatisticsDialog::getMoyChartView()
 	series->append(moy);
 	QChart *chart = new QChart();
 	chart->addSeries(series);
-	chart->setTitle(QObject::tr(QString::fromLatin1("Mes meilleures moyennes en ").toStdString().c_str()) + QString::number(year));
+	chart->setTitle(QObject::tr("Mes meilleures moyennes en ") + QString::number(year));
 	chart->setAnimationOptions(QChart::SeriesAnimations);
 
 	QStringList categories = {
-		QObject::tr(QString::fromLatin1("F").toStdString().c_str()), QObject::tr(QString::fromLatin1("C").toStdString().c_str()), QObject::tr(QString::fromLatin1("P").toStdString().c_str())
+		QObject::tr("F"), QObject::tr("C"), QObject::tr("P")
 	};
 
 	QBarCategoryAxis *axisX = new QBarCategoryAxis();
 	axisX->append(categories);
 	chart->addAxis(axisX, Qt::AlignBottom);
 	QValueAxis *axisY = new QValueAxis();
+	if (maxMoy == 0)
+		maxMoy = 1;
 	axisY->setRange(0, maxMoy);
 	chart->addAxis(axisY, Qt::AlignLeft);
 	series->attachAxis(axisX);
@@ -185,17 +188,19 @@ QChartView * StatisticsDialog::getMaxChartView()
 	series->append(max);
 	QChart *chart = new QChart();
 	chart->addSeries(series);
-	chart->setTitle(QObject::tr(QString::fromLatin1("Mes records personels en ").toStdString().c_str()) + QString::number(year));
+	chart->setTitle(QObject::tr("Mes records personels en ") + QString::number(year));
 	chart->setAnimationOptions(QChart::SeriesAnimations);
 
 	QStringList categories = {
-		QObject::tr(QString::fromLatin1("F").toStdString().c_str()), QObject::tr(QString::fromLatin1("C").toStdString().c_str()), QObject::tr(QString::fromLatin1("P").toStdString().c_str())
+		QObject::tr("F"), QObject::tr("C"), QObject::tr("P")
 	};
 
 	QBarCategoryAxis *axisX = new QBarCategoryAxis();
 	axisX->append(categories);
 	chart->addAxis(axisX, Qt::AlignBottom);
 	QValueAxis *axisY = new QValueAxis();
+	if (maxMax == 0)
+		maxMax = 1;
 	axisY->setRange(0, maxMax);
 	chart->addAxis(axisY, Qt::AlignLeft);
 	series->attachAxis(axisX);
@@ -243,7 +248,7 @@ void StatisticsDialog::showDistanceByMonth()
 
 	QChart *chart = new QChart();
 	chart->addSeries(series);
-	chart->setTitle(QObject::tr(QString::fromLatin1("Distance (km) parcourue par mois et année").toStdString().c_str()));
+	chart->setTitle(QObject::tr("Distance (km) parcourue par mois et annee"));
 	chart->setAnimationOptions(QChart::SeriesAnimations);
 
 	QStringList categories;
@@ -302,7 +307,7 @@ void StatisticsDialog::showBikesThisYear() {
 
 	QChart *chart = new QChart();
 	chart->addSeries(series);
-	chart->setTitle(QObject::tr(QString::fromLatin1("Distance par vélo en ").toStdString().c_str())+QString::number(year));
+	chart->setTitle(QObject::tr("Distance par velo en ")+QString::number(year));
 	chart->setAnimationOptions(QChart::SeriesAnimations);
 	chart->legend()->hide();
 

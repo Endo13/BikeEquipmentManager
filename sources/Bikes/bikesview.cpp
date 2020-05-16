@@ -65,8 +65,8 @@ void BikesView::on_delete()
 {
 	//confirms from the user
 	QMessageBox::StandardButton reply;
-	reply = QMessageBox::question(this, QString::fromLatin1("Confirmation"),
-		QString::fromLatin1("Confirmez vous la suppression de ce velo?"),
+	reply = QMessageBox::question(this, QObject::tr("Confirmation"),
+		QObject::tr("Confirmez vous la suppression de ce velo?"),
 		QMessageBox::Yes | QMessageBox::Cancel);
 	//if the user accepts the dialog
 	if (reply == QMessageBox::Yes) {
@@ -78,7 +78,7 @@ void BikesView::on_delete()
 
 		//execute the query
 		if (!q.exec()) {//if the query has some error then return
-			QMessageBox::critical(this, "Echec", "Suppression impossible");
+			QMessageBox::critical(this, QObject::tr("Echec"), QObject::tr("Suppression impossible"));
 			QMessageBox::critical(this, "Error", q.lastError().text()
 				+ "\n" + q.lastQuery());
 		}
@@ -87,7 +87,7 @@ void BikesView::on_delete()
 			ui->pbEdit->setEnabled(false);
 			ui->pbDelete->setEnabled(false);
 			ui->pbServiceBook->setEnabled(false);
-			QMessageBox::information(this, "Succes", QString::fromLatin1("Velo supprime"));
+			QMessageBox::information(this, QObject::tr("Succes"), QObject::tr("Velo supprime"));
 		}
 	}
 	ui->pbEdit->setEnabled(false);

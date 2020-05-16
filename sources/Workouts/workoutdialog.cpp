@@ -211,19 +211,19 @@ void WorkoutDialog::on_add_pushButton_clicked()
     /// and resets the form
     //validate form
     if(!validateForm()){
-        QMessageBox::warning(this,"Remplir les champs", QString::fromLatin1("Remplir le champ nom du vélo"));
+        QMessageBox::warning(this, QObject::tr("Remplir les champs"), QObject::tr("Remplir le champ nom du velo"));
         return;
     }
 
     //confirms from the user
     QMessageBox::StandardButton reply;
-    reply = QMessageBox::question(this,"Etes vous sur?",
-                                  "Confirmez vous la creation de cette sortie?",
+    reply = QMessageBox::question(this, QObject::tr("Etes vous sur?"),
+			QObject::tr("Confirmez vous la creation de cette sortie?"),
                                   QMessageBox::Yes | QMessageBox::Cancel);
     //if the user accepts the dialog
     if (reply == QMessageBox::Yes){
         if(addItem()){
-            QMessageBox::information(this, "Succes", "Sortie ajoutee");
+            QMessageBox::information(this, QObject::tr("Succes"), QObject::tr("Sortie ajoutee"));
             resetForm();
 			this->close();
         }

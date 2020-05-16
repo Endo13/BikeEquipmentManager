@@ -138,10 +138,10 @@ bool WorkoutEdit::addItem()
 	QString nom = ui->leNom->text();
 	qint8	type = ui->cbType->currentIndex();
 	QString date = ui->deSortie->text();
-	QDate da = ui->deSortie->date();
-	QString dstr = da.toString(Qt::DateFormat::ISODate);
+	QDate Dastr = ui->deSortie->date();
+	QString dstr = Dastr.toString(Qt::DateFormat::ISODate);
 	double  distance = ui->spDistance->value();
-	int  duree = ui->teSortie->time().hour() + ui->teSortie->time().minute() + ui->teSortie->time().second();
+	QString  duree = ui->teSortie->text();
 	int denivele = ui->spDenivele->value();
 	int puissanceMoyenne = ui->spPuissanceMoyenne->value();
 	int puissanceMax = ui->spPuissanceMax->value();

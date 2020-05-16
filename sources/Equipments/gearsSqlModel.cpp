@@ -22,22 +22,7 @@ QVariant gearsSqlModel::data(const QModelIndex &index, int role) const
 		return Qt::AlignCenter;
 	if ((role == Qt::DisplayRole) && (index.column() == 1)) {
 		//prepare the query
-		QSqlQuery q(*db);
-		q.prepare("select nom from typeEquipement where ID=?");
-		q.bindValue(0, QSqlTableModel::data(index, role));
-		//execute the query
-		if (!q.exec()) {//if the query has some error then return
-			return "N/C";
-		}
-		// if the query executes
-		// check for the result
-		if (q.next()) {//if the result exists then load the description					 
-			qint8 nom = q.record().indexOf("nom");
-			return q.value(nom).toString();
-		}
-		else {
-			return "N/C";
-		}
+		return tableUtilities.getNomEquipement(QSqlTableModel::data(index, role).toInt());
 	}
 	else if ((role == Qt::DisplayRole) && (index.column() == 2)) {
 		const QModelIndex ind = index.sibling(index.row(), 1);
@@ -66,10 +51,10 @@ QVariant gearsSqlModel::data(const QModelIndex &index, int role) const
 		QDate Date = QDate::fromString(QSqlTableModel::data(index, role).toString(), Qt::DateFormat::ISODate);
 		return Date.toString(Qt::DateFormat::LocalDate);
 	}
-	else if ((role == Qt::DisplayRole) && (index.column() == 7)) {
+	/*else if ((role == Qt::DisplayRole) && (index.column() == 7)) {
 		const QModelIndex ind = index.sibling(index.row(), 6);
 		return QSqlTableModel::data(ind, role).toDouble() + QSqlTableModel::data(index, role).toDouble(); 
-	}
+	}*/
 	else {
 		return QSqlTableModel::data(index, role);
 	}

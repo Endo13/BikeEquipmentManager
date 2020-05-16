@@ -41,11 +41,12 @@ void StatisticsDialog::showDistanceByYear()
 	QBarSeries *series = new QBarSeries();
 	QLineSeries *lineseries = new QLineSeries();
 	QStringList categories;
-	categories << QObject::tr("Annees");
+	QBarSet *set = new QBarSet(QObject::tr("Annees"));
 	lineseries->setName(QObject::tr("Denivele"));
 	int denCount = 0;
 	for (int y = year - 4; y <= year; y++) {		
-		QBarSet *set = new QBarSet(QString::number(y));			
+		categories << QString::number(y);
+			
 		QSqlQuery q(*db);
 		QString query = "select sum(distance), sum(denivele) from workouts WHERE date like '%" + QString::number(y) + "-%' ";
 		q.prepare(query);
@@ -61,15 +62,16 @@ void StatisticsDialog::showDistanceByYear()
 			*set << q.value(dist).toDouble();
 			if (q.value(den).toDouble() > maxDen)
 				maxDen = q.value(den).toDouble();
-			lineseries->append(QPointF(denCount++, q.value(den).toDouble()/1000.0));
+			lineseries->append(QPointF(denCount++, q.value(den).toDouble() / 1000.0));
 		}
 		else {
 			*set << 0;
+			lineseries->append(QPointF(denCount++, 0));
 		}
 		
-		series->append(set);		
+				
 	}
-
+	series->append(set);
 	QChart *chart = new QChart();
 	chart->addSeries(series);
 	chart->addSeries(lineseries);
@@ -117,7 +119,7 @@ QChartView * StatisticsDialog::getMoyChartView()
 {
 	QDate d;
 	int year = d.currentDate().year();
-	QBarSet *moy = new QBarSet("FC, Cadence et Puissance");
+	QBarSet *moy = new QBarSet(QObject::tr("FC, Cadence et Puissance"));
 	int maxMoy = 1;
 	QSqlQuery q(*db);
 	QString query = "select Max(FCMoyenne), Max(CadenceMoyenne), Max(PuissanceMoyenne) from workouts WHERE date like '%" + QString::number(year) + "-%'";
@@ -167,7 +169,7 @@ QChartView * StatisticsDialog::getMaxChartView()
 {
 	QDate d;
 	int year = d.currentDate().year();
-	QBarSet *max = new QBarSet("FC, Cadence et Puissance Max");
+	QBarSet *max = new QBarSet(QObject::tr("FC, Cadence et Puissance Max"));
 	int maxMax = 1;
 	QSqlQuery q(*db);
 	QString query = "select Max(FCMax), Max(CadenceMax), Max(PuissanceMax) from workouts WHERE date like '%" + QString::number(year) + "-%'";

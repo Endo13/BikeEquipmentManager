@@ -13,6 +13,11 @@ int main(int argc, char *argv[])
 		if (translator->load(QString("BikeEquipmentManager_fr"), QCoreApplication::applicationDirPath()))
 			a.installTranslator(translator);
 	}
+	else {
+		QTranslator* translator = new QTranslator();
+		if (translator->load(QString("BikeEquipmentManager_en"), QCoreApplication::applicationDirPath()))
+			a.installTranslator(translator);
+	}
 
 
     MainWindow w;

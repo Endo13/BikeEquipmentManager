@@ -44,9 +44,9 @@ void GearsDialog::setupModels()
 void GearsDialog::setupUnitsComboBoxModel()
 {
     /// sets up the model for combo box
-	QSqlQueryModel *model = new QSqlQueryModel(ui->cbType);
-	model->setQuery("SELECT nom FROM typeEquipement");
-	ui->cbType->setModel(model);
+	for (int i = 0; i < NB_GEARS; i++) {
+		ui->cbType->addItem(tableUtilities.getNomEquipement(i+1));
+	}
 
 	QSqlQueryModel *modeMarquel = new QSqlQueryModel(ui->cbMarque);
 	modeMarquel->setQuery("SELECT nom FROM MarqueAmortisseurAR");

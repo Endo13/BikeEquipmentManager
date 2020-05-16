@@ -50,6 +50,81 @@ MainWindow::MainWindow(QWidget *parent) :
 	connect(ui->pbDon, SIGNAL(clicked()), SLOT(on_actionDon_triggered()));
 	connect(ui->pbStatistics, SIGNAL(clicked()), SLOT(on_actionStatistics_triggered()));
 
+	QString locale = QLocale::system().name().section('_', 0, 0);
+	if (locale == "fr") {
+		QIcon icon;
+		icon.addFile(QStringLiteral(":/bike/gear.PNG"), QSize(), QIcon::Normal, QIcon::Off);
+		ui->pbAddGear->setIcon(icon);
+		ui->pbAddGear->setIconSize(QSize(200, 200));
+		ui->pbAddGear->setFlat(true);
+
+		QIcon icon2;
+		icon2.addFile(QStringLiteral(":/bike/AddGear.PNG"), QSize(), QIcon::Normal, QIcon::Off);
+		ui->pbConfigBike->setIcon(icon2);
+		ui->pbConfigBike->setIconSize(QSize(200, 200));
+		ui->pbConfigBike->setFlat(true);
+
+		QIcon icon3;
+		icon3.addFile(QStringLiteral(":/bike/workout.PNG"), QSize(), QIcon::Normal, QIcon::Off);
+		ui->pbWorkout->setIcon(icon3);
+		ui->pbWorkout->setIconSize(QSize(200, 200));
+		ui->pbWorkout->setFlat(true);
+
+		QIcon icon4;
+		icon4.addFile(QStringLiteral(":/bike/save.png"), QSize(), QIcon::Normal, QIcon::Off);
+		ui->pbSave->setIcon(icon4);
+		ui->pbSave->setIconSize(QSize(200, 200));
+		ui->pbSave->setFlat(true);
+
+		QIcon icon5;
+		icon5.addFile(QStringLiteral(":/bike/don.png"), QSize(), QIcon::Normal, QIcon::Off);
+		ui->pbDon->setIcon(icon5);
+		ui->pbDon->setIconSize(QSize(200, 200));
+		ui->pbDon->setFlat(true);
+
+		QIcon icon6;
+		icon6.addFile(QStringLiteral(":/bike/Statistics.PNG"), QSize(), QIcon::Normal, QIcon::Off);
+		ui->pbStatistics->setIcon(icon6);
+		ui->pbStatistics->setIconSize(QSize(200, 200));
+		ui->pbStatistics->setFlat(true);
+	}
+	else {
+		QIcon icon;
+		icon.addFile(QStringLiteral(":/bike/gear_en.PNG"), QSize(), QIcon::Normal, QIcon::Off);
+		ui->pbAddGear->setIcon(icon);
+		ui->pbAddGear->setIconSize(QSize(200, 200));
+		ui->pbAddGear->setFlat(true);
+
+		QIcon icon2;
+		icon2.addFile(QStringLiteral(":/bike/AddGear_en.PNG"), QSize(), QIcon::Normal, QIcon::Off);
+		ui->pbConfigBike->setIcon(icon2);
+		ui->pbConfigBike->setIconSize(QSize(200, 200));
+		ui->pbConfigBike->setFlat(true);
+
+		QIcon icon3;
+		icon3.addFile(QStringLiteral(":/bike/workout_en.PNG"), QSize(), QIcon::Normal, QIcon::Off);
+		ui->pbWorkout->setIcon(icon3);
+		ui->pbWorkout->setIconSize(QSize(200, 200));
+		ui->pbWorkout->setFlat(true);
+		QIcon icon4;
+		icon4.addFile(QStringLiteral(":/bike/save_en.png"), QSize(), QIcon::Normal, QIcon::Off);
+		ui->pbSave->setIcon(icon4);
+		ui->pbSave->setIconSize(QSize(200, 200));
+		ui->pbSave->setFlat(true);
+
+		QIcon icon5;
+		icon5.addFile(QStringLiteral(":/bike/don_en.png"), QSize(), QIcon::Normal, QIcon::Off);
+		ui->pbDon->setIcon(icon5);
+		ui->pbDon->setIconSize(QSize(200, 200));
+		ui->pbDon->setFlat(true);
+
+		QIcon icon6;
+		icon6.addFile(QStringLiteral(":/bike/Statistics_en.PNG"), QSize(), QIcon::Normal, QIcon::Off);
+		ui->pbStatistics->setIcon(icon6);
+		ui->pbStatistics->setIconSize(QSize(200, 200));
+		ui->pbStatistics->setFlat(true);
+	}
+
     setupDatabase();
 }
 

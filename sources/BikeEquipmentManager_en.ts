@@ -222,7 +222,7 @@
     <message>
         <location filename="Bikes/bikesview.cpp" line="69"/>
         <source>Confirmez vous la suppression de ce velo?</source>
-        <translation>Do you confirm the removal of this bike?</translation>
+        <translation>Can you confirm the removal of this bike?</translation>
     </message>
     <message>
         <location filename="Bikes/bikesview.cpp" line="81"/>
@@ -343,127 +343,127 @@
     <message>
         <location filename="Common/tableUtilities.cpp" line="156"/>
         <source>Fourche</source>
-        <translation type="unfinished"></translation>
+        <translation>Fork</translation>
     </message>
     <message>
         <location filename="Common/tableUtilities.cpp" line="158"/>
         <source>Frein arriere</source>
-        <translation type="unfinished"></translation>
+        <translation>Rear brake</translation>
     </message>
     <message>
         <location filename="Common/tableUtilities.cpp" line="160"/>
         <source>Frein avant</source>
-        <translation type="unfinished"></translation>
+        <translation>Front brake</translation>
     </message>
     <message>
         <location filename="Common/tableUtilities.cpp" line="162"/>
         <source>Jeu de direction</source>
-        <translation type="unfinished"></translation>
+        <translation>Headset</translation>
     </message>
     <message>
         <location filename="Common/tableUtilities.cpp" line="164"/>
         <source>Leviers de commande</source>
-        <translation type="unfinished"></translation>
+        <translation>Control levers</translation>
     </message>
     <message>
         <location filename="Common/tableUtilities.cpp" line="166"/>
         <source>Patins arrieres</source>
-        <translation type="unfinished"></translation>
+        <translation>Rear brake pads</translation>
     </message>
     <message>
         <location filename="Common/tableUtilities.cpp" line="168"/>
         <source>Patins avants</source>
-        <translation type="unfinished"></translation>
+        <translation>Front brake pads</translation>
     </message>
     <message>
         <location filename="Common/tableUtilities.cpp" line="170"/>
         <source>Patte anti-deraillement</source>
-        <translation type="unfinished"></translation>
+        <translation>Front Derailleur Chain Spotter</translation>
     </message>
     <message>
         <location filename="Common/tableUtilities.cpp" line="172"/>
         <source>Pedales</source>
-        <translation type="unfinished"></translation>
+        <translation>Pedals</translation>
     </message>
     <message>
         <location filename="Common/tableUtilities.cpp" line="174"/>
         <source>Pedalier</source>
-        <translation type="unfinished"></translation>
+        <translation>Crankset</translation>
     </message>
     <message>
         <location filename="Common/tableUtilities.cpp" line="176"/>
         <source>Plaquettes arrieres</source>
-        <translation type="unfinished"></translation>
+        <translation>Rear disc brake pads</translation>
     </message>
     <message>
         <location filename="Common/tableUtilities.cpp" line="178"/>
         <source>Plaquettes avant</source>
-        <translation type="unfinished"></translation>
+        <translation>Front disc brake pads</translation>
     </message>
     <message>
         <location filename="Common/tableUtilities.cpp" line="180"/>
         <source>Plateau 1</source>
-        <translation type="unfinished"></translation>
+        <translation>Chainring 1</translation>
     </message>
     <message>
         <location filename="Common/tableUtilities.cpp" line="182"/>
         <source>Plateau 2</source>
-        <translation type="unfinished"></translation>
+        <translation>Chainring 2</translation>
     </message>
     <message>
         <location filename="Common/tableUtilities.cpp" line="184"/>
         <source>Plateau 3</source>
-        <translation type="unfinished"></translation>
+        <translation>Chainring 3</translation>
     </message>
     <message>
         <location filename="Common/tableUtilities.cpp" line="186"/>
         <source>Pneu/boyau arriere</source>
-        <translation type="unfinished"></translation>
+        <translation>Rear tire</translation>
     </message>
     <message>
         <location filename="Common/tableUtilities.cpp" line="188"/>
         <source>Pneu/boyau avant</source>
-        <translation type="unfinished"></translation>
+        <translation>Front tire</translation>
     </message>
     <message>
         <location filename="Common/tableUtilities.cpp" line="190"/>
         <source>Potence</source>
-        <translation type="unfinished"></translation>
+        <translation>Stem</translation>
     </message>
     <message>
         <location filename="Common/tableUtilities.cpp" line="192"/>
         <source>Radar</source>
-        <translation type="unfinished"></translation>
+        <translation>Radar</translation>
     </message>
     <message>
         <location filename="Common/tableUtilities.cpp" line="194"/>
         <source>Roue arriere</source>
-        <translation type="unfinished"></translation>
+        <translation>Rear wheel</translation>
     </message>
     <message>
         <location filename="Common/tableUtilities.cpp" line="196"/>
         <source>Roue avant</source>
-        <translation type="unfinished"></translation>
+        <translation>Front wheel</translation>
     </message>
     <message>
         <location filename="Common/tableUtilities.cpp" line="198"/>
         <source>Sacoche</source>
-        <translation type="unfinished"></translation>
+        <translation>Bag</translation>
     </message>
     <message>
         <location filename="Common/tableUtilities.cpp" line="200"/>
         <source>Selle</source>
-        <translation type="unfinished"></translation>
+        <translation>Saddle</translation>
     </message>
     <message>
         <location filename="Common/tableUtilities.cpp" line="202"/>
         <source>Support compteur</source>
-        <translation type="unfinished"></translation>
+        <translation>Computer mount</translation>
     </message>
     <message>
         <location filename="Common/tableUtilities.cpp" line="204"/>
         <source>Tige de selle</source>
-        <translation type="unfinished"></translation>
+        <translation>Seatpost</translation>
     </message>
     <message>
         <location filename="Common/tableUtilities.cpp" line="213"/>
@@ -505,7 +505,7 @@
     <message>
         <location filename="Common/tableUtilities.cpp" line="253"/>
         <source>Mise a jour des km impossible</source>
-        <translation type="unfinished"></translation>
+        <translation>KM update impossible</translation>
     </message>
     <message>
         <location filename="Equipments/gearsview.cpp" line="19"/>
@@ -520,7 +520,7 @@
     <message>
         <location filename="Equipments/gearsview.cpp" line="21"/>
         <source>Modele</source>
-        <translation type="unfinished"></translation>
+        <translation>Model</translation>
     </message>
     <message>
         <location filename="Equipments/gearsview.cpp" line="22"/>
@@ -541,7 +541,7 @@
         <location filename="Equipments/gearsview.cpp" line="25"/>
         <source>KM cumules</source>
         <oldsource>KM cumul�s</oldsource>
-        <translation type="unfinished">Cumulated KM</translation>
+        <translation>Accumulated KM</translation>
     </message>
     <message>
         <location filename="Equipments/gearsview.cpp" line="26"/>
@@ -561,125 +561,135 @@
     <message>
         <location filename="Statistics/statisticsdialog.cpp" line="44"/>
         <source>Annees</source>
-        <translation type="unfinished"></translation>
+        <translation>Years</translation>
     </message>
     <message>
         <location filename="Statistics/statisticsdialog.cpp" line="45"/>
         <source>Denivele</source>
-        <translation type="unfinished"></translation>
+        <translation>Height difference</translation>
     </message>
     <message>
-        <location filename="Statistics/statisticsdialog.cpp" line="76"/>
+        <location filename="Statistics/statisticsdialog.cpp" line="78"/>
         <source>Distance (km) et denivele (km) parcourue par annee</source>
-        <translation type="unfinished"></translation>
+        <translation>Distance (km) and height difference (km) travelled per year</translation>
     </message>
     <message>
-        <location filename="Statistics/statisticsdialog.cpp" line="141"/>
+        <location filename="Statistics/statisticsdialog.cpp" line="122"/>
+        <source>FC, Cadence et Puissance</source>
+        <translation>HR, Cadence and Power</translation>
+    </message>
+    <message>
+        <location filename="Statistics/statisticsdialog.cpp" line="143"/>
         <source>Mes meilleures moyennes en </source>
-        <translation type="unfinished"></translation>
+        <translation>My best averages in </translation>
     </message>
     <message>
-        <location filename="Statistics/statisticsdialog.cpp" line="145"/>
-        <location filename="Statistics/statisticsdialog.cpp" line="195"/>
+        <location filename="Statistics/statisticsdialog.cpp" line="147"/>
+        <location filename="Statistics/statisticsdialog.cpp" line="197"/>
         <source>F</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
-        <location filename="Statistics/statisticsdialog.cpp" line="145"/>
-        <location filename="Statistics/statisticsdialog.cpp" line="195"/>
+        <location filename="Statistics/statisticsdialog.cpp" line="147"/>
+        <location filename="Statistics/statisticsdialog.cpp" line="197"/>
         <source>C</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
-        <location filename="Statistics/statisticsdialog.cpp" line="145"/>
-        <location filename="Statistics/statisticsdialog.cpp" line="195"/>
+        <location filename="Statistics/statisticsdialog.cpp" line="147"/>
+        <location filename="Statistics/statisticsdialog.cpp" line="197"/>
         <source>P</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
-        <location filename="Statistics/statisticsdialog.cpp" line="191"/>
+        <location filename="Statistics/statisticsdialog.cpp" line="172"/>
+        <source>FC, Cadence et Puissance Max</source>
+        <translation>Max HR, Cadence and Power</translation>
+    </message>
+    <message>
+        <location filename="Statistics/statisticsdialog.cpp" line="193"/>
         <source>Mes records personels en </source>
-        <translation type="unfinished"></translation>
+        <translation>My personal records in </translation>
     </message>
     <message>
-        <location filename="Statistics/statisticsdialog.cpp" line="251"/>
+        <location filename="Statistics/statisticsdialog.cpp" line="253"/>
         <source>Distance (km) parcourue par mois et annee</source>
-        <translation type="unfinished"></translation>
+        <translation>Distance (km) travelled per month and year</translation>
     </message>
     <message>
-        <location filename="Statistics/statisticsdialog.cpp" line="255"/>
+        <location filename="Statistics/statisticsdialog.cpp" line="257"/>
         <source>Jan</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="Statistics/statisticsdialog.cpp" line="255"/>
+        <location filename="Statistics/statisticsdialog.cpp" line="257"/>
         <source>Fev</source>
         <translation>Feb</translation>
     </message>
     <message>
-        <location filename="Statistics/statisticsdialog.cpp" line="255"/>
+        <location filename="Statistics/statisticsdialog.cpp" line="257"/>
         <source>Mar</source>
         <translation>Mar</translation>
     </message>
     <message>
-        <location filename="Statistics/statisticsdialog.cpp" line="255"/>
+        <location filename="Statistics/statisticsdialog.cpp" line="257"/>
         <source>Avr</source>
         <translation>Apr</translation>
     </message>
     <message>
-        <location filename="Statistics/statisticsdialog.cpp" line="255"/>
+        <location filename="Statistics/statisticsdialog.cpp" line="257"/>
         <source>Mai</source>
         <translation>May</translation>
     </message>
     <message>
-        <location filename="Statistics/statisticsdialog.cpp" line="255"/>
+        <location filename="Statistics/statisticsdialog.cpp" line="257"/>
         <source>Jun</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="Statistics/statisticsdialog.cpp" line="255"/>
+        <location filename="Statistics/statisticsdialog.cpp" line="257"/>
         <source>Jui</source>
         <translation>Jul</translation>
     </message>
     <message>
-        <location filename="Statistics/statisticsdialog.cpp" line="255"/>
+        <location filename="Statistics/statisticsdialog.cpp" line="257"/>
         <source>Aou</source>
         <translation>Aug</translation>
     </message>
     <message>
-        <location filename="Statistics/statisticsdialog.cpp" line="255"/>
+        <location filename="Statistics/statisticsdialog.cpp" line="257"/>
         <source>Sep</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="Statistics/statisticsdialog.cpp" line="255"/>
+        <location filename="Statistics/statisticsdialog.cpp" line="257"/>
         <source>Oct</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="Statistics/statisticsdialog.cpp" line="255"/>
+        <location filename="Statistics/statisticsdialog.cpp" line="257"/>
         <source>Nov</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="Statistics/statisticsdialog.cpp" line="255"/>
+        <location filename="Statistics/statisticsdialog.cpp" line="257"/>
         <source>Dec</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="Statistics/statisticsdialog.cpp" line="310"/>
+        <location filename="Statistics/statisticsdialog.cpp" line="312"/>
         <source>Distance par velo en </source>
-        <translation type="unfinished"></translation>
+        <translation>Distance by bike in </translation>
     </message>
     <message>
         <location filename="Workouts/workoutview.cpp" line="21"/>
         <source>Velo utilise</source>
-        <translation type="unfinished"></translation>
+        <translation>Bike used</translation>
     </message>
     <message>
         <location filename="Workouts/workoutview.cpp" line="22"/>
         <source>Type de sortie</source>
-        <translation type="unfinished"></translation>
+        <translation>Type of ride</translation>
     </message>
     <message>
         <location filename="Workouts/workoutview.cpp" line="23"/>
@@ -689,7 +699,7 @@
     <message>
         <location filename="Workouts/workoutview.cpp" line="24"/>
         <source>Meteo</source>
-        <translation type="unfinished"></translation>
+        <translation>Weather</translation>
     </message>
     <message>
         <location filename="Workouts/workoutview.cpp" line="25"/>
@@ -699,12 +709,12 @@
     <message>
         <location filename="Workouts/workoutview.cpp" line="26"/>
         <source>Duree</source>
-        <translation type="unfinished"></translation>
+        <translation>Time</translation>
     </message>
     <message>
         <location filename="Workouts/workoutview.cpp" line="27"/>
         <source>Denivele (m)</source>
-        <translation type="unfinished"></translation>
+        <translation>Height difference</translation>
     </message>
     <message>
         <location filename="Workouts/workoutview.cpp" line="28"/>
@@ -734,28 +744,28 @@
     <message>
         <location filename="Workouts/workoutview.cpp" line="33"/>
         <source>Frequence moyenne</source>
-        <translation type="unfinished"></translation>
+        <translation>Average heart rate</translation>
     </message>
     <message>
         <location filename="Workouts/workoutview.cpp" line="34"/>
         <source>Frequence max</source>
-        <translation type="unfinished"></translation>
+        <translation>Max heart rate</translation>
     </message>
     <message>
         <location filename="Workouts/workoutview.cpp" line="35"/>
         <source>Cadence moyenne</source>
-        <translation type="unfinished">Average Cadence</translation>
+        <translation>Average cadence</translation>
     </message>
     <message>
         <location filename="Workouts/workoutview.cpp" line="36"/>
         <source>Cadence max</source>
-        <translation type="unfinished">Max Cadence</translation>
+        <translation>Max cadence</translation>
     </message>
     <message>
         <location filename="Bikes/bikedialog.cpp" line="52"/>
         <location filename="Bikes/bikesEdit.cpp" line="97"/>
         <source>Aucun equipement selectionne</source>
-        <translation type="unfinished"></translation>
+        <translation>No equipment selected</translation>
     </message>
     <message>
         <location filename="Bikes/bikedialog.cpp" line="164"/>
@@ -763,7 +773,7 @@
         <location filename="Workouts/workoutEdit.cpp" line="222"/>
         <location filename="Workouts/workoutdialog.cpp" line="214"/>
         <source>Remplir les champs</source>
-        <translation type="unfinished"></translation>
+        <translation>Fill the fields</translation>
     </message>
     <message>
         <location filename="Bikes/bikedialog.cpp" line="164"/>
@@ -771,19 +781,19 @@
         <location filename="Workouts/workoutEdit.cpp" line="222"/>
         <location filename="Workouts/workoutdialog.cpp" line="214"/>
         <source>Remplir le champ nom du velo</source>
-        <translation type="unfinished"></translation>
+        <translation>Fill bike&apos;s name field</translation>
     </message>
     <message>
         <location filename="Bikes/bikedialog.cpp" line="170"/>
         <location filename="Workouts/workoutEdit.cpp" line="228"/>
         <location filename="Workouts/workoutdialog.cpp" line="220"/>
         <source>Etes vous sur?</source>
-        <translation type="unfinished"></translation>
+        <translation>Are you sure ?</translation>
     </message>
     <message>
         <location filename="Bikes/bikedialog.cpp" line="171"/>
         <source>Confirmez vous la creation de cet equipement?</source>
-        <translation type="unfinished"></translation>
+        <translation>Can you confirm the creation of this equipment?</translation>
     </message>
     <message>
         <location filename="Bikes/bikedialog.cpp" line="176"/>
@@ -794,28 +804,28 @@
         <location filename="Workouts/workoutEdit.cpp" line="234"/>
         <location filename="Workouts/workoutdialog.cpp" line="226"/>
         <source>Succes</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="Bikes/bikedialog.cpp" line="176"/>
         <source>Equipement ajoute</source>
-        <translation type="unfinished"></translation>
+        <translation>Equipment added</translation>
     </message>
     <message>
         <location filename="Bikes/bikesEdit.cpp" line="210"/>
         <location filename="Bikes/bikesview.cpp" line="68"/>
         <source>Confirmation</source>
-        <translation type="unfinished"></translation>
+        <translation>Confirm</translation>
     </message>
     <message>
         <location filename="Bikes/bikesEdit.cpp" line="211"/>
         <source>Confirmez vous la modification de ce velo?</source>
-        <translation type="unfinished"></translation>
+        <translation>Can you confirm the modification of this bike?</translation>
     </message>
     <message>
         <location filename="Bikes/bikesEdit.cpp" line="216"/>
         <source>Velo modifie</source>
-        <translation type="unfinished"></translation>
+        <translation>Bike modified</translation>
     </message>
     <message>
         <location filename="Bikes/bikesSqlModel.cpp" line="31"/>
@@ -824,52 +834,52 @@
         <location filename="Bikes/bikesSqlModel.cpp" line="55"/>
         <location filename="Bikes/bikesSqlModel.cpp" line="59"/>
         <source>non equipe</source>
-        <translation type="unfinished"></translation>
+        <translation>Not equipped</translation>
     </message>
     <message>
         <location filename="Common/savedialog.cpp" line="30"/>
         <source>Export impossible</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="Common/savedialog.cpp" line="33"/>
         <source>Export reussi</source>
-        <translation type="unfinished"></translation>
+        <translation>Successful export</translation>
     </message>
     <message>
         <location filename="Common/savedialog.cpp" line="53"/>
         <source>Import impossible</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="Common/savedialog.cpp" line="56"/>
         <source>Import reussi</source>
-        <translation type="unfinished"></translation>
+        <translation>successful import</translation>
     </message>
     <message>
         <location filename="Common/savedialog.cpp" line="66"/>
         <source>Fichier introuvable</source>
-        <translation type="unfinished"></translation>
+        <translation>File not found</translation>
     </message>
     <message>
         <location filename="Workouts/workoutEdit.cpp" line="229"/>
         <source>Confirmer vous la modification de cette sortie?</source>
-        <translation type="unfinished"></translation>
+        <translation>Can you confirm the modification of this ride?</translation>
     </message>
     <message>
         <location filename="Workouts/workoutEdit.cpp" line="234"/>
         <source>Sortie modifiee</source>
-        <translation type="unfinished"></translation>
+        <translation>Ride modified</translation>
     </message>
     <message>
         <location filename="Workouts/workoutdialog.cpp" line="221"/>
         <source>Confirmez vous la creation de cette sortie?</source>
-        <translation type="unfinished"></translation>
+        <translation>Can you confirm the creation of this ride?</translation>
     </message>
     <message>
         <location filename="Workouts/workoutdialog.cpp" line="226"/>
         <source>Sortie ajoutee</source>
-        <translation type="unfinished"></translation>
+        <translation>Ride added</translation>
     </message>
 </context>
 <context>

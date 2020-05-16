@@ -27,6 +27,7 @@ GearsView::GearsView(QSqlDatabase *database, QWidget *parent) :
 	_model->setHeaderData(9, Qt::Horizontal, QObject::tr("Prix (Euro)"));
 	_model->setHeaderData(10, Qt::Horizontal, QObject::tr("Commander"));
 	ui->twGears->setModel(_model);
+	ui->twGears->resizeColumnsToContents();
 	ui->twGears->sortByColumn(1, Qt::SortOrder::AscendingOrder);
 	ui->twGears->setSortingEnabled(true);
 

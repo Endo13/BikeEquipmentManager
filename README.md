@@ -38,5 +38,14 @@ GPX Parser :
 https://github.com/tumic0/GPXSee
 
 ## Ressources
+* bicycle tools By Juraj Sedlák, SK 
+* Bicycle Wheel By Arthur Shlain 
+* statical analysis By ProSymbols, US 
+* Bicycle By johanna, DE 
+* disk By Begin sapdian, ID 
+* donation By Arafat Uddin, BD 
+* Pixel perfect
+* Freepik
+
 
 Thanks to my dad for the idea and testing.

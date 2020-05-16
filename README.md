@@ -13,7 +13,8 @@ Distance of the rides are automatically incremented to each equipment used by th
 Get usefull statistics
 Save and load locally your data
 
-Build
+## Build
+
 Build requirements:
 
 Qt >= 5.9.6 
@@ -22,20 +23,20 @@ Build steps:
 generate .bat
 deploy .bat
 
-Download
+## Download
 https://sourceforge.net/projects/bike-equipment-manager/
 
-Translations
+## Translations
 Available in French and English
 
 Source Forge :
 https://sourceforge.net/projects/bike-equipment-manager/
 
-Contribution
+## Contribution
 
 GPX Parser :
 https://github.com/tumic0/GPXSee
 
-Ressources
+## Ressources
 
 Thanks to my dad for the idea and testing.

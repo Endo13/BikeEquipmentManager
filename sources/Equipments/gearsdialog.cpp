@@ -16,9 +16,13 @@ GearsDialog::GearsDialog(QSqlDatabase *database, QWidget *parent) :
 
 	//setup ui
 	ui->deAchat->setDate(QDate::currentDate());
-	ui->deAchat->setDisplayFormat("dd.MM.yyyy");
+	QString locale = QLocale::system().name().section('_', 0, 0);
+	if (locale == "fr") {
+		ui->deAchat->setDisplayFormat("dd/MM/yyyy");
+		ui->deUtilisation->setDisplayFormat("dd/MM/yyyy");
+	}
 	ui->deUtilisation->setDate(QDate::currentDate());
-	ui->deUtilisation->setDisplayFormat("dd.MM.yyyy");
+
 	//Signal Slot
 	connect(ui->cbType, SIGNAL(currentIndexChanged(int)), SLOT(changeMarque(int)));
 }
@@ -66,8 +70,10 @@ bool GearsDialog::addItem()
 	qint8	type = ui->cbType->currentIndex()+1;
 	qint8   marque = ui->cbMarque->currentIndex()+1;
 	QString modele = ui->leModele->text();
-	QString dateAchat = ui->deAchat->text();
-	QString dateUtilisation = ui->deUtilisation->text();
+	QDate dA = ui->deAchat->date();
+	QString dAstr = dA.toString(Qt::DateFormat::ISODate);
+	QDate dU = ui->deUtilisation->date();
+	QString dUstr = dU.toString(Qt::DateFormat::ISODate);
 	double  kmInit = ui->spkm->value();
 	double  poids = ui->lePoids->text().toDouble();
 	double prix = ui->lePrix->text().toDouble();
@@ -79,8 +85,8 @@ bool GearsDialog::addItem()
     q.bindValue(":type", type);
     q.bindValue(":marque", marque);
     q.bindValue(":modele", modele);
-	q.bindValue(":date_achat", dateAchat);
-	q.bindValue(":date_utilisation", dateUtilisation);
+	q.bindValue(":date_achat", dAstr);
+	q.bindValue(":date_utilisation", dUstr);
 	q.bindValue(":km_initial", kmInit);
 	q.bindValue(":km_cumul", 0);
 	q.bindValue(":poids", poids);

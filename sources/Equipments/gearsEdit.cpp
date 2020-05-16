@@ -15,8 +15,11 @@ GearsEdit::GearsEdit(QSqlDatabase *database, int ID, QWidget *parent) :
     setupModels();
 
 	//setup ui
-	ui->deAchat->setDisplayFormat("dd.MM.yyyy");
-	ui->deUtilisation->setDisplayFormat("dd.MM.yyyy");
+	QString locale = QLocale::system().name().section('_', 0, 0);
+	if (locale == "fr") {
+		ui->deAchat->setDisplayFormat("dd/MM/yyyy");
+		ui->deUtilisation->setDisplayFormat("dd/MM/yyyy");
+	}
 	//Signal Slot
 	connect(ui->cbType, SIGNAL(currentIndexChanged(int)), SLOT(changeMarque(int)));
 }
@@ -56,10 +59,10 @@ void GearsEdit::initializeModels()
 		ui->cbMarque->setCurrentIndex(q.value(marqueIndex).toInt() - 1);
 		ui->leModele->setText(q.value(modeleIndex).toString());
 		QString dateAchat = q.value(dateAchatIndex).toString();
-		QDate DateAchat = QDate::fromString(dateAchat, "dd.MM.yyyy");
+		QDate DateAchat = QDate::fromString(dateAchat, Qt::DateFormat::ISODate);
 		ui->deAchat->setDate(DateAchat);
 		QString dateUtilisation= q.value(dateUtilisationIndex).toString();
-		QDate DateUtilisation = QDate::fromString(dateUtilisation, "dd.MM.yyyy");
+		QDate DateUtilisation = QDate::fromString(dateUtilisation, Qt::DateFormat::ISODate);
 		ui->deUtilisation->setDate(DateUtilisation);
 		ui->spkm->setValue(q.value(kmIndex).toDouble());
 		ui->lePoids->setValue(q.value(poidsIndex).toInt());
@@ -104,8 +107,10 @@ bool GearsEdit::addItem()
 	qint8	type = ui->cbType->currentIndex()+1;
 	qint8   marque = ui->cbMarque->currentIndex()+1;
 	QString modele = ui->leModele->text();
-	QString dateAchat = ui->deAchat->text();
-	QString dateUtilisation = ui->deUtilisation->text();
+	QDate dA = ui->deAchat->date();
+	QString dAstr = dA.toString(Qt::DateFormat::ISODate);
+	QDate dU = ui->deUtilisation->date();
+	QString dUstr = dU.toString(Qt::DateFormat::ISODate);
 	double  kmInit = ui->spkm->value();
 	double  poids = ui->lePoids->text().toDouble();
 	double prix = ui->lePrix->text().toDouble();
@@ -116,8 +121,8 @@ bool GearsEdit::addItem()
 	q.bindValue(0, type);
 	q.bindValue(1, marque);
 	q.bindValue(2, modele);
-	q.bindValue(3, dateAchat);
-	q.bindValue(4, dateUtilisation);
+	q.bindValue(3, dAstr);
+	q.bindValue(4, dUstr);
 	q.bindValue(5, kmInit);
 	q.bindValue(6, poids);
 	q.bindValue(7, prix);

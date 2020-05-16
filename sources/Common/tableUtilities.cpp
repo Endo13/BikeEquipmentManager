@@ -100,8 +100,10 @@ QString TableUtilities::getTableMarque(int index)
 	case 41:
 		return QString("MarqueSacoche");
 	case 42:
-		return QString("MarqueSupportCompteur");
+		return QString("MarqueSelle");
 	case 43:
+		return QString("MarqueSupportCompteur");
+	case 44:
 		return QString("MarqueTigeDeSelle");
 }
 	return QString();
@@ -113,91 +115,93 @@ QString TableUtilities::getNomEquipement(int index)
 	
 	switch (index) {
 	case 1:
-		return QString(QObject::tr(QString::fromLatin1("Amortisseur arrière").toStdString().c_str()));
+		return QString(QObject::tr("Amortisseur arriere"));
 	case 2:
-		return QString(QObject::tr(QString::fromLatin1("Boîtier de pédalier").toStdString().c_str()));
+		return QString(QObject::tr("Boitier de pedalier"));
 	case 3:
-		return QString(QObject::tr(QString::fromLatin1("Cadre").toStdString().c_str()));
+		return QString(QObject::tr("Cadre"));
 	case 4:
-		return QString(QObject::tr(QString::fromLatin1("Caméra arrière").toStdString().c_str()));
+		return QString(QObject::tr("Camera arriere"));
 	case 5:
-		return QString(QObject::tr(QString::fromLatin1("Caméra avant").toStdString().c_str()));
+		return QString(QObject::tr("Camera avant"));
 	case 6:
-		return QString(QObject::tr(QString::fromLatin1("Capteur cadence").toStdString().c_str()));
+		return QString(QObject::tr("Capteur cadence"));
 	case 7:
-		return QString(QObject::tr(QString::fromLatin1("Capteur de puissance").toStdString().c_str()));
+		return QString(QObject::tr("Capteur de puissance"));
 	case 8:
-		return QString(QObject::tr(QString::fromLatin1("Capteur fréquence cardiaque").toStdString().c_str()));
+		return QString(QObject::tr("Capteur frequence cardiaque"));
 	case 9:
-		return QString(QObject::tr(QString::fromLatin1("Capteur vitesse").toStdString().c_str()));
+		return QString(QObject::tr("Capteur vitesse"));
 	case 10:
-		return QString(QObject::tr(QString::fromLatin1("Cassette").toStdString().c_str()));
+		return QString(QObject::tr("Cassette"));
 	case 11:
-		return QString(QObject::tr(QString::fromLatin1("Chaîne").toStdString().c_str()));
+		return QString(QObject::tr("Chaine"));
 	case 12:
-		return QString(QObject::tr(QString::fromLatin1("Cintre").toStdString().c_str()));
+		return QString(QObject::tr("Cintre"));
 	case 13:
-		return QString(QObject::tr(QString::fromLatin1("Collier de dérailleur avant").toStdString().c_str()));
+		return QString(QObject::tr("Collier de derailleur avant"));
 	case 14:
-		return QString(QObject::tr(QString::fromLatin1("Collier de selle").toStdString().c_str()));
+		return QString(QObject::tr("Collier de selle"));
 	case 15:
-		return QString(QObject::tr(QString::fromLatin1("Compteur").toStdString().c_str()));
+		return QString(QObject::tr("Compteur"));
 	case 16:
-		return QString(QObject::tr(QString::fromLatin1("Dérailleur arrière").toStdString().c_str()));
+		return QString(QObject::tr("Derailleur arriere"));
 	case 17:
-		return QString(QObject::tr(QString::fromLatin1("Dérailleur avant").toStdString().c_str()));
+		return QString(QObject::tr("Derailleur avant"));
 	case 18:
-		return QString(QObject::tr(QString::fromLatin1("Eclairage arrière").toStdString().c_str()));
+		return QString(QObject::tr("Eclairage arriere"));
 	case 19:
-		return QString(QObject::tr(QString::fromLatin1("Eclairage avant").toStdString().c_str()));
+		return QString(QObject::tr("Eclairage avant"));
 	case 20:
-		return QString(QObject::tr(QString::fromLatin1("Fourche").toStdString().c_str()));
+		return QString(QObject::tr("Fourche"));
 	case 21:
-		return QString(QObject::tr(QString::fromLatin1("Frein arrière").toStdString().c_str()));
+		return QString(QObject::tr("Frein arriere"));
 	case 22:
-		return QString(QObject::tr(QString::fromLatin1("Frein avant").toStdString().c_str()));
+		return QString(QObject::tr("Frein avant"));
 	case 23:
-		return QString(QObject::tr(QString::fromLatin1("Jeu de direction").toStdString().c_str()));
+		return QString(QObject::tr("Jeu de direction"));
 	case 24:
-		return QString(QObject::tr(QString::fromLatin1("Leviers de commande").toStdString().c_str()));
+		return QString(QObject::tr("Leviers de commande"));
 	case 25:
-		return QString(QObject::tr(QString::fromLatin1("Patins arrières").toStdString().c_str()));
+		return QString(QObject::tr("Patins arrieres"));
 	case 26:
-		return QString(QObject::tr(QString::fromLatin1("Patins avants").toStdString().c_str()));
+		return QString(QObject::tr("Patins avants"));
 	case 27:
-		return QString(QObject::tr(QString::fromLatin1("Patte anti-déraillement").toStdString().c_str()));
+		return QString(QObject::tr("Patte anti-deraillement"));
 	case 28:
-		return QString(QObject::tr(QString::fromLatin1("Pédales").toStdString().c_str()));
+		return QString(QObject::tr("Pedales"));
 	case 29:
-		return QString(QObject::tr(QString::fromLatin1("Pédalier").toStdString().c_str()));
+		return QString(QObject::tr("Pedalier"));
 	case 30:
-		return QString(QObject::tr(QString::fromLatin1("Plaquettes arrières").toStdString().c_str()));
+		return QString(QObject::tr("Plaquettes arrieres"));
 	case 31:
-		return QString(QObject::tr(QString::fromLatin1("Plaquettes avant").toStdString().c_str()));
+		return QString(QObject::tr("Plaquettes avant"));
 	case 32:
-		return QString(QObject::tr(QString::fromLatin1("Plateau 1").toStdString().c_str()));
+		return QString(QObject::tr("Plateau 1"));
 	case 33:
-		return QString(QObject::tr(QString::fromLatin1("Plateau 2").toStdString().c_str()));
+		return QString(QObject::tr("Plateau 2"));
 	case 34:
-		return QString(QObject::tr(QString::fromLatin1("Plateau 3").toStdString().c_str()));
+		return QString(QObject::tr("Plateau 3"));
 	case 35:
-		return QString(QObject::tr(QString::fromLatin1("Pneu/boyau arrière").toStdString().c_str()));
+		return QString(QObject::tr("Pneu/boyau arriere"));
 	case 36:
-		return QString(QObject::tr(QString::fromLatin1("Pneu/boyau avant").toStdString().c_str()));
+		return QString(QObject::tr("Pneu/boyau avant"));
 	case 37:
-		return QString(QObject::tr(QString::fromLatin1("Potence").toStdString().c_str()));
+		return QString(QObject::tr("Potence"));
 	case 38:
-		return QString(QObject::tr(QString::fromLatin1("Radar").toStdString().c_str()));
+		return QString(QObject::tr("Radar"));
 	case 39:
-		return QString(QObject::tr(QString::fromLatin1("Roue arrière").toStdString().c_str()));
+		return QString(QObject::tr("Roue arriere"));
 	case 40:
-		return QString(QObject::tr(QString::fromLatin1("Roue avant").toStdString().c_str()));
+		return QString(QObject::tr("Roue avant"));
 	case 41:
-		return QString(QObject::tr(QString::fromLatin1("Sacoche").toStdString().c_str()));
+		return QString(QObject::tr("Sacoche"));
 	case 42:
-		return QString(QObject::tr(QString::fromLatin1("Support compteur").toStdString().c_str()));
+		return QString(QObject::tr("Selle"));
 	case 43:
-		return QString(QObject::tr(QString::fromLatin1("Tige de selle").toStdString().c_str()));
+		return QString(QObject::tr("Support compteur"));
+	case 44:
+		return QString(QObject::tr("Tige de selle"));
 	}
 	return QString();
 }
@@ -246,7 +250,7 @@ void TableUtilities::updateKMEquipments(QSqlDatabase* db,QWidget *parent,int bik
 
 	//execute the query
 	if (!q.exec()) {//if the query has some error then return
-		QMessageBox::critical(parent, "Echec", "Mise a jour des km impossible");
+		QMessageBox::critical(parent, QObject::tr("Echec"), QObject::tr("Mise a jour des km impossible"));
 		QMessageBox::critical(parent, "Error", q.lastError().text()
 			+ "\n" + q.lastQuery());
 		return;

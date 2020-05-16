@@ -18,7 +18,9 @@ WorkoutEdit::WorkoutEdit(QSqlDatabase *database, int ID, QWidget *parent) :
     setupModels();
 	
 	//setup ui
-	ui->deSortie->setDisplayFormat("dd.MM.yyyy");
+	QString locale = QLocale::system().name().section('_', 0, 0);
+	if (locale == "fr")
+		ui->deSortie->setDisplayFormat("dd/MM/yyyy");
 	ui->leNom->setFocus();
 
 	connect(ui->pbImport, SIGNAL(clicked()), SLOT(on_import()));
@@ -65,7 +67,7 @@ void WorkoutEdit::initializeModels()
 		ui->leNom->setText(q.value(nomIndex).toString());
 		ui->cbType->setCurrentIndex(q.value(typeIndex).toInt());
 		QString date = q.value(dateIndex).toString();
-		QDate Date = QDate::fromString(date, "dd.MM.yyyy");
+		QDate Date = QDate::fromString(date, Qt::DateFormat::ISODate);
 		ui->deSortie->setDate(Date);
 		_oldDistance = q.value(distanceIndex).toDouble();
 		ui->spDistance->setValue(_oldDistance);
@@ -136,6 +138,8 @@ bool WorkoutEdit::addItem()
 	QString nom = ui->leNom->text();
 	qint8	type = ui->cbType->currentIndex();
 	QString date = ui->deSortie->text();
+	QDate da = ui->deSortie->date();
+	QString dstr = da.toString(Qt::DateFormat::ISODate);
 	double  distance = ui->spDistance->value();
 	int  duree = ui->teSortie->time().hour() + ui->teSortie->time().minute() + ui->teSortie->time().second();
 	int denivele = ui->spDenivele->value();
@@ -165,7 +169,7 @@ bool WorkoutEdit::addItem()
 	q2.bindValue(0, bikeID);
 	q2.bindValue(1, nom);
 	q2.bindValue(2, type);
-	q2.bindValue(3, date);
+	q2.bindValue(3, dstr);
 	q2.bindValue(4, distance);
 	q2.bindValue(5, duree);
 	q2.bindValue(6, denivele);
@@ -215,19 +219,19 @@ void WorkoutEdit::on_add_pushButton_clicked()
     /// and resets the form
     //validate form
 	if (!validateForm()) {
-		QMessageBox::warning(this, "Remplir les champs", QString::fromLatin1("Remplir le champ nom du vélo"));
+		QMessageBox::warning(this, QObject::tr("Remplir les champs"), QObject::tr("Remplir le champ nom du velo"));
 		return;
 	}
 
 	//confirms from the user
 	QMessageBox::StandardButton reply;
-	reply = QMessageBox::question(this, "Etes vous sur?",
-		"Confirmer vous la modification de cette sortie?",
+	reply = QMessageBox::question(this, QObject::tr("Etes vous sur?"),
+		QObject::tr("Confirmer vous la modification de cette sortie?"),
 		QMessageBox::Yes | QMessageBox::Cancel);
 	//if the user accepts the dialog
 	if (reply == QMessageBox::Yes) {
 		if (addItem()) {
-			QMessageBox::information(this, "Succes", "Sortie modifiee");
+			QMessageBox::information(this, QObject::tr("Succes"), QObject::tr("Sortie modifiee"));
 			resetForm();
 		}
 	}
@@ -263,7 +267,8 @@ void WorkoutEdit::on_import()
 			_trackDistance += track.distance();
 			_time += track.time();
 			_movingTime += track.movingTime();
-			Date = QDate::fromString(track.date().date().toString() , "dd.MM.yyyy"); 
+			const QDate &date = track.date().date();
+			Date = date;
 
 			track.elevation(_ascent);
 			track.speed(speedMax, speedMoy);

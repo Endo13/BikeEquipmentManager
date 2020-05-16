@@ -17,7 +17,9 @@ WorkoutDialog::WorkoutDialog(QSqlDatabase *database, QWidget *parent) :
 
 	//setup ui
 	ui->deSortie->setDate(QDate::currentDate());
-	ui->deSortie->setDisplayFormat("dd.MM.yyyy");
+	QString locale = QLocale::system().name().section('_', 0, 0);
+	if (locale == "fr")
+		ui->deSortie->setDisplayFormat("dd/MM/yyyy");
 	ui->leNom->setFocus();
 	//Signal Slot
 	connect(ui->pbImport, SIGNAL(clicked()), SLOT(on_import()));
@@ -71,6 +73,8 @@ bool WorkoutDialog::addItem()
 	QString nom = ui->leNom->text();
 	qint8	type = ui->cbType->currentIndex();
 	QString date = ui->deSortie->text();
+	QDate d = ui->deSortie->date();
+	QString dstr = d.toString(Qt::DateFormat::ISODate);
 	double  distance = ui->spDistance->value();
 	QString  duree = ui->teSortie->text();
 	int denivele = ui->spDenivele->value();
@@ -102,7 +106,7 @@ bool WorkoutDialog::addItem()
 	q2.bindValue(":bikeID", bikeID);
 	q2.bindValue(":nom", nom);
 	q2.bindValue(":type", type);
-	q2.bindValue(":date", date);
+	q2.bindValue(":date", dstr);
 	q2.bindValue(":distance", distance);
 	q2.bindValue(":duree", duree);
 	q2.bindValue(":denivele", denivele);
@@ -169,7 +173,8 @@ void WorkoutDialog::on_import()
 			_trackDistance += track.distance();
 			_time += track.time();
 			_movingTime += track.movingTime();
-			Date = QDate::fromString(track.date().date().toString(), "dd.MM.yyyy");
+			const QDate &date = track.date().date();
+			Date = date;
 			track.elevation(_ascent);
 			track.speed(speedMax, speedMoy);
 			track.heartRate(fcMax, fcMoy);
@@ -206,19 +211,19 @@ void WorkoutDialog::on_add_pushButton_clicked()
     /// and resets the form
     //validate form
     if(!validateForm()){
-        QMessageBox::warning(this,"Remplir les champs", QString::fromLatin1("Remplir le champ nom du vélo"));
+        QMessageBox::warning(this, QObject::tr("Remplir les champs"), QObject::tr("Remplir le champ nom du velo"));
         return;
     }
 
     //confirms from the user
     QMessageBox::StandardButton reply;
-    reply = QMessageBox::question(this,"Etes vous sur?",
-                                  "Confirmez vous la creation de cette sortie?",
+    reply = QMessageBox::question(this, QObject::tr("Etes vous sur?"),
+			QObject::tr("Confirmez vous la creation de cette sortie?"),
                                   QMessageBox::Yes | QMessageBox::Cancel);
     //if the user accepts the dialog
     if (reply == QMessageBox::Yes){
         if(addItem()){
-            QMessageBox::information(this, "Succes", "Sortie ajoutee");
+            QMessageBox::information(this, QObject::tr("Succes"), QObject::tr("Sortie ajoutee"));
             resetForm();
 			this->close();
         }

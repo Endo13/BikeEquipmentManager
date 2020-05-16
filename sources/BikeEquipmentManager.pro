@@ -7,7 +7,8 @@ TEMPLATE = app
 # Directories Definition
 
 PROJECTDIR = ../../../..
-DESTDIR = ${DELIVERY}/${BUILD_MKSPEC}/${BUILD_MODE}
+Debug::DESTDIR = ../DELIVERY/win-msvc2015-x86-QT5.9.6/debug
+Release::DESTDIR = ../DELIVERY/win-msvc2015-x86-QT5.9.6/release
 
 DEFINES = _WIN32_PLATEFORM_ 
 DEFINES +=_CRT_SECURE_NO_WARNINGS
@@ -74,6 +75,8 @@ HEADERS  += mainwindow.h \
 			Common/savedialog.h \
 			Common/dondialog.h \
 			Common/servicebook.h \
+			Data/address.h \
+			Data/link.h \
 			Data/graph.h \
 			Data/poi.h \
 			Data/waypoint.h \
@@ -85,6 +88,7 @@ HEADERS  += mainwindow.h \
 			Data/trackdata.h \
 			Data/routedata.h \
 			Data/path.h \
+			Data/link.h \
 			Data/gpxparser.h \
 			Data/tcxparser.h \
 			Data/fitparser.h \
@@ -106,6 +110,6 @@ FORMS    += mainwindow.ui \
 			Workouts\workoutview.ui \
 			Statistics/statisticsdialog.ui
 	
-
+TRANSLATIONS += BikeEquipmentManager_en.ts \
+				BikeEquipmentManager_es.ts
 	
-include( $${QSMAKEPATH}/rules/standard_project.pri )

@@ -18,16 +18,17 @@ GearsView::GearsView(QSqlDatabase *database, QWidget *parent) :
 	_model->setHeaderData(0, Qt::Horizontal, QObject::tr("ID"));
 	_model->setHeaderData(1, Qt::Horizontal, QObject::tr("Type"));
 	_model->setHeaderData(2, Qt::Horizontal, QObject::tr("Marque"));
-	_model->setHeaderData(3, Qt::Horizontal, QObject::tr(QString::fromLatin1("Modèle").toStdString().c_str()));
+	_model->setHeaderData(3, Qt::Horizontal, QObject::tr("Modele"));
 	_model->setHeaderData(4, Qt::Horizontal, QObject::tr("Date d'achat"));
 	_model->setHeaderData(5, Qt::Horizontal, QObject::tr("Date 1ere utilisation"));
 	_model->setHeaderData(6, Qt::Horizontal, QObject::tr("KM initial"));
-	_model->setHeaderData(7, Qt::Horizontal, QObject::tr(QString::fromLatin1("KM cumulés").toStdString().c_str()));
+	_model->setHeaderData(7, Qt::Horizontal, QObject::tr("KM cumules"));
 	_model->setHeaderData(8, Qt::Horizontal, QObject::tr("Poids (g)"));
 	_model->setHeaderData(9, Qt::Horizontal, QObject::tr("Prix (Euro)"));
 	_model->setHeaderData(10, Qt::Horizontal, QObject::tr("Commander"));
-	_model->sort(1,Qt::SortOrder::AscendingOrder);
 	ui->twGears->setModel(_model);
+	ui->twGears->sortByColumn(1, Qt::SortOrder::AscendingOrder);
+	ui->twGears->setSortingEnabled(true);
 
 	ui->twGears->horizontalHeader()->setSectionResizeMode(QHeaderView::Stretch);
 	ui->twGears->setColumnHidden(0, true);

@@ -51,10 +51,10 @@ QVariant gearsSqlModel::data(const QModelIndex &index, int role) const
 		QDate Date = QDate::fromString(QSqlTableModel::data(index, role).toString(), Qt::DateFormat::ISODate);
 		return Date.toString(Qt::DateFormat::LocalDate);
 	}
-	/*else if ((role == Qt::DisplayRole) && (index.column() == 7)) {
+	else if ((role == Qt::DisplayRole) && (index.column() == 7)) {
 		const QModelIndex ind = index.sibling(index.row(), 6);
 		return QSqlTableModel::data(ind, role).toDouble() + QSqlTableModel::data(index, role).toDouble(); 
-	}*/
+	}
 	else {
 		return QSqlTableModel::data(index, role);
 	}

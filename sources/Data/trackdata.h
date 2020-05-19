@@ -16,17 +16,21 @@ public:
 	const QString &description() const {return _desc;}
 	const QString &comment() const {return _comment;}
 	const QVector<Link> &links() const {return _links;}
+	const qreal &readDistance() const { return _readDistance; }
 
 	void setName(const QString &name) {_name = name;}
 	void setDescription(const QString &desc) {_desc = desc;}
 	void setComment(const QString &comment) {_comment = comment;}
 	void addLink(const Link &link) {_links.append(link);}
+	void setReadDistance(const qreal &distance) {_readDistance = distance;}
 
 private:
 	QString _name;
 	QString _desc;
 	QString _comment;
 	QVector<Link> _links;
+
+	qreal _readDistance;
 };
 
 #endif // TRACKDATA_H

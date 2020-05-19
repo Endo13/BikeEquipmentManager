@@ -300,6 +300,8 @@ void Track::cadence(qreal &max, qreal &moyenne) const
 
 qreal Track::distance() const
 {
+	if (_data.readDistance() > 0)
+		return _data.readDistance();
 	for (int i = _segments.size() - 1; i >= 0; i--) {
 		const Segment &seg = _segments.at(i);
 

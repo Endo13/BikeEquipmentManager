@@ -72,6 +72,9 @@ void StatisticsDialog::showDistanceByYear()
 				
 	}
 	series->append(set);
+	series->setLabelsVisible(true);    // is false by default
+	series->setLabelsPosition(QtCharts::QAbstractBarSeries::LabelsPosition::LabelsOutsideEnd);
+
 	QChart *chart = new QChart();
 	chart->addSeries(series);
 	chart->addSeries(lineseries);
@@ -138,6 +141,8 @@ QChartView * StatisticsDialog::getMoyChartView()
 
 	QStackedBarSeries *series = new QStackedBarSeries();
 	series->append(moy);
+	series->setLabelsVisible(true);    // is false by default
+	series->setLabelsPosition(QtCharts::QAbstractBarSeries::LabelsPosition::LabelsOutsideEnd);
 	QChart *chart = new QChart();
 	chart->addSeries(series);
 	chart->setTitle(QObject::tr("Mes meilleures moyennes en ") + QString::number(year));
@@ -188,6 +193,8 @@ QChartView * StatisticsDialog::getMaxChartView()
 
 	QStackedBarSeries *series = new QStackedBarSeries();
 	series->append(max);
+	series->setLabelsVisible(true);    // is false by default
+	series->setLabelsPosition(QtCharts::QAbstractBarSeries::LabelsPosition::LabelsOutsideEnd);
 	QChart *chart = new QChart();
 	chart->addSeries(series);
 	chart->setTitle(QObject::tr("Mes records personels en ") + QString::number(year));
@@ -225,6 +232,7 @@ void StatisticsDialog::showDistanceByMonth()
 	for (int y = year - 4; y <= year; y++) {
 		QBarSet *set = new QBarSet(QString::number(y));
 		for (int i = 0; i < 13; i++) {
+			int Dist = 0;
 			std::stringstream ss;
 			ss << std::setw(2) << std::setfill('0') << (i + 1);
 			QString mois = QString::fromStdString(ss.str());
@@ -240,13 +248,16 @@ void StatisticsDialog::showDistanceByMonth()
 				if (q.value(dist).toDouble() > max)
 					max = q.value(dist).toDouble();
 				*set << q.value(dist).toDouble();
+				Dist = q.value(dist).toInt();
 			}
 			else {
 				*set << 0;
 			}
-			series->append(set);
+			series->append(set);		
 		}
 	}
+	series->setLabelsVisible(true);    // is false by default
+	series->setLabelsPosition(QtCharts::QAbstractBarSeries::LabelsPosition::LabelsOutsideEnd);
 
 	QChart *chart = new QChart();
 	chart->addSeries(series);
@@ -300,7 +311,7 @@ void StatisticsDialog::showBikesThisYear() {
 			qint8 nom = q2.record().indexOf("nom");
 			series->append(q2.value(nom).toString() + " - " + q.value(dist).toString() + " km", q.value(dist).toInt());
 			QPieSlice *slice = series->slices().at(count++);
-			slice->setExploded();
+			//slice->setExploded();
 			slice->setLabelVisible();
 			slice->setPen(QPen(Qt::black, 2));
 			slice->setBrush(Qt::GlobalColor(count+12));

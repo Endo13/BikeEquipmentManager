@@ -131,11 +131,13 @@ void TCXParser::trackpoints(SegmentData &segment)
 	}
 }
 
-void TCXParser::lap(SegmentData &segment)
+void TCXParser::lap(SegmentData &segment, TrackData &track)
 {
 	while (_reader.readNextStartElement()) {
 		if (_reader.name() == QLatin1String("Track"))
 			trackpoints(segment);
+		else if (_reader.name() == QLatin1String("DistanceMeters"))
+			track.setReadDistance(_reader.readElementText().toDouble()); 
 		else
 			_reader.skipCurrentElement();
 	}
@@ -158,7 +160,8 @@ void TCXParser::course(QVector<Waypoint> &waypoints, TrackData &track)
 				waypoints.append(w);
 			else
 				warning("Missing Trackpoint coordinates");
-		} else
+		} 
+		else
 			_reader.skipCurrentElement();
 	}
 }
@@ -169,7 +172,7 @@ void TCXParser::activity(TrackData &track)
 
 	while (_reader.readNextStartElement()) {
 		if (_reader.name() == QLatin1String("Lap"))
-			lap(track.last());
+			lap(track.last(),track);
 		else if (_reader.name() == QLatin1String("Notes"))
 			track.setDescription(_reader.readElementText());
 		else
